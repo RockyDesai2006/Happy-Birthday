@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- MOBILE RESPONSIVE -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>For You ❤️</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+
+        body {
+
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff8fb 0%,
+                    #fff3f7 50%,
+                    #fff9fb 100%
+                );
+
+            color: #3d2932;
+
+            font-family: "Poppins", sans-serif;
+
+            overflow-x: hidden;
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        /* =====================================================
+           COLORS
+        ===================================================== */
+
+        :root {
+
+            --pink: #dc4c80;
+
+            --dark-pink: #bd416b;
+
+            --light-pink: #ffedf4;
+
+            --soft-pink: #fff5f8;
+
+            --text: #60414c;
+
+        }
+
+
+        /* =====================================================
+           INTRO SCREEN
+        ===================================================== */
+
+        #intro {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100dvh;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #fff8fb,
+                    #ffe9f1
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            padding: 25px;
+
+            z-index: 99999;
+
+            transition:
+                opacity 0.8s ease,
+                visibility 0.8s ease;
+        }
+
+
+        #intro.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .intro-heart {
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+
+            animation:
+                introHeart 1.5s ease-in-out infinite;
+        }
+
+
+        @keyframes introHeart {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+
+        #intro p {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    26px,
+                    7vw,
+                    36px
+                );
+
+            line-height: 1.2;
+
+            color: #b92f62;
+
+            max-width: 320px;
+
+            margin-bottom: 25px;
+        }
+
+
+        #intro button {
+
+            border: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff719f,
+                    #dd4f80
+                );
+
+            color: white;
+
+            padding: 15px 28px;
+
+            border-radius: 50px;
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+            min-height: 52px;
+
+            min-width: 150px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px
+                rgba(220, 76, 128, 0.25);
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        #intro button:active {
+
+            transform: scale(0.95);
+        }
+
+
+        /* =====================================================
+           COMMON SECTION
+        ===================================================== */
+
+        section {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding:
+                clamp(65px, 12vw, 110px)
+                clamp(18px, 5vw, 35px);
+        }
+
+
+        .center {
+
+            text-align: center;
+
+        }
+
+
+        .handwritten {
+
+            font-family: "Caveat", cursive;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            width: 100%;
+
+            min-height: 100dvh;
+
+            padding:
+                30px 20px
+                80px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+
+        .hero small {
+
+            color: #a86b7e;
+
+            font-size:
+                clamp(
+                    11px,
+                    3vw,
+                    14px
+                );
+
+            letter-spacing:
+                clamp(
+                    1px,
+                    0.8vw,
+                    2px
+                );
+        }
+
+
+        .hero h1 {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    58px,
+                    17vw,
+                    130px
+                );
+
+            font-weight: 600;
+
+            color: var(--pink);
+
+            line-height: 0.85;
+
+            margin:
+                20px 0 12px;
+
+            max-width: 100%;
+
+            overflow-wrap: break-word;
+        }
+
+
+        .hero h2 {
+
+            font-weight: 400;
+
+            font-size:
+                clamp(
+                    18px,
+                    5vw,
+                    25px
+                );
+
+            color: #68444f;
+
+            max-width: 100%;
+
+            overflow-wrap: break-word;
+        }
+
+
+        .hero .handwritten {
+
+            font-size:
+                clamp(
+                    23px,
+                    7vw,
+                    32px
+                );
+
+            line-height: 1.2;
+
+            color: #c44a73;
+
+            margin-top: 20px;
+
+            max-width: 330px;
+        }
+
+
+        .scroll {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            font-size: 12px;
+
+            color: #aa7181;
+
+            animation:
+                bounce 2s infinite;
+        }
+
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(8px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .section-title {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    42px,
+                    11vw,
+                    58px
+                );
+
+            line-height: 1;
+
+            color: #d94f80;
+
+            margin-bottom:
+                clamp(
+                    30px,
+                    7vw,
+                    45px
+                );
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =====================================================
+           PERSONAL NOTE
+        ===================================================== */
+
+        .note {
+
+            background: white;
+
+            padding:
+                clamp(
+                    25px,
+                    7vw,
+                    40px
+                );
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(
+                    150,
+                    75,
+                    100,
+                    0.08
+                );
+
+            transform: rotate(-1deg);
+
+            position: relative;
+        }
+
+
+        .note::before {
+
+            content: "♡";
+
+            position: absolute;
+
+            top: -18px;
+
+            right: 20px;
+
+            font-size: 34px;
+
+            color: #ff8caf;
+        }
+
+
+        .note p {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    24px,
+                    7vw,
+                    30px
+                );
+
+            line-height: 1.4;
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =====================================================
+           TIMELINE
+        ===================================================== */
+
+        .timeline {
+
+            border-left:
+                2px dashed #f3a1bb;
+
+            padding-left:
+                clamp(
+                    22px,
+                    7vw,
+                    35px
+                );
+
+            margin-left: 5px;
+        }
+
+
+        .memory {
+
+            margin-bottom:
+                clamp(
+                    40px,
+                    10vw,
+                    55px
+                );
+
+            position: relative;
+        }
+
+
+        .memory:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .memory::before {
+
+            content: "♥";
+
+            position: absolute;
+
+            left:
+                clamp(
+                    -39px,
+                    -10vw,
+                    -28px
+                );
+
+            top: 0;
+
+            color: #ed7098;
+
+            background: #fff8fa;
+
+            padding: 4px;
+
+            font-size: 16px;
+        }
+
+
+        .memory h3 {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    28px,
+                    8vw,
+                    34px
+                );
+
+            line-height: 1.1;
+
+            color: var(--dark-pink);
+
+            margin-bottom: 10px;
+        }
+
+
+        .memory p {
+
+            font-size:
+                clamp(
+                    14px,
+                    4vw,
+                    16px
+                );
+
+            line-height: 1.8;
+
+            color: var(--text);
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =====================================================
+           HER VOICE / OUR SONGS
+        ===================================================== */
+
+        .music-section {
+
+            text-align: center;
+        }
+
+
+        .music-card {
+
+            background: #fff;
+
+            padding:
+                clamp(
+                    28px,
+                    7vw,
+                    45px
+                );
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 12px 40px
+                rgba(
+                    150,
+                    75,
+                    100,
+                    0.08
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .music-card::before {
+
+            content: "♪";
+
+            position: absolute;
+
+            top: -20px;
+
+            left: 20px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 90px;
+
+            color: #ffd5e3;
+
+            transform: rotate(-15deg);
+        }
+
+
+        .music-card::after {
+
+            content: "♫";
+
+            position: absolute;
+
+            bottom: -25px;
+
+            right: 20px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 90px;
+
+            color: #ffe0e9;
+
+            transform: rotate(12deg);
+        }
+
+
+        .music-icon {
+
+            font-size: 48px;
+
+            margin-bottom: 15px;
+
+            animation:
+                musicFloat 2s ease-in-out infinite;
+        }
+
+
+        @keyframes musicFloat {
+
+            0%,
+            100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-7px);
+
+            }
+
+        }
+
+
+        .music-card h3 {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    32px,
+                    8vw,
+                    42px
+                );
+
+            color: #c84270;
+
+            margin-bottom: 20px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .music-card p {
+
+            font-size:
+                clamp(
+                    14px,
+                    4vw,
+                    17px
+                );
+
+            line-height: 1.9;
+
+            color: #60414c;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .music-card .voice-line {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    25px,
+                    7vw,
+                    32px
+                );
+
+            color: #d84f7d;
+
+            margin-top: 25px;
+
+            line-height: 1.3;
+        }
+
+
+        .music-note {
+
+            margin-top: 25px;
+
+            font-size: 13px !important;
+
+            color: #a86b7e !important;
+
+            font-style: italic;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           PHOTOS
+        ===================================================== */
+
+        .photos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap:
+                clamp(
+                    12px,
+                    4vw,
+                    20px
+                );
+
+            width: 100%;
+        }
+
+
+        .photo {
+
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            min-height: 0;
+
+            background: #ffd9e5;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    100,
+                    40,
+                    60,
+                    0.12
+                );
+
+            transform:
+                rotate(var(--rotation));
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .photo:active {
+
+            transform:
+                rotate(0deg)
+                scale(0.98);
+        }
+
+
+        .photo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            /*
+                This makes every image
+                fit the webpage's ratio.
+            */
+
+            object-fit: cover;
+
+            object-position: center;
+        }
+
+
+        /* =====================================================
+           THINGS I APPRECIATE
+        ===================================================== */
+
+        .things {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap:
+                clamp(
+                    12px,
+                    4vw,
+                    18px
+                );
+        }
+
+
+        .thing {
+
+            background: white;
+
+            padding:
+                clamp(
+                    18px,
+                    5vw,
+                    27px
+                );
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    100,
+                    50,
+                    70,
+                    0.06
+                );
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .thing:active {
+
+            transform:
+                scale(0.97);
+        }
+
+
+        .thing span {
+
+            font-size:
+                clamp(
+                    22px,
+                    7vw,
+                    28px
+                );
+        }
+
+
+        .thing p {
+
+            margin-top: 10px;
+
+            font-size:
+                clamp(
+                    13px,
+                    3.8vw,
+                    15px
+                );
+
+            line-height: 1.6;
+
+            color: #674653;
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =====================================================
+           SECRET
+        ===================================================== */
+
+        .secret {
+
+            text-align: center;
+        }
+
+
+        .secret > p {
+
+            font-size:
+                clamp(
+                    14px,
+                    4vw,
+                    16px
+                );
+
+            margin-bottom: 25px;
+
+            color: #76505d;
+        }
+
+
+        .secret button {
+
+            border:
+                2px solid #e96891;
+
+            background: transparent;
+
+            color: #d84d7c;
+
+            padding:
+                14px 24px;
+
+            min-height: 50px;
+
+            border-radius: 30px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition:
+                background 0.25s,
+                color 0.25s,
+                transform 0.2s;
+        }
+
+
+        .secret button:active {
+
+            transform: scale(0.95);
+
+            background: #e96891;
+
+            color: white;
+        }
+
+
+        #secretMessage {
+
+            display: none;
+
+            margin-top: 30px;
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    27px,
+                    8vw,
+                    34px
+                );
+
+            line-height: 1.2;
+
+            color: #bd416b;
+
+            animation:
+                appear 0.8s ease;
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LETTER
+        ===================================================== */
+
+        .letter {
+
+            background: white;
+
+            padding:
+                clamp(
+                    25px,
+                    7vw,
+                    48px
+                );
+
+            box-shadow:
+                0 15px 50px
+                rgba(
+                    120,
+                    50,
+                    75,
+                    0.1
+                );
+
+            position: relative;
+
+            border-radius: 3px;
+        }
+
+
+        .letter::after {
+
+            content: "♡";
+
+            position: absolute;
+
+            right: 15px;
+
+            bottom: 8px;
+
+            font-size: 35px;
+
+            color: #ff9fbb;
+        }
+
+
+        .letter p {
+
+            line-height: 1.9;
+
+            font-size:
+                clamp(
+                    14px,
+                    4vw,
+                    16px
+                );
+
+            color: #60414c;
+
+            overflow-wrap: break-word;
+        }
+
+
+        .signature {
+
+            margin-top: 25px;
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    32px,
+                    9vw,
+                    40px
+                );
+
+            color: #d74e7e;
+        }
+
+
+        /* =====================================================
+           FINAL BIRTHDAY
+        ===================================================== */
+
+        .birthday {
+
+            width: 100%;
+
+            min-height: 85dvh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            flex-direction: column;
+
+            padding:
+                60px 20px;
+        }
+
+
+        .cake {
+
+            font-size:
+                clamp(
+                    55px,
+                    17vw,
+                    75px
+                );
+
+            margin: 25px;
+
+            animation:
+                cake 2s infinite;
+        }
+
+
+        @keyframes cake {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-10px);
+
+            }
+
+        }
+
+
+        .birthday h1 {
+
+            font-family: "Caveat", cursive;
+
+            font-size:
+                clamp(
+                    60px,
+                    17vw,
+                    110px
+                );
+
+            color: #db4e80;
+
+            line-height: 0.9;
+
+            max-width: 100%;
+        }
+
+
+        .birthday p {
+
+            margin-top: 20px;
+
+            font-size:
+                clamp(
+                    14px,
+                    4vw,
+                    18px
+                );
+
+            line-height: 1.6;
+
+            color: #76505d;
+
+            max-width: 350px;
+        }
+
+
+        .birthday .handwritten {
+
+            font-size:
+                clamp(
+                    28px,
+                    8vw,
+                    38px
+                );
+
+            color: #d84f7d;
+
+            line-height: 1.1;
+        }
+
+
+        /* =====================================================
+           FLOATING HEARTS
+        ===================================================== */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            pointer-events: none;
+
+            z-index: 1000;
+
+            animation:
+                floatHeart 5s linear forwards;
+
+            will-change:
+                transform,
+                opacity;
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            15% {
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media
+        (min-width: 601px)
+        and
+        (max-width: 900px) {
+
+            section {
+
+                padding-left: 40px;
+
+                padding-right: 40px;
+
+            }
+
+
+            .hero {
+
+                padding-left: 40px;
+
+                padding-right: 40px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .photos {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .things {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 58px;
+
+            }
+
+
+            .section-title {
+
+                font-size: 42px;
+
+            }
+
+
+            .timeline {
+
+                padding-left: 22px;
+
+            }
+
+
+            .memory::before {
+
+                left: -35px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LARGE SCREENS
+        ===================================================== */
+
+        @media (min-width: 1000px) {
+
+            body {
+
+                font-size: 16px;
+
+            }
+
+
+            .photo:hover {
+
+                transform:
+                    rotate(0deg)
+                    scale(1.03);
+
+            }
+
+
+            .thing:hover {
+
+                transform:
+                    translateY(-6px);
+
+            }
+
+
+            .secret button:hover {
+
+                background: #e96891;
+
+                color: white;
+
+            }
+
+
+            #intro button:hover {
+
+                transform:
+                    translateY(-3px)
+                    scale(1.03);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCE MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                scroll-behavior:
+                    auto !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         INTRO
+    ===================================================== -->
+
+    <div id="intro">
+
+        <div class="intro-heart">
+            💗
+        </div>
+
+
+        <p>
+            Okay... Mene Tumhare liye Kuch Banaya hai. 👀
+        </p>
+
+
+        <button onclick="startWebsite()">
+            Click Me ❤️
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="hero">
+
+        <small>
+            25.08.2026
+        </small>
+
+
+        <h1>
+            Happy Birthday
+        </h1>
+
+
+        <br>
+
+
+        <h2>
+            Vishakha Chopra ❤️
+        </h2>
+
+
+        <p class="handwritten">
+
+            yes... I actually coded this myself
+            thats why it took so long :)
+
+        </p>
+
+
+        <div class="scroll">
+
+            ↓ keep scrolling ↓
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PERSONAL NOTE
+    ===================================================== -->
+
+    <section>
+
+        <div class="note">
+
+            <p>
+
+                I honestly had no idea what to give you
+                for your birthday.
+
+                <br><br>
+
+                So I thought...
+
+                <br>
+
+                "Why not make something completely unnecessary
+                that takes way too much time?" 😂
+
+                <br><br>
+
+                And somehow...
+
+                <br>
+
+                here we are.
+
+                ❤️
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OUR STORY
+    ===================================================== -->
+
+    <section>
+
+        <h2 class="section-title">
+
+            A little bit of us...
+
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="memory">
+
+                <h3>
+                    The beginning
+                </h3>
+
+
+                <p>
+
+                    Muje abhi bhi yaad hai hum log ek GC me
+                    mile the sabse pehle.
+
+                    Honestly, Muje nahi pata tha ki humari
+                    dosti itni strong ho jaayegi.
+
+                    Aur hum log itne ache dost ban jaayenge. ❤️
+
+                </p>
+
+            </div>
+
+
+
+            <div class="memory">
+
+                <h3>
+                    Kuch Baate
+                </h3>
+
+
+                <p>
+
+                    Yaad hai vo din jab mai tumhe bohot
+                    pareshan kar raha tha aur tumne mujhe
+                    bol diya ki humare bich me kuch nahi
+                    hai or jyada baat nahi karenge hum log...
+
+                    Uss din thoda bura laga tha lekin koi nai,
+                    at the end humari dosti aur strong ho gayi. ❤️
+
+                </p>
+
+            </div>
+
+
+
+            <div class="memory">
+
+                <h3>
+                    Somehow... we're still friends.
+                </h3>
+
+
+                <p>
+
+                    After all the arguments,
+                    random nonsense,
+                    late-night conversations,
+                    annoying each other,
+                    and questionable decisions...
+
+                    <br><br>
+
+                    you're still here.
+
+                    <br><br>
+
+                    So I guess you're stuck with me.
+
+                    😂❤️
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HER VOICE / OUR SONGS
+    ===================================================== -->
+
+    <section class="music-section">
+
+        <h2 class="section-title">
+
+            One more thing... 🎶
+
+        </h2>
+
+
+        <div class="music-card">
+
+            <div class="music-icon">
+
+                🎧🎶
+
+            </div>
+
+
+            <h3>
+
+                About your voice...
+
+            </h3>
+
+
+            <p>
+
+                I don't think I've ever properly told you this...
+
+                <br><br>
+
+                You're genuinely one of the best singers
+                I've ever met in my life.
+
+                <br><br>
+
+                I absolutely love your voice.
+
+                <br><br>
+
+                Especially when you randomly send me
+                your voice notes of you singing.
+
+                I don't know how you do it,
+                but those voice notes somehow
+                make everything else disappear for a while.
+
+                <br><br>
+
+                It's like...
+
+                <br>
+
+                I press play and suddenly
+                I'm somewhere else.
+
+                <br>
+
+                Somewhere peaceful.
+
+                <br>
+
+                Somewhere that honestly feels like heaven.
+
+                ❤️
+
+            </p>
+
+
+            <p class="voice-line">
+
+                And yes... I still listen to those
+                singing voice notes almost every day. 🥹🎧
+
+            </p>
+
+
+            <p class="music-note">
+
+                You probably don't even realise
+                how special your voice is to me.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PHOTOS
+    ===================================================== -->
+
+    <section>
+
+        <h2 class="section-title">
+
+            One of the Best girl I Have met in my Life 📸
+
+        </h2>
+
+
+        <div class="photos">
+
+
+            <!-- IMAGE 1 -->
+
+            <div class="photo"
+                 style="--rotation:-2deg;">
+
+                <img
+                    src="img/1.jpeg"
+                    alt="Vishakha"
+                >
+
+            </div>
+
+
+
+            <!-- IMAGE 2 -->
+
+            <div class="photo"
+                 style="--rotation:2deg;">
+
+                <img
+                    src="img/2.jpeg"
+                    alt="Vishakha"
+                >
+
+            </div>
+
+
+
+            <!-- IMAGE 3 -->
+
+            <div class="photo"
+                 style="--rotation:1deg;">
+
+                <img
+                    src="img/3.jpeg"
+                    alt="Vishakha"
+                >
+
+            </div>
+
+
+
+            <!-- IMAGE 4 -->
+
+            <div class="photo"
+                 style="--rotation:-3deg;">
+
+                <img
+                    src="img/4.jpeg"
+                    alt="Vishakha"
+                >
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         THINGS I APPRECIATE
+    ===================================================== -->
+
+    <section>
+
+        <h2 class="section-title">
+
+            Things I appreciate about you
+
+        </h2>
+
+
+        <div class="things">
+
+
+            <div class="thing">
+
+                <span>
+                    🫶
+                </span>
+
+                <p>
+
+                    The way you somehow manage to make
+                    even boring moments fun.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="thing">
+
+                <span>
+                    😂
+                </span>
+
+                <p>
+
+                    Your absolutely ridiculous sense of humour.
+                    Seriously. Sometimes I question you.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="thing">
+
+                <span>
+                    💗
+                </span>
+
+                <p>
+
+                    The fact that you actually care about
+                    the people around you.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="thing">
+
+                <span>
+                    ✨
+                </span>
+
+                <p>
+
+                    You being yourself instead of trying
+                    to be someone you're not.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="thing">
+
+                <span>
+                    🥹
+                </span>
+
+                <p>
+
+                    The little things you probably don't
+                    even realise people notice.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="thing">
+
+                <span>
+                    ❤️
+                </span>
+
+                <p>
+
+                    And honestly... just you.
+                    That's probably enough.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SECRET
+    ===================================================== -->
+
+    <section class="secret">
+
+        <h2 class="section-title">
+
+            Wait...
+
+        </h2>
+
+
+        <p>
+
+            There's something hidden here.
+
+        </p>
+
+
+        <button onclick="showSecret()">
+
+            Don't click this 👀
+
+        </button>
+
+
+        <div id="secretMessage">
+
+            You actually clicked it.
+
+            <br><br>
+
+            I knew you would. 😂
+
+            <br><br>
+
+            Anyway...
+
+            <br>
+
+            I love having you in my life. ❤️
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LETTER
+    ===================================================== -->
+
+    <section>
+
+        <div class="letter">
+
+            <p>
+
+                Hey.
+
+                <br><br>
+
+                I don't really know how to write emotional
+                things without making them sound cheesy,
+                so I'm just going to say it normally.
+
+                <br><br>
+
+                I'm really glad I met you.
+
+                <br><br>
+
+                There are so many people we meet in life,
+                and most of them eventually become just
+                another memory.
+
+                <br><br>
+
+                But then there are a few people who somehow
+                become part of your everyday life.
+
+                <br><br>
+
+                You're one of those people for me.
+
+                <br><br>
+
+                We've laughed at stupid things,
+                had random conversations,
+                annoyed each other,
+                probably made some questionable decisions...
+
+                <br><br>
+
+                and somehow all those tiny moments became
+                some of my favourite memories.
+
+                <br><br>
+
+                I hope this year is really good to you.
+
+                <br><br>
+
+                I hope you get everything you're working for.
+
+                <br>
+
+                I hope you meet people who appreciate you.
+
+                <br>
+
+                I hope you have more reasons to smile.
+
+                <br>
+
+                And whenever things aren't going perfectly,
+                I hope you remember that you've got someone
+                who'll always be cheering for you.
+
+                <br><br>
+
+                Anyway...
+
+                <br>
+
+                enough emotional stuff before I embarrass myself. 😭
+
+                <br><br>
+
+                Happy Birthday.
+
+                <br>
+
+                Seriously.
+
+                <br><br>
+
+                I'm really lucky to call you my best friend.
+
+            </p>
+
+
+            <div class="signature">
+
+                — Rocky ❤️
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL
+    ===================================================== -->
+
+    <section class="birthday">
+
+        <div class="cake">
+            🎂
+        </div>
+
+
+        <h1>
+
+            Happy Birthday ❤️
+
+        </h1>
+
+
+        <p>
+
+            Here's to another year of being
+            absolutely chaotic together. 😂
+
+        </p>
+
+
+        <p class="handwritten">
+
+            Love you, idiot. 🫶
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        function startWebsite() {
+
+            const intro =
+                document.getElementById("intro");
+
+            intro.classList.add("hide");
+
+            createHeartBurst();
+
+        }
+
+
+
+        /* =====================================================
+           SECRET
+        ===================================================== */
+
+        function showSecret() {
+
+            const message =
+                document.getElementById(
+                    "secretMessage"
+                );
+
+            message.style.display = "block";
+
+            createHeartBurst();
+
+        }
+
+
+
+        /* =====================================================
+           FLOATING HEARTS
+        ===================================================== */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+
+            const hearts = [
+                "♡",
+                "♥",
+                "💗",
+                "💕",
+                "💖"
+            ];
+
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random() *
+                        hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (15 + Math.random() * 20)
+                + "px";
+
+
+            heart.style.animationDuration =
+                (4 + Math.random() * 4)
+                + "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 8000);
+
+        }
+
+
+        /*
+            Don't create too many hearts.
+            This keeps the page smooth
+            on phones.
+        */
+
+        setInterval(
+            createHeart,
+            900
+        );
+
+
+
+        /* =====================================================
+           HEART BURST
+        ===================================================== */
+
+        function createHeartBurst() {
+
+            for (
+                let i = 0;
+                i < 18;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    createHeart();
+
+                }, i * 70);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           TAP HEART EFFECT
+        ===================================================== */
+
+        document.addEventListener(
+            "click",
+            function (e) {
+
+                /*
+                    Small effect so it doesn't
+                    destroy phone performance.
+                */
+
+                for (
+                    let i = 0;
+                    i < 2;
+                    i++
+                ) {
+
+                    const heart =
+                        document.createElement("div");
+
+
+                    heart.innerHTML = "💗";
+
+
+                    heart.style.position =
+                        "fixed";
+
+
+                    heart.style.left =
+                        e.clientX + "px";
+
+
+                    heart.style.top =
+                        e.clientY + "px";
+
+
+                    heart.style.pointerEvents =
+                        "none";
+
+
+                    heart.style.zIndex =
+                        "9999";
+
+
+                    heart.style.fontSize =
+                        "18px";
+
+
+                    heart.style.transition =
+                        "all 0.9s ease";
+
+
+                    document.body.appendChild(
+                        heart
+                    );
+
+
+                    setTimeout(() => {
+
+                        heart.style.transform =
+                            `
+                            translate(
+                                ${(Math.random() - 0.5) * 90}px,
+                                -${50 + Math.random() * 80}px
+                            )
+                            `;
+
+                        heart.style.opacity =
+                            "0";
+
+                    }, 50);
+
+
+                    setTimeout(() => {
+
+                        heart.remove();
+
+                    }, 1000);
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
