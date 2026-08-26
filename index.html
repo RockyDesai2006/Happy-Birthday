@@ -5,13 +5,11 @@
 
     <meta charset="UTF-8">
 
-    <!-- MOBILE RESPONSIVE -->
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>For You ❤️</title>
 
-    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -19,1451 +17,2448 @@
           rel="stylesheet">
 
 
-    <style>
+<style>
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+/* =====================================================
+   RESET
+===================================================== */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
 
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
 
+    background:
+        linear-gradient(
+            180deg,
+            #fff8fb 0%,
+            #fff3f7 50%,
+            #fff9fb 100%
+        );
 
-        body {
+    color: #3d2932;
 
-            margin: 0;
-            padding: 0;
+    font-family: "Poppins", sans-serif;
 
-            width: 100%;
-            min-height: 100vh;
+    overflow-x: hidden;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #fff8fb 0%,
-                    #fff3f7 50%,
-                    #fff9fb 100%
-                );
+    -webkit-font-smoothing: antialiased;
+}
 
-            color: #3d2932;
 
-            font-family: "Poppins", sans-serif;
+:root {
+    --pink: #dc4c80;
+    --dark-pink: #bd416b;
+    --light-pink: #ffedf4;
+    --soft-pink: #fff5f8;
+    --text: #60414c;
+}
 
-            overflow-x: hidden;
 
-            -webkit-font-smoothing: antialiased;
-        }
+/* =====================================================
+   INTRO
+===================================================== */
 
+#intro {
+    position: fixed;
+    inset: 0;
 
-        /* =====================================================
-           COLORS
-        ===================================================== */
+    width: 100%;
+    height: 100dvh;
 
-        :root {
+    background:
+        radial-gradient(
+            circle at center,
+            #fff8fb,
+            #ffe9f1
+        );
 
-            --pink: #dc4c80;
+    display: flex;
 
-            --dark-pink: #bd416b;
+    justify-content: center;
+    align-items: center;
 
-            --light-pink: #ffedf4;
+    flex-direction: column;
 
-            --soft-pink: #fff5f8;
+    text-align: center;
 
-            --text: #60414c;
+    padding: 25px;
 
-        }
+    z-index: 99999;
 
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
 
-        /* =====================================================
-           INTRO SCREEN
-        ===================================================== */
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
-        #intro {
+.intro-heart {
+    font-size: 55px;
+    margin-bottom: 20px;
 
-            position: fixed;
+    animation:
+        introHeart 1.5s ease-in-out infinite;
+}
 
-            inset: 0;
+@keyframes introHeart {
 
-            width: 100%;
-            height: 100dvh;
+    0%, 100% {
+        transform: scale(1);
+    }
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    #fff8fb,
-                    #ffe9f1
-                );
+    50% {
+        transform: scale(1.15);
+    }
 
-            display: flex;
+}
 
-            justify-content: center;
+#intro p {
+    font-family: "Caveat", cursive;
 
-            align-items: center;
+    font-size:
+        clamp(
+            26px,
+            7vw,
+            36px
+        );
 
-            flex-direction: column;
+    line-height: 1.2;
 
-            text-align: center;
+    color: #b92f62;
 
-            padding: 25px;
+    max-width: 320px;
 
-            z-index: 99999;
+    margin-bottom: 25px;
+}
 
-            transition:
-                opacity 0.8s ease,
-                visibility 0.8s ease;
-        }
+#intro button {
+    border: none;
 
+    background:
+        linear-gradient(
+            135deg,
+            #ff719f,
+            #dd4f80
+        );
 
-        #intro.hide {
+    color: white;
 
-            opacity: 0;
+    padding: 15px 28px;
 
-            visibility: hidden;
+    border-radius: 50px;
 
-            pointer-events: none;
-        }
+    font-size: 16px;
 
+    font-weight: 500;
 
-        .intro-heart {
+    min-height: 52px;
 
-            font-size: 55px;
+    min-width: 150px;
 
-            margin-bottom: 20px;
+    cursor: pointer;
 
-            animation:
-                introHeart 1.5s ease-in-out infinite;
-        }
+    box-shadow:
+        0 10px 25px
+        rgba(220, 76, 128, 0.25);
 
+    transition:
+        transform 0.2s ease;
+}
 
-        @keyframes introHeart {
+#intro button:active {
+    transform: scale(0.95);
+}
 
-            0%,
-            100% {
-                transform: scale(1);
-            }
 
-            50% {
-                transform: scale(1.15);
-            }
-        }
+/* =====================================================
+   COMMON
+===================================================== */
 
+section {
+    width: 100%;
+    max-width: 900px;
 
-        #intro p {
+    margin: 0 auto;
 
-            font-family: "Caveat", cursive;
+    padding:
+        clamp(65px, 12vw, 110px)
+        clamp(18px, 5vw, 35px);
+}
 
-            font-size:
-                clamp(
-                    26px,
-                    7vw,
-                    36px
-                );
+.handwritten {
+    font-family: "Caveat", cursive;
+}
 
-            line-height: 1.2;
+.section-title {
+    font-family: "Caveat", cursive;
 
-            color: #b92f62;
+    font-size:
+        clamp(
+            42px,
+            11vw,
+            58px
+        );
 
-            max-width: 320px;
+    line-height: 1;
 
-            margin-bottom: 25px;
-        }
+    color: #d94f80;
 
+    margin-bottom:
+        clamp(
+            30px,
+            7vw,
+            45px
+        );
 
-        #intro button {
+    overflow-wrap: break-word;
+}
 
-            border: none;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff719f,
-                    #dd4f80
-                );
+/* =====================================================
+   HERO
+===================================================== */
 
-            color: white;
+.hero {
+    width: 100%;
 
-            padding: 15px 28px;
+    min-height: 100dvh;
 
-            border-radius: 50px;
+    padding:
+        30px 20px
+        80px;
 
-            font-size: 16px;
+    display: flex;
 
-            font-weight: 500;
+    justify-content: center;
+    align-items: center;
 
-            min-height: 52px;
+    flex-direction: column;
 
-            min-width: 150px;
+    text-align: center;
 
-            cursor: pointer;
+    position: relative;
+}
 
-            box-shadow:
-                0 10px 25px
-                rgba(220, 76, 128, 0.25);
+.hero small {
+    color: #a86b7e;
 
-            transition:
-                transform 0.2s ease;
-        }
+    font-size:
+        clamp(
+            11px,
+            3vw,
+            14px
+        );
 
+    letter-spacing:
+        clamp(
+            1px,
+            0.8vw,
+            2px
+        );
+}
 
-        #intro button:active {
+.hero h1 {
+    font-family: "Caveat", cursive;
 
-            transform: scale(0.95);
-        }
+    font-size:
+        clamp(
+            58px,
+            17vw,
+            130px
+        );
 
+    font-weight: 600;
 
-        /* =====================================================
-           COMMON SECTION
-        ===================================================== */
+    color: var(--pink);
 
-        section {
+    line-height: 0.85;
 
-            width: 100%;
+    margin:
+        20px 0 12px;
 
-            max-width: 900px;
+    max-width: 100%;
+}
 
-            margin: 0 auto;
+.hero h2 {
+    font-weight: 400;
 
-            padding:
-                clamp(65px, 12vw, 110px)
-                clamp(18px, 5vw, 35px);
-        }
+    font-size:
+        clamp(
+            18px,
+            5vw,
+            25px
+        );
 
+    color: #68444f;
 
-        .center {
+    max-width: 100%;
+}
 
-            text-align: center;
+.hero .handwritten {
+    font-size:
+        clamp(
+            23px,
+            7vw,
+            32px
+        );
 
-        }
+    line-height: 1.2;
 
+    color: #c44a73;
 
-        .handwritten {
+    margin-top: 20px;
 
-            font-family: "Caveat", cursive;
+    max-width: 330px;
+}
 
-        }
+.scroll {
+    position: absolute;
 
+    bottom: 25px;
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+    font-size: 12px;
 
-        .hero {
+    color: #aa7181;
 
-            width: 100%;
+    animation:
+        bounce 2s infinite;
+}
 
-            min-height: 100dvh;
+@keyframes bounce {
 
-            padding:
-                30px 20px
-                80px;
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-            display: flex;
+    50% {
+        transform: translateY(8px);
+    }
 
-            justify-content: center;
+}
 
-            align-items: center;
 
-            flex-direction: column;
+/* =====================================================
+   NOTE
+===================================================== */
 
-            text-align: center;
+.note {
+    background: white;
 
-            position: relative;
-        }
+    padding:
+        clamp(
+            25px,
+            7vw,
+            40px
+        );
 
+    border-radius: 10px;
 
-        .hero small {
+    box-shadow:
+        0 10px 35px
+        rgba(150, 75, 100, 0.08);
 
-            color: #a86b7e;
+    transform: rotate(-1deg);
 
-            font-size:
-                clamp(
-                    11px,
-                    3vw,
-                    14px
-                );
+    position: relative;
+}
 
-            letter-spacing:
-                clamp(
-                    1px,
-                    0.8vw,
-                    2px
-                );
-        }
+.note::before {
+    content: "♡";
 
+    position: absolute;
 
-        .hero h1 {
+    top: -18px;
+    right: 20px;
 
-            font-family: "Caveat", cursive;
+    font-size: 34px;
 
-            font-size:
-                clamp(
-                    58px,
-                    17vw,
-                    130px
-                );
+    color: #ff8caf;
+}
 
-            font-weight: 600;
+.note p {
+    font-family: "Caveat", cursive;
 
-            color: var(--pink);
+    font-size:
+        clamp(
+            24px,
+            7vw,
+            30px
+        );
 
-            line-height: 0.85;
+    line-height: 1.4;
+}
 
-            margin:
-                20px 0 12px;
 
-            max-width: 100%;
+/* =====================================================
+   TIMELINE
+===================================================== */
 
-            overflow-wrap: break-word;
-        }
+.timeline {
+    border-left:
+        2px dashed #f3a1bb;
 
+    padding-left:
+        clamp(
+            22px,
+            7vw,
+            35px
+        );
 
-        .hero h2 {
+    margin-left: 5px;
+}
 
-            font-weight: 400;
+.memory {
+    margin-bottom:
+        clamp(
+            40px,
+            10vw,
+            55px
+        );
 
-            font-size:
-                clamp(
-                    18px,
-                    5vw,
-                    25px
-                );
+    position: relative;
+}
 
-            color: #68444f;
+.memory:last-child {
+    margin-bottom: 0;
+}
 
-            max-width: 100%;
+.memory::before {
+    content: "♥";
 
-            overflow-wrap: break-word;
-        }
+    position: absolute;
 
+    left:
+        clamp(
+            -39px,
+            -10vw,
+            -28px
+        );
 
-        .hero .handwritten {
+    top: 0;
 
-            font-size:
-                clamp(
-                    23px,
-                    7vw,
-                    32px
-                );
+    color: #ed7098;
 
-            line-height: 1.2;
+    background: #fff8fa;
 
-            color: #c44a73;
+    padding: 4px;
 
-            margin-top: 20px;
+    font-size: 16px;
+}
 
-            max-width: 330px;
-        }
+.memory h3 {
+    font-family: "Caveat", cursive;
 
+    font-size:
+        clamp(
+            28px,
+            8vw,
+            34px
+        );
 
-        .scroll {
+    line-height: 1.1;
 
-            position: absolute;
+    color: var(--dark-pink);
 
-            bottom: 25px;
+    margin-bottom: 10px;
+}
 
-            font-size: 12px;
+.memory p {
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            16px
+        );
 
-            color: #aa7181;
+    line-height: 1.8;
 
-            animation:
-                bounce 2s infinite;
-        }
+    color: var(--text);
+}
 
 
-        @keyframes bounce {
+/* =====================================================
+   MUSIC
+===================================================== */
 
-            0%,
-            100% {
+.music-section {
+    text-align: center;
+}
 
-                transform: translateY(0);
+.music-card {
+    background: #fff;
 
-            }
+    padding:
+        clamp(
+            28px,
+            7vw,
+            45px
+        );
 
-            50% {
+    border-radius: 18px;
 
-                transform: translateY(8px);
+    box-shadow:
+        0 12px 40px
+        rgba(150, 75, 100, 0.08);
 
-            }
+    position: relative;
 
-        }
+    overflow: hidden;
+}
 
+.music-card::before {
+    content: "♪";
 
-        /* =====================================================
-           SECTION TITLE
-        ===================================================== */
+    position: absolute;
 
-        .section-title {
+    top: -20px;
+    left: 20px;
 
-            font-family: "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
-            font-size:
-                clamp(
-                    42px,
-                    11vw,
-                    58px
-                );
+    font-size: 90px;
 
-            line-height: 1;
+    color: #ffd5e3;
 
-            color: #d94f80;
+    transform: rotate(-15deg);
+}
 
-            margin-bottom:
-                clamp(
-                    30px,
-                    7vw,
-                    45px
-                );
+.music-card::after {
+    content: "♫";
 
-            overflow-wrap: break-word;
-        }
+    position: absolute;
 
+    bottom: -25px;
+    right: 20px;
 
-        /* =====================================================
-           PERSONAL NOTE
-        ===================================================== */
+    font-family: "Caveat", cursive;
 
-        .note {
+    font-size: 90px;
 
-            background: white;
+    color: #ffe0e9;
 
-            padding:
-                clamp(
-                    25px,
-                    7vw,
-                    40px
-                );
+    transform: rotate(12deg);
+}
 
-            border-radius: 10px;
+.music-icon {
+    font-size: 48px;
 
-            box-shadow:
-                0 10px 35px
-                rgba(
-                    150,
-                    75,
-                    100,
-                    0.08
-                );
+    margin-bottom: 15px;
 
-            transform: rotate(-1deg);
+    animation:
+        musicFloat 2s ease-in-out infinite;
+}
 
-            position: relative;
-        }
+@keyframes musicFloat {
 
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-        .note::before {
+    50% {
+        transform: translateY(-7px);
+    }
 
-            content: "♡";
+}
 
-            position: absolute;
+.music-card h3 {
+    font-family: "Caveat", cursive;
 
-            top: -18px;
+    font-size:
+        clamp(
+            32px,
+            8vw,
+            42px
+        );
 
-            right: 20px;
+    color: #c84270;
 
-            font-size: 34px;
+    margin-bottom: 20px;
 
-            color: #ff8caf;
-        }
+    position: relative;
 
+    z-index: 2;
+}
 
-        .note p {
+.music-card p {
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            17px
+        );
 
-            font-family: "Caveat", cursive;
+    line-height: 1.9;
 
-            font-size:
-                clamp(
-                    24px,
-                    7vw,
-                    30px
-                );
+    color: #60414c;
 
-            line-height: 1.4;
+    position: relative;
 
-            overflow-wrap: break-word;
-        }
+    z-index: 2;
+}
 
+.music-card .voice-line {
+    font-family: "Caveat", cursive;
 
-        /* =====================================================
-           TIMELINE
-        ===================================================== */
+    font-size:
+        clamp(
+            25px,
+            7vw,
+            32px
+        );
 
-        .timeline {
+    color: #d84f7d;
 
-            border-left:
-                2px dashed #f3a1bb;
+    margin-top: 25px;
 
-            padding-left:
-                clamp(
-                    22px,
-                    7vw,
-                    35px
-                );
+    line-height: 1.3;
+}
 
-            margin-left: 5px;
-        }
+.music-note {
+    margin-top: 25px;
 
+    font-size: 13px !important;
 
-        .memory {
+    color: #a86b7e !important;
 
-            margin-bottom:
-                clamp(
-                    40px,
-                    10vw,
-                    55px
-                );
+    font-style: italic;
+}
 
-            position: relative;
-        }
 
+/* =====================================================
+   PHOTOS
+===================================================== */
 
-        .memory:last-child {
+.photos {
+    display: grid;
 
-            margin-bottom: 0;
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
 
-        }
+    gap:
+        clamp(
+            12px,
+            4vw,
+            20px
+        );
 
+    width: 100%;
+}
 
-        .memory::before {
+.photo {
+    width: 100%;
 
-            content: "♥";
+    aspect-ratio: 1 / 1;
 
-            position: absolute;
+    background: #ffd9e5;
 
-            left:
-                clamp(
-                    -39px,
-                    -10vw,
-                    -28px
-                );
+    display: flex;
 
-            top: 0;
+    justify-content: center;
+    align-items: center;
 
-            color: #ed7098;
+    overflow: hidden;
 
-            background: #fff8fa;
+    border-radius: 5px;
 
-            padding: 4px;
+    box-shadow:
+        0 8px 20px
+        rgba(100, 40, 60, 0.12);
 
-            font-size: 16px;
-        }
+    transform:
+        rotate(var(--rotation));
 
+    transition:
+        transform 0.3s ease;
+}
 
-        .memory h3 {
+.photo:active {
+    transform:
+        rotate(0deg)
+        scale(0.98);
+}
 
-            font-family: "Caveat", cursive;
+.photo img {
+    width: 100%;
+    height: 100%;
 
-            font-size:
-                clamp(
-                    28px,
-                    8vw,
-                    34px
-                );
+    display: block;
 
-            line-height: 1.1;
+    object-fit: cover;
 
-            color: var(--dark-pink);
+    object-position: center;
+}
 
-            margin-bottom: 10px;
-        }
 
+/* =====================================================
+   THINGS
+===================================================== */
 
-        .memory p {
+.things {
+    display: grid;
 
-            font-size:
-                clamp(
-                    14px,
-                    4vw,
-                    16px
-                );
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
 
-            line-height: 1.8;
+    gap:
+        clamp(
+            12px,
+            4vw,
+            18px
+        );
+}
 
-            color: var(--text);
+.thing {
+    background: white;
 
-            overflow-wrap: break-word;
-        }
+    padding:
+        clamp(
+            18px,
+            5vw,
+            27px
+        );
 
+    border-radius: 12px;
 
-        /* =====================================================
-           HER VOICE / OUR SONGS
-        ===================================================== */
+    box-shadow:
+        0 8px 25px
+        rgba(100, 50, 70, 0.06);
 
-        .music-section {
+    transition:
+        transform 0.3s ease;
+}
 
-            text-align: center;
-        }
+.thing:active {
+    transform:
+        scale(0.97);
+}
 
+.thing span {
+    font-size:
+        clamp(
+            22px,
+            7vw,
+            28px
+        );
+}
 
-        .music-card {
+.thing p {
+    margin-top: 10px;
 
-            background: #fff;
+    font-size:
+        clamp(
+            13px,
+            3.8vw,
+            15px
+        );
 
-            padding:
-                clamp(
-                    28px,
-                    7vw,
-                    45px
-                );
+    line-height: 1.6;
 
-            border-radius: 18px;
+    color: #674653;
+}
 
-            box-shadow:
-                0 12px 40px
-                rgba(
-                    150,
-                    75,
-                    100,
-                    0.08
-                );
 
-            position: relative;
+/* =====================================================
+   SECRET
+===================================================== */
 
-            overflow: hidden;
-        }
+.secret {
+    text-align: center;
+}
 
+.secret > p {
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            16px
+        );
 
-        .music-card::before {
+    margin-bottom: 25px;
 
-            content: "♪";
+    color: #76505d;
+}
 
-            position: absolute;
+.secret button {
+    border:
+        2px solid #e96891;
 
-            top: -20px;
+    background: transparent;
 
-            left: 20px;
+    color: #d84d7c;
 
-            font-family: "Caveat", cursive;
+    padding:
+        14px 24px;
 
-            font-size: 90px;
+    min-height: 50px;
 
-            color: #ffd5e3;
+    border-radius: 30px;
 
-            transform: rotate(-15deg);
-        }
+    font-size: 15px;
 
+    cursor: pointer;
 
-        .music-card::after {
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.2s;
+}
 
-            content: "♫";
+.secret button:active {
+    transform: scale(0.95);
 
-            position: absolute;
+    background: #e96891;
 
-            bottom: -25px;
+    color: white;
+}
 
-            right: 20px;
+#secretMessage {
+    display: none;
 
-            font-family: "Caveat", cursive;
+    margin-top: 30px;
 
-            font-size: 90px;
+    font-family: "Caveat", cursive;
 
-            color: #ffe0e9;
+    font-size:
+        clamp(
+            27px,
+            8vw,
+            34px
+        );
 
-            transform: rotate(12deg);
-        }
+    line-height: 1.2;
 
+    color: #bd416b;
 
-        .music-icon {
+    animation:
+        appear 0.8s ease;
+}
 
-            font-size: 48px;
+@keyframes appear {
 
-            margin-bottom: 15px;
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
-            animation:
-                musicFloat 2s ease-in-out infinite;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
+}
 
-        @keyframes musicFloat {
 
-            0%,
-            100% {
+/* =====================================================
+   LETTER
+===================================================== */
 
-                transform: translateY(0);
+.letter {
+    background: white;
 
-            }
+    padding:
+        clamp(
+            25px,
+            7vw,
+            48px
+        );
 
-            50% {
+    box-shadow:
+        0 15px 50px
+        rgba(120, 50, 75, 0.1);
 
-                transform: translateY(-7px);
+    position: relative;
 
-            }
+    border-radius: 3px;
+}
 
-        }
+.letter::after {
+    content: "♡";
 
+    position: absolute;
 
-        .music-card h3 {
+    right: 15px;
+    bottom: 8px;
 
-            font-family: "Caveat", cursive;
+    font-size: 35px;
 
-            font-size:
-                clamp(
-                    32px,
-                    8vw,
-                    42px
-                );
+    color: #ff9fbb;
+}
 
-            color: #c84270;
+.letter p {
+    line-height: 1.9;
 
-            margin-bottom: 20px;
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            16px
+        );
 
-            position: relative;
+    color: #60414c;
+}
 
-            z-index: 2;
-        }
+.signature {
+    margin-top: 25px;
 
+    font-family: "Caveat", cursive;
 
-        .music-card p {
+    font-size:
+        clamp(
+            32px,
+            9vw,
+            40px
+        );
 
-            font-size:
-                clamp(
-                    14px,
-                    4vw,
-                    17px
-                );
+    color: #d74e7e;
+}
 
-            line-height: 1.9;
 
-            color: #60414c;
+/* =====================================================
+   FINAL BIRTHDAY
+===================================================== */
 
-            position: relative;
+.birthday {
+    width: 100%;
 
-            z-index: 2;
-        }
+    min-height: 85dvh;
 
+    display: flex;
 
-        .music-card .voice-line {
+    justify-content: center;
+    align-items: center;
 
-            font-family: "Caveat", cursive;
+    text-align: center;
 
-            font-size:
-                clamp(
-                    25px,
-                    7vw,
-                    32px
-                );
+    flex-direction: column;
 
-            color: #d84f7d;
+    padding:
+        60px 20px;
+}
 
-            margin-top: 25px;
+.cake {
+    font-size:
+        clamp(
+            55px,
+            17vw,
+            75px
+        );
 
-            line-height: 1.3;
-        }
+    margin: 25px;
 
+    animation:
+        cake 2s infinite;
+}
 
-        .music-note {
+@keyframes cake {
 
-            margin-top: 25px;
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-            font-size: 13px !important;
+    50% {
+        transform: translateY(-10px);
+    }
 
-            color: #a86b7e !important;
+}
 
-            font-style: italic;
+.birthday h1 {
+    font-family: "Caveat", cursive;
 
-            position: relative;
+    font-size:
+        clamp(
+            60px,
+            17vw,
+            110px
+        );
 
-            z-index: 2;
-        }
+    color: #db4e80;
 
+    line-height: 0.9;
+}
 
-        /* =====================================================
-           PHOTOS
-        ===================================================== */
+.birthday p {
+    margin-top: 20px;
 
-        .photos {
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            18px
+        );
 
-            display: grid;
+    line-height: 1.6;
 
-            grid-template-columns:
-                repeat(
-                    2,
-                    minmax(0, 1fr)
-                );
+    color: #76505d;
 
-            gap:
-                clamp(
-                    12px,
-                    4vw,
-                    20px
-                );
+    max-width: 350px;
+}
 
-            width: 100%;
-        }
+.birthday .handwritten {
+    font-size:
+        clamp(
+            28px,
+            8vw,
+            38px
+        );
 
+    color: #d84f7d;
 
-        .photo {
+    line-height: 1.1;
+}
 
-            width: 100%;
 
-            aspect-ratio: 1 / 1;
+/* =====================================================
+   BIRTHDAY QUEST
+===================================================== */
 
-            min-height: 0;
+.quest-section {
+    max-width: 950px;
 
-            background: #ffd9e5;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
 
-            display: flex;
+.quest-intro {
+    text-align: center;
 
-            justify-content: center;
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff3f7
+        );
 
-            align-items: center;
+    padding:
+        clamp(
+            30px,
+            7vw,
+            55px
+        );
 
-            overflow: hidden;
+    border-radius: 25px;
 
-            border-radius: 5px;
+    box-shadow:
+        0 15px 50px
+        rgba(
+            150,
+            75,
+            100,
+            0.10
+        );
 
-            box-shadow:
-                0 8px 20px
-                rgba(
-                    100,
-                    40,
-                    60,
-                    0.12
-                );
+    border:
+        1px solid #ffe0e9;
+}
 
-            transform:
-                rotate(var(--rotation));
+.quest-icon {
+    font-size: 60px;
 
-            transition:
-                transform 0.3s ease;
-        }
+    animation:
+        questFloat 2s ease-in-out infinite;
+}
 
+@keyframes questFloat {
 
-        .photo:active {
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-            transform:
-                rotate(0deg)
-                scale(0.98);
-        }
+    50% {
+        transform: translateY(-8px);
+    }
 
+}
 
-        .photo img {
+.quest-intro h2 {
+    font-family: "Caveat", cursive;
 
-            width: 100%;
+    color: #d84f7d;
 
-            height: 100%;
+    font-size:
+        clamp(
+            45px,
+            11vw,
+            70px
+        );
 
-            display: block;
+    margin-top: 10px;
 
-            /*
-                This makes every image
-                fit the webpage's ratio.
-            */
+    line-height: 1;
+}
 
-            object-fit: cover;
+.quest-intro p {
+    color: #76505d;
 
-            object-position: center;
-        }
+    line-height: 1.7;
 
+    margin:
+        15px auto 25px;
 
-        /* =====================================================
-           THINGS I APPRECIATE
-        ===================================================== */
+    max-width: 550px;
+}
 
-        .things {
+.quest-start-button {
+    border: none;
 
-            display: grid;
+    background:
+        linear-gradient(
+            135deg,
+            #ff719f,
+            #d84f7d
+        );
 
-            grid-template-columns:
-                repeat(
-                    2,
-                    minmax(0, 1fr)
-                );
+    color: white;
 
-            gap:
-                clamp(
-                    12px,
-                    4vw,
-                    18px
-                );
-        }
+    padding:
+        15px 30px;
 
+    border-radius: 50px;
 
-        .thing {
+    font-size: 16px;
 
-            background: white;
+    cursor: pointer;
 
-            padding:
-                clamp(
-                    18px,
-                    5vw,
-                    27px
-                );
+    box-shadow:
+        0 10px 25px
+        rgba(
+            220,
+            76,
+            128,
+            0.25
+        );
 
-            border-radius: 12px;
+    transition:
+        transform 0.2s ease;
+}
 
-            box-shadow:
-                0 8px 25px
-                rgba(
-                    100,
-                    50,
-                    70,
-                    0.06
-                );
+.quest-start-button:active {
+    transform: scale(0.95);
+}
 
-            transition:
-                transform 0.3s ease;
-        }
 
+/* =====================================================
+   QUEST HEADER
+===================================================== */
 
-        .thing:active {
+#questGame {
+    display: none;
+}
 
-            transform:
-                scale(0.97);
-        }
+.quest-header {
+    text-align: center;
 
+    margin-bottom: 30px;
+}
 
-        .thing span {
+.quest-header h2 {
+    font-family: "Caveat", cursive;
 
-            font-size:
-                clamp(
-                    22px,
-                    7vw,
-                    28px
-                );
-        }
+    color: #d84f7d;
 
+    font-size:
+        clamp(
+            40px,
+            10vw,
+            55px
+        );
+}
 
-        .thing p {
+.score-box {
+    display: inline-flex;
 
-            margin-top: 10px;
+    align-items: center;
 
-            font-size:
-                clamp(
-                    13px,
-                    3.8vw,
-                    15px
-                );
+    gap: 10px;
 
-            line-height: 1.6;
+    margin-top: 12px;
 
-            color: #674653;
+    background: white;
 
-            overflow-wrap: break-word;
-        }
+    padding:
+        10px 20px;
 
+    border-radius: 50px;
 
-        /* =====================================================
-           SECRET
-        ===================================================== */
+    box-shadow:
+        0 5px 20px
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
 
-        .secret {
+    color: #c84270;
 
-            text-align: center;
-        }
+    font-weight: 600;
+}
 
+.quest-progress {
+    width: 100%;
 
-        .secret > p {
+    height: 10px;
 
-            font-size:
-                clamp(
-                    14px,
-                    4vw,
-                    16px
-                );
+    background: #ffe0e9;
 
-            margin-bottom: 25px;
+    border-radius: 20px;
 
-            color: #76505d;
-        }
+    overflow: hidden;
 
+    margin-top: 15px;
+}
 
-        .secret button {
+.quest-progress-fill {
+    height: 100%;
 
-            border:
-                2px solid #e96891;
+    width: 0%;
 
-            background: transparent;
+    background:
+        linear-gradient(
+            90deg,
+            #ff719f,
+            #d84f7d
+        );
 
-            color: #d84d7c;
+    border-radius: 20px;
 
-            padding:
-                14px 24px;
+    transition:
+        width 0.5s ease;
+}
 
-            min-height: 50px;
 
-            border-radius: 30px;
+/* =====================================================
+   LEVEL CARD
+===================================================== */
 
-            font-size: 15px;
+.level-card {
+    background: white;
 
-            cursor: pointer;
+    border-radius: 20px;
 
-            transition:
-                background 0.25s,
-                color 0.25s,
-                transform 0.2s;
-        }
+    padding:
+        clamp(
+            22px,
+            6vw,
+            40px
+        );
 
+    box-shadow:
+        0 12px 40px
+        rgba(
+            120,
+            50,
+            75,
+            0.08
+        );
 
-        .secret button:active {
+    text-align: center;
 
-            transform: scale(0.95);
+    min-height: 400px;
 
-            background: #e96891;
+    display: flex;
 
-            color: white;
-        }
+    flex-direction: column;
 
+    justify-content: center;
 
-        #secretMessage {
+    align-items: center;
+}
 
-            display: none;
+.level-number {
+    color: #c84270;
 
-            margin-top: 30px;
+    font-size: 13px;
 
-            font-family: "Caveat", cursive;
+    letter-spacing: 2px;
 
-            font-size:
-                clamp(
-                    27px,
-                    8vw,
-                    34px
-                );
+    text-transform: uppercase;
 
-            line-height: 1.2;
+    margin-bottom: 8px;
+}
 
-            color: #bd416b;
+.level-card h3 {
+    font-family: "Caveat", cursive;
 
-            animation:
-                appear 0.8s ease;
-        }
+    color: #d84f7d;
 
+    font-size:
+        clamp(
+            35px,
+            9vw,
+            50px
+        );
 
-        @keyframes appear {
+    line-height: 1.1;
 
-            from {
+    margin-bottom: 15px;
+}
 
-                opacity: 0;
+.level-card > p {
+    color: #76505d;
 
-                transform:
-                    translateY(15px);
+    line-height: 1.7;
 
-            }
+    max-width: 600px;
 
-            to {
+    margin-bottom: 25px;
+}
 
-                opacity: 1;
+.game-button {
+    border: none;
 
-                transform:
-                    translateY(0);
+    background: #e96891;
 
-            }
+    color: white;
 
-        }
+    padding:
+        13px 24px;
 
+    border-radius: 30px;
 
-        /* =====================================================
-           LETTER
-        ===================================================== */
+    cursor: pointer;
 
-        .letter {
+    font-size: 15px;
 
-            background: white;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
 
-            padding:
-                clamp(
-                    25px,
-                    7vw,
-                    48px
-                );
+.game-button:active {
+    transform: scale(0.95);
+}
 
-            box-shadow:
-                0 15px 50px
-                rgba(
-                    120,
-                    50,
-                    75,
-                    0.1
-                );
 
-            position: relative;
+/* =====================================================
+   GAME 1 - CATCH HEARTS
+===================================================== */
 
-            border-radius: 3px;
-        }
+.catch-game {
+    position: relative;
 
+    width: 100%;
 
-        .letter::after {
+    max-width: 600px;
 
-            content: "♡";
+    height: 360px;
 
-            position: absolute;
+    background:
+        linear-gradient(
+            180deg,
+            #fff2f7,
+            #ffe5ef
+        );
 
-            right: 15px;
+    border-radius: 20px;
 
-            bottom: 8px;
+    overflow: hidden;
 
-            font-size: 35px;
+    border:
+        2px solid #ffd1df;
 
-            color: #ff9fbb;
-        }
+    margin-bottom: 20px;
 
+    touch-action: none;
+}
 
-        .letter p {
+.catch-player {
+    position: absolute;
 
-            line-height: 1.9;
+    bottom: 15px;
 
-            font-size:
-                clamp(
-                    14px,
-                    4vw,
-                    16px
-                );
+    left: 50%;
 
-            color: #60414c;
+    transform:
+        translateX(-50%);
 
-            overflow-wrap: break-word;
-        }
+    font-size: 48px;
 
+    width: 75px;
 
-        .signature {
+    text-align: center;
 
-            margin-top: 25px;
+    user-select: none;
+}
 
-            font-family: "Caveat", cursive;
+.falling-heart {
+    position: absolute;
 
-            font-size:
-                clamp(
-                    32px,
-                    9vw,
-                    40px
-                );
+    top: -50px;
 
-            color: #d74e7e;
-        }
+    font-size: 30px;
 
+    user-select: none;
 
-        /* =====================================================
-           FINAL BIRTHDAY
-        ===================================================== */
+    cursor: pointer;
+}
 
-        .birthday {
+.catch-instruction {
+    font-size: 13px;
 
-            width: 100%;
+    color: #a86b7e;
 
-            min-height: 85dvh;
+    margin-bottom: 15px;
+}
 
-            display: flex;
 
-            justify-content: center;
+/* =====================================================
+   GAME 2 - FIND HIDDEN HEART
+===================================================== */
 
-            align-items: center;
+.hidden-heart-area {
+    width: 100%;
 
-            text-align: center;
+    max-width: 600px;
 
-            flex-direction: column;
+    height: 350px;
 
-            padding:
-                60px 20px;
-        }
+    border-radius: 20px;
 
+    background:
+        radial-gradient(
+            circle,
+            #fff,
+            #ffeaf2
+        );
 
-        .cake {
+    position: relative;
 
-            font-size:
-                clamp(
-                    55px,
-                    17vw,
-                    75px
-                );
+    overflow: hidden;
 
-            margin: 25px;
+    border:
+        2px solid #ffd4e1;
 
-            animation:
-                cake 2s infinite;
-        }
+    margin-bottom: 20px;
+}
 
+.hidden-heart {
+    position: absolute;
 
-        @keyframes cake {
+    font-size: 27px;
 
-            0%,
-            100% {
+    cursor: pointer;
 
-                transform:
-                    translateY(0);
+    transition:
+        transform 0.2s ease;
+}
 
-            }
+.hidden-heart:active {
+    transform: scale(1.5);
+}
 
-            50% {
 
-                transform:
-                    translateY(-10px);
+/* =====================================================
+   GAME 3 - FEED CAT
+===================================================== */
 
-            }
+.cat-game {
+    width: 100%;
 
-        }
+    max-width: 600px;
 
+    text-align: center;
+}
 
-        .birthday h1 {
+.cat-character {
+    font-size: 95px;
 
-            font-family: "Caveat", cursive;
+    margin-bottom: 15px;
 
-            font-size:
-                clamp(
-                    60px,
-                    17vw,
-                    110px
-                );
+    animation:
+        catBounce 1.5s ease-in-out infinite;
+}
 
-            color: #db4e80;
+@keyframes catBounce {
 
-            line-height: 0.9;
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-            max-width: 100%;
-        }
+    50% {
+        transform: translateY(-6px);
+    }
 
+}
 
-        .birthday p {
+.cat-foods {
+    display: flex;
 
-            margin-top: 20px;
+    justify-content: center;
 
-            font-size:
-                clamp(
-                    14px,
-                    4vw,
-                    18px
-                );
+    flex-wrap: wrap;
 
-            line-height: 1.6;
+    gap: 10px;
 
-            color: #76505d;
+    margin-top: 20px;
+}
 
-            max-width: 350px;
-        }
+.food-button {
+    border: none;
 
+    background: #fff0f5;
 
-        .birthday .handwritten {
+    border:
+        2px solid #ffd3e1;
 
-            font-size:
-                clamp(
-                    28px,
-                    8vw,
-                    38px
-                );
+    border-radius: 15px;
 
-            color: #d84f7d;
+    font-size: 30px;
 
-            line-height: 1.1;
-        }
+    padding: 10px 14px;
 
+    cursor: pointer;
 
-        /* =====================================================
-           FLOATING HEARTS
-        ===================================================== */
+    transition:
+        transform 0.2s ease;
+}
 
-        .heart {
+.food-button:active {
+    transform: scale(0.9);
+}
 
-            position: fixed;
+.cat-message {
+    font-family: "Caveat", cursive;
 
-            bottom: -30px;
+    font-size: 28px;
 
-            pointer-events: none;
+    color: #c84270;
 
-            z-index: 1000;
+    min-height: 40px;
 
-            animation:
-                floatHeart 5s linear forwards;
+    margin-top: 15px;
+}
 
-            will-change:
-                transform,
-                opacity;
-        }
 
+/* =====================================================
+   GAME 4 - HEARTBREAKER
+===================================================== */
 
-        @keyframes floatHeart {
+.heartbreaker-game {
+    width: 100%;
 
-            0% {
+    max-width: 600px;
 
-                opacity: 0;
+    height: 350px;
 
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
+    position: relative;
 
-            15% {
+    overflow: hidden;
 
-                opacity: 1;
+    border-radius: 20px;
 
-            }
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #ffe0ea
+        );
 
-            100% {
+    border:
+        2px solid #ffd3e1;
 
-                opacity: 0;
+    touch-action: manipulation;
+}
 
-                transform:
-                    translateY(-110vh)
-                    rotate(360deg);
+.tappable-heart {
+    position: absolute;
 
-            }
+    font-size: 35px;
 
-        }
+    cursor: pointer;
 
+    animation:
+        heartPulse 0.9s ease-in-out infinite;
+}
 
-        /* =====================================================
-           TABLET
-        ===================================================== */
+@keyframes heartPulse {
 
-        @media
-        (min-width: 601px)
-        and
-        (max-width: 900px) {
+    0%, 100% {
+        transform: scale(1);
+    }
 
-            section {
+    50% {
+        transform: scale(1.15);
+    }
 
-                padding-left: 40px;
+}
 
-                padding-right: 40px;
+.timer {
+    font-weight: 600;
 
-            }
+    color: #bd416b;
 
+    margin-bottom: 12px;
+}
 
-            .hero {
 
-                padding-left: 40px;
+/* =====================================================
+   GAME 5 - PHOTO PUZZLE
+===================================================== */
 
-                padding-right: 40px;
+.puzzle-wrapper {
+    width: 100%;
 
-            }
+    max-width: 420px;
 
-        }
+    margin: 0 auto;
+}
 
+.puzzle-board {
+    width: 100%;
 
-        /* =====================================================
-           SMALL PHONES
-        ===================================================== */
+    aspect-ratio: 1 / 1;
 
-        @media (max-width: 380px) {
+    display: grid;
 
-            .photos {
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                grid-template-columns: 1fr;
+    gap: 3px;
 
-            }
+    background: #ffd3e1;
 
+    padding: 3px;
 
-            .things {
+    border-radius: 10px;
 
-                grid-template-columns: 1fr;
+    overflow: hidden;
+}
 
-            }
+.puzzle-piece {
+    background-size: 300% 300%;
 
+    cursor: pointer;
 
-            .hero h1 {
+    min-width: 0;
 
-                font-size: 58px;
+    min-height: 0;
 
-            }
+    border-radius: 3px;
 
+    transition:
+        transform 0.2s ease;
+}
 
-            .section-title {
+.puzzle-piece.selected {
+    transform: scale(0.92);
 
-                font-size: 42px;
+    box-shadow:
+        0 0 0 3px #e96891 inset;
+}
 
-            }
+.puzzle-help {
+    margin-top: 15px;
 
+    color: #a86b7e;
 
-            .timeline {
+    font-size: 13px;
+}
 
-                padding-left: 22px;
 
-            }
+/* =====================================================
+   GAME 6 - RHYTHM
+===================================================== */
 
+.rhythm-game {
+    width: 100%;
 
-            .memory::before {
+    max-width: 600px;
 
-                left: -35px;
+    height: 350px;
 
-            }
+    background:
+        linear-gradient(
+            180deg,
+            #fff1f6,
+            #ffe3ed
+        );
 
-        }
+    border-radius: 20px;
 
+    position: relative;
 
-        /* =====================================================
-           LARGE SCREENS
-        ===================================================== */
+    overflow: hidden;
 
-        @media (min-width: 1000px) {
+    border:
+        2px solid #ffd3e1;
 
-            body {
+    touch-action: none;
+}
 
-                font-size: 16px;
+.rhythm-target {
+    position: absolute;
 
-            }
+    bottom: 35px;
 
+    left: 50%;
 
-            .photo:hover {
+    transform:
+        translateX(-50%);
 
-                transform:
-                    rotate(0deg)
-                    scale(1.03);
+    width: 90px;
 
-            }
+    height: 90px;
 
+    border-radius: 50%;
 
-            .thing:hover {
+    border:
+        4px solid #e96891;
 
-                transform:
-                    translateY(-6px);
+    display: flex;
 
-            }
+    align-items: center;
 
+    justify-content: center;
 
-            .secret button:hover {
+    font-size: 30px;
+}
 
-                background: #e96891;
+.rhythm-heart {
+    position: absolute;
 
-                color: white;
+    top: -40px;
 
-            }
+    font-size: 30px;
 
+    cursor: pointer;
+}
 
-            #intro button:hover {
 
-                transform:
-                    translateY(-3px)
-                    scale(1.03);
+/* =====================================================
+   GAME 7 - WHO AM I
+===================================================== */
 
-            }
+.question-box {
+    width: 100%;
 
-        }
+    max-width: 650px;
+}
 
+.question-count {
+    color: #a86b7e;
 
-        /* =====================================================
-           REDUCE MOTION
-        ===================================================== */
+    font-size: 13px;
 
-        @media (prefers-reduced-motion: reduce) {
+    margin-bottom: 10px;
+}
 
-            *,
-            *::before,
-            *::after {
+.question-text {
+    font-family: "Caveat", cursive;
 
-                animation-duration:
-                    0.01ms !important;
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            38px
+        );
 
-                animation-iteration-count:
-                    1 !important;
+    color: #c84270;
 
-                scroll-behavior:
-                    auto !important;
+    margin-bottom: 20px;
+}
 
-                transition-duration:
-                    0.01ms !important;
+.answer-options {
+    display: grid;
 
-            }
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
 
-        }
+    gap: 12px;
+}
 
-    </style>
+.answer-button {
+    border:
+        2px solid #ffd2e0;
+
+    background: #fff7fa;
+
+    color: #60414c;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.answer-button:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   GAME 8 - TREASURE HUNT
+===================================================== */
+
+.treasure-map {
+    width: 100%;
+
+    max-width: 650px;
+
+    min-height: 350px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7fa,
+            #ffe8f0
+        );
+
+    border:
+        2px dashed #ed8eaa;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.map-place {
+    border: none;
+
+    background: white;
+
+    padding:
+        14px 20px;
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 6px 20px
+        rgba(
+            120,
+            50,
+            75,
+            0.08
+        );
+
+    color: #bd416b;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.map-place:active {
+    transform: scale(0.94);
+}
+
+.treasure-clue {
+    min-height: 50px;
+
+    font-family: "Caveat", cursive;
+
+    color: #c84270;
+
+    font-size: 28px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   REVIEW
+===================================================== */
+
+.review-box {
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+.review-question {
+    background: #fff7fa;
+
+    border:
+        1px solid #ffd8e4;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 18px;
+}
+
+.review-question label {
+    display: block;
+
+    font-weight: 500;
+
+    color: #60414c;
+
+    margin-bottom: 12px;
+}
+
+.review-question select,
+.review-question textarea {
+    width: 100%;
+
+    border:
+        1px solid #f3b2c6;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    font-family: "Poppins", sans-serif;
+
+    background: white;
+
+    color: #60414c;
+
+    outline: none;
+}
+
+.review-question textarea {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+.review-submit {
+    width: 100%;
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff719f,
+            #d84f7d
+        );
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            220,
+            76,
+            128,
+            0.22
+        );
+}
+
+
+/* =====================================================
+   SCORE SCREEN
+===================================================== */
+
+.score-screen {
+    display: none;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff1f6
+        );
+
+    border-radius: 25px;
+
+    padding:
+        clamp(
+            30px,
+            8vw,
+            60px
+        );
+
+    box-shadow:
+        0 15px 50px
+        rgba(
+            120,
+            50,
+            75,
+            0.10
+        );
+}
+
+.score-screen .trophy {
+    font-size: 70px;
+
+    animation:
+        trophyBounce 1.5s infinite;
+}
+
+@keyframes trophyBounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+.final-score {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(
+            70px,
+            20vw,
+            110px
+        );
+
+    color: #d84f7d;
+
+    line-height: 1;
+
+    margin: 15px 0;
+}
+
+.score-message {
+    font-family: "Caveat", cursive;
+
+    color: #c84270;
+
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            40px
+        );
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+#revealScreen {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    z-index: 50000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff7fa,
+            #ffdce8
+        );
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+.reveal-content {
+    width: 100%;
+
+    max-width: 650px;
+}
+
+.reveal-stars {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    animation:
+        revealGlow 1.5s infinite;
+}
+
+@keyframes revealGlow {
+
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+}
+
+.reveal-content h2 {
+    font-family: "Caveat", cursive;
+
+    color: #d84f7d;
+
+    font-size:
+        clamp(
+            55px,
+            15vw,
+            90px
+        );
+
+    line-height: 0.9;
+
+    margin-bottom: 20px;
+}
+
+.reveal-content p {
+    color: #60414c;
+
+    font-size:
+        clamp(
+            15px,
+            4vw,
+            18px
+        );
+
+    line-height: 1.8;
+
+    max-width: 500px;
+
+    margin:
+        0 auto 25px;
+}
+
+.reveal-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding:
+        clamp(
+            25px,
+            7vw,
+            45px
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            150,
+            60,
+            90,
+            0.15
+        );
+
+    margin-top: 20px;
+}
+
+.reveal-card h3 {
+    font-family: "Caveat", cursive;
+
+    color: #c84270;
+
+    font-size:
+        clamp(
+            32px,
+            8vw,
+            45px
+        );
+
+    margin-bottom: 15px;
+}
+
+.reveal-card p {
+    margin-bottom: 0;
+}
+
+.close-reveal {
+    margin-top: 25px;
+
+    border:
+        2px solid #e96891;
+
+    background: transparent;
+
+    color: #d84f7d;
+
+    padding:
+        12px 25px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 9px;
+
+    height: 14px;
+
+    z-index: 60000;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    z-index: 1000;
+
+    animation:
+        floatHeart 5s linear forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .answer-options {
+        grid-template-columns: 1fr;
+    }
+
+    .catch-game {
+        height: 330px;
+    }
+
+    .heartbreaker-game {
+        height: 330px;
+    }
+
+    .rhythm-game {
+        height: 330px;
+    }
+
+    .hidden-heart-area {
+        height: 320px;
+    }
+
+    .level-card {
+        min-height: 440px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .photos {
+        grid-template-columns: 1fr;
+    }
+
+    .things {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .section-title {
+        font-size: 42px;
+    }
+
+    .timeline {
+        padding-left: 22px;
+    }
+
+    .memory::before {
+        left: -35px;
+    }
+
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 1000px) {
+
+    .photo:hover {
+        transform:
+            rotate(0deg)
+            scale(1.03);
+    }
+
+    .thing:hover {
+        transform:
+            translateY(-6px);
+    }
+
+    .secret button:hover {
+        background: #e96891;
+        color: white;
+    }
+
+    #intro button:hover {
+        transform:
+            translateY(-3px)
+            scale(1.03);
+    }
+
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -1471,538 +2466,530 @@
 <body>
 
 
-    <!-- =====================================================
-         INTRO
-    ===================================================== -->
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-    <div id="intro">
+<div id="intro">
 
-        <div class="intro-heart">
-            💗
-        </div>
-
-
-        <p>
-            Okay... Mene Tumhare liye Kuch Banaya hai. 👀
-        </p>
-
-
-        <button onclick="startWebsite()">
-            Click Me ❤️
-        </button>
-
+    <div class="intro-heart">
+        💗
     </div>
 
+    <p>
+        Okay... Mene Tumhare liye Kuch Banaya hai. 👀
+    </p>
 
+    <button onclick="startWebsite()">
+        Click Me ❤️
+    </button>
 
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
+</div>
 
-    <section class="hero">
 
-        <small>
-            25.08.2026
-        </small>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-        <h1>
-            Happy Birthday
-        </h1>
+<section class="hero">
 
+    <small>
+        25.08.2026
+    </small>
 
-        <br>
+    <h1>
+        Happy Birthday
+    </h1>
 
+    <br>
 
-        <h2>
-            Vishakha Chopra ❤️
-        </h2>
+    <h2>
+        Vishakha Chopra ❤️
+    </h2>
 
+    <p class="handwritten">
 
-        <p class="handwritten">
+        yes... I actually coded this myself
+        thats why it took so long :)
 
-            yes... I actually coded this myself
-            thats why it took so long :)
+    </p>
 
-        </p>
+    <div class="scroll">
+        ↓ keep scrolling ↓
+    </div>
 
+</section>
 
-        <div class="scroll">
 
-            ↓ keep scrolling ↓
 
-        </div>
+<!-- =====================================================
+     NOTE
+===================================================== -->
 
-    </section>
+<section>
 
-
-
-    <!-- =====================================================
-         PERSONAL NOTE
-    ===================================================== -->
-
-    <section>
-
-        <div class="note">
-
-            <p>
-
-                I honestly had no idea what to give you
-                for your birthday.
-
-                <br><br>
-
-                So I thought...
-
-                <br>
-
-                "Why not make something completely unnecessary
-                that takes way too much time?" 😂
-
-                <br><br>
-
-                And somehow...
-
-                <br>
-
-                here we are.
-
-                ❤️
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         OUR STORY
-    ===================================================== -->
-
-    <section>
-
-        <h2 class="section-title">
-
-            A little bit of us...
-
-        </h2>
-
-
-        <div class="timeline">
-
-
-            <div class="memory">
-
-                <h3>
-                    The beginning
-                </h3>
-
-
-                <p>
-
-                    Muje abhi bhi yaad hai hum log ek GC me
-                    mile the sabse pehle.
-
-                    Honestly, Muje nahi pata tha ki humari
-                    dosti itni strong ho jaayegi.
-
-                    Aur hum log itne ache dost ban jaayenge. ❤️
-
-                </p>
-
-            </div>
-
-
-
-            <div class="memory">
-
-                <h3>
-                    Kuch Baate
-                </h3>
-
-
-                <p>
-
-                    Yaad hai vo din jab mai tumhe bohot
-                    pareshan kar raha tha aur tumne mujhe
-                    bol diya ki humare bich me kuch nahi
-                    hai or jyada baat nahi karenge hum log...
-
-                    Uss din thoda bura laga tha lekin koi nai,
-                    at the end humari dosti aur strong ho gayi. ❤️
-
-                </p>
-
-            </div>
-
-
-
-            <div class="memory">
-
-                <h3>
-                    Somehow... we're still friends.
-                </h3>
-
-
-                <p>
-
-                    After all the arguments,
-                    random nonsense,
-                    late-night conversations,
-                    annoying each other,
-                    and questionable decisions...
-
-                    <br><br>
-
-                    you're still here.
-
-                    <br><br>
-
-                    So I guess you're stuck with me.
-
-                    😂❤️
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         HER VOICE / OUR SONGS
-    ===================================================== -->
-
-    <section class="music-section">
-
-        <h2 class="section-title">
-
-            One more thing... 🎶
-
-        </h2>
-
-
-        <div class="music-card">
-
-            <div class="music-icon">
-
-                🎧🎶
-
-            </div>
-
-
-            <h3>
-
-                About your voice...
-
-            </h3>
-
-
-            <p>
-
-                I don't think I've ever properly told you this...
-
-                <br><br>
-
-                You're genuinely one of the best singers
-                I've ever met in my life.
-
-                <br><br>
-
-                I absolutely love your voice.
-
-                <br><br>
-
-                Especially when you randomly send me
-                your voice notes of you singing.
-
-                I don't know how you do it,
-                but those voice notes somehow
-                make everything else disappear for a while.
-
-                <br><br>
-
-                It's like...
-
-                <br>
-
-                I press play and suddenly
-                I'm somewhere else.
-
-                <br>
-
-                Somewhere peaceful.
-
-                <br>
-
-                Somewhere that honestly feels like heaven.
-
-                ❤️
-
-            </p>
-
-
-            <p class="voice-line">
-
-                And yes... I still listen to those
-                singing voice notes almost every day. 🥹🎧
-
-            </p>
-
-
-            <p class="music-note">
-
-                You probably don't even realise
-                how special your voice is to me.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         PHOTOS
-    ===================================================== -->
-
-    <section>
-
-        <h2 class="section-title">
-
-            One of the Best girl I Have met in my Life 📸
-
-        </h2>
-
-
-        <div class="photos">
-
-
-            <!-- IMAGE 1 -->
-
-            <div class="photo"
-                 style="--rotation:-2deg;">
-
-                <img
-                    src="img/1.jpeg"
-                    alt="Vishakha"
-                >
-
-            </div>
-
-
-
-            <!-- IMAGE 2 -->
-
-            <div class="photo"
-                 style="--rotation:2deg;">
-
-                <img
-                    src="img/2.jpeg"
-                    alt="Vishakha"
-                >
-
-            </div>
-
-
-
-            <!-- IMAGE 3 -->
-
-            <div class="photo"
-                 style="--rotation:1deg;">
-
-                <img
-                    src="img/3.jpeg"
-                    alt="Vishakha"
-                >
-
-            </div>
-
-
-
-            <!-- IMAGE 4 -->
-
-            <div class="photo"
-                 style="--rotation:-3deg;">
-
-                <img
-                    src="img/4.jpeg"
-                    alt="Vishakha"
-                >
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         THINGS I APPRECIATE
-    ===================================================== -->
-
-    <section>
-
-        <h2 class="section-title">
-
-            Things I appreciate about you
-
-        </h2>
-
-
-        <div class="things">
-
-
-            <div class="thing">
-
-                <span>
-                    🫶
-                </span>
-
-                <p>
-
-                    The way you somehow manage to make
-                    even boring moments fun.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="thing">
-
-                <span>
-                    😂
-                </span>
-
-                <p>
-
-                    Your absolutely ridiculous sense of humour.
-                    Seriously. Sometimes I question you.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="thing">
-
-                <span>
-                    💗
-                </span>
-
-                <p>
-
-                    The fact that you actually care about
-                    the people around you.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="thing">
-
-                <span>
-                    ✨
-                </span>
-
-                <p>
-
-                    You being yourself instead of trying
-                    to be someone you're not.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="thing">
-
-                <span>
-                    🥹
-                </span>
-
-                <p>
-
-                    The little things you probably don't
-                    even realise people notice.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="thing">
-
-                <span>
-                    ❤️
-                </span>
-
-                <p>
-
-                    And honestly... just you.
-                    That's probably enough.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         SECRET
-    ===================================================== -->
-
-    <section class="secret">
-
-        <h2 class="section-title">
-
-            Wait...
-
-        </h2>
-
+    <div class="note">
 
         <p>
 
-            There's something hidden here.
-
-        </p>
-
-
-        <button onclick="showSecret()">
-
-            Don't click this 👀
-
-        </button>
-
-
-        <div id="secretMessage">
-
-            You actually clicked it.
+            I honestly had no idea what to give you
+            for your birthday.
 
             <br><br>
 
-            I knew you would. 😂
+            So I thought...
+
+            <br>
+
+            "Why not make something completely unnecessary
+            that takes way too much time?" 😂
+
+            <br><br>
+
+            And somehow...
+
+            <br>
+
+            here we are.
+
+            ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OUR STORY
+===================================================== -->
+
+<section>
+
+    <h2 class="section-title">
+        A little bit of us...
+    </h2>
+
+    <div class="timeline">
+
+
+        <div class="memory">
+
+            <h3>
+                The beginning
+            </h3>
+
+            <p>
+
+                Muje abhi bhi yaad hai hum log ek GC me
+                mile the sabse pehle.
+
+                Honestly, Muje nahi pata tha ki humari
+                dosti itni strong ho jaayegi.
+
+                Aur hum log itne ache dost ban jaayenge. ❤️
+
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <h3>
+                Kuch Baate
+            </h3>
+
+            <p>
+
+                Yaad hai vo din jab mai tumhe bohot
+                pareshan kar raha tha aur tumne mujhe
+                bol diya ki humare bich me kuch nahi
+                hai or jyada baat nahi karenge hum log...
+
+                Uss din thoda bura laga tha lekin koi nai,
+                at the end humari dosti aur strong ho gayi. ❤️
+
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <h3>
+                Somehow... we're still friends.
+            </h3>
+
+            <p>
+
+                After all the arguments,
+                random nonsense,
+                late-night conversations,
+                annoying each other,
+                and questionable decisions...
+
+                <br><br>
+
+                you're still here.
+
+                <br><br>
+
+                So I guess you're stuck with me.
+
+                😂❤️
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HER VOICE
+===================================================== -->
+
+<section class="music-section">
+
+    <h2 class="section-title">
+        One more thing... 🎶
+    </h2>
+
+    <div class="music-card">
+
+        <div class="music-icon">
+            🎧🎶
+        </div>
+
+        <h3>
+            About your voice...
+        </h3>
+
+        <p>
+
+            I don't think I've ever properly told you this...
+
+            <br><br>
+
+            You're genuinely one of the best singers
+            I've ever met in my life.
+
+            <br><br>
+
+            I absolutely love your voice.
+
+            <br><br>
+
+            Especially when you randomly send me
+            your voice notes of you singing.
+
+            I don't know how you do it,
+            but those voice notes somehow
+            make everything else disappear for a while.
+
+            <br><br>
+
+            It's like...
+
+            <br>
+
+            I press play and suddenly
+            I'm somewhere else.
+
+            <br>
+
+            Somewhere peaceful.
+
+            <br>
+
+            Somewhere that honestly feels like heaven.
+
+            ❤️
+
+        </p>
+
+        <p class="voice-line">
+
+            And yes... I still listen to those
+            singing voice notes almost every day. 🥹🎧
+
+        </p>
+
+        <p class="music-note">
+
+            You probably don't even realise
+            how special your voice is to me.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PHOTOS
+===================================================== -->
+
+<section>
+
+    <h2 class="section-title">
+
+        One of the Best girl I Have met in my Life 📸
+
+    </h2>
+
+    <div class="photos">
+
+        <div class="photo"
+             style="--rotation:-2deg;">
+
+            <img src="img/1.jpeg"
+                 alt="Vishakha">
+
+        </div>
+
+        <div class="photo"
+             style="--rotation:2deg;">
+
+            <img src="img/2.jpeg"
+                 alt="Vishakha">
+
+        </div>
+
+        <div class="photo"
+             style="--rotation:1deg;">
+
+            <img src="img/3.jpeg"
+                 alt="Vishakha">
+
+        </div>
+
+        <div class="photo"
+             style="--rotation:-3deg;">
+
+            <img src="img/4.jpeg"
+                 alt="Vishakha">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     THINGS I APPRECIATE
+===================================================== -->
+
+<section>
+
+    <h2 class="section-title">
+
+        Things I appreciate about you
+
+    </h2>
+
+    <div class="things">
+
+
+        <div class="thing">
+
+            <span>🫶</span>
+
+            <p>
+                The way you somehow manage to make
+                even boring moments fun.
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>😂</span>
+
+            <p>
+                Your absolutely ridiculous sense of humour.
+                Seriously. Sometimes I question you.
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>💗</span>
+
+            <p>
+                The fact that you actually care about
+                the people around you.
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>✨</span>
+
+            <p>
+                You being yourself instead of trying
+                to be someone you're not.
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>🥹</span>
+
+            <p>
+                The little things you probably don't
+                even realise people notice.
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>❤️</span>
+
+            <p>
+                And honestly... just you.
+                That's probably enough.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECRET
+===================================================== -->
+
+<section class="secret">
+
+    <h2 class="section-title">
+        Wait...
+    </h2>
+
+    <p>
+        There's something hidden here.
+    </p>
+
+    <button onclick="showSecret()">
+        Don't click this 👀
+    </button>
+
+    <div id="secretMessage">
+
+        You actually clicked it.
+
+        <br><br>
+
+        I knew you would. 😂
+
+        <br><br>
+
+        Anyway...
+
+        <br>
+
+        I love having you in my life. ❤️
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LETTER
+===================================================== -->
+
+<section>
+
+    <div class="letter">
+
+        <p>
+
+            Hey.
+
+            <br><br>
+
+            I don't really know how to write emotional
+            things without making them sound cheesy,
+            so I'm just going to say it normally.
+
+            <br><br>
+
+            I'm really glad I met you.
+
+            <br><br>
+
+            There are so many people we meet in life,
+            and most of them eventually become just
+            another memory.
+
+            <br><br>
+
+            But then there are a few people who somehow
+            become part of your everyday life.
+
+            <br><br>
+
+            You're one of those people for me.
+
+            <br><br>
+
+            We've laughed at stupid things,
+            had random conversations,
+            annoyed each other,
+            probably made some questionable decisions...
+
+            <br><br>
+
+            and somehow all those tiny moments became
+            some of my favourite memories.
+
+            <br><br>
+
+            I hope this year is really good to you.
+
+            <br><br>
+
+            I hope you get everything you're working for.
+
+            <br>
+
+            I hope you meet people who appreciate you.
+
+            <br>
+
+            I hope you have more reasons to smile.
+
+            <br>
+
+            And whenever things aren't going perfectly,
+            I hope you remember that you've got someone
+            who'll always be cheering for you.
 
             <br><br>
 
@@ -2010,242 +2997,707 @@
 
             <br>
 
-            I love having you in my life. ❤️
+            enough emotional stuff before I embarrass myself. 😭
+
+            <br><br>
+
+            Happy Birthday.
+
+            <br>
+
+            Seriously.
+
+            <br><br>
+
+            I'm really lucky to call you my best friend.
+
+        </p>
+
+
+        <div class="signature">
+
+            — Rocky ❤️
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =====================================================
-         LETTER
-    ===================================================== -->
+<!-- =====================================================
+     BIRTHDAY QUEST
+===================================================== -->
 
-    <section>
+<section class="quest-section">
 
-        <div class="letter">
+    <div class="quest-intro"
+         id="questIntro">
 
-            <p>
+        <div class="quest-icon">
+            🎮
+        </div>
 
-                Hey.
+        <h2>
+            Vishu's Birthday Quest
+        </h2>
 
-                <br><br>
+        <p>
 
-                I don't really know how to write emotional
-                things without making them sound cheesy,
-                so I'm just going to say it normally.
+            Okay... you thought that was the end?
 
-                <br><br>
+            <br><br>
 
-                I'm really glad I met you.
+            Nope. 😂
 
-                <br><br>
+            <br><br>
 
-                There are so many people we meet in life,
-                and most of them eventually become just
-                another memory.
+            Apparently you have to
+            <strong>earn your birthday surprise.</strong>
 
-                <br><br>
+            <br><br>
 
-                But then there are a few people who somehow
-                become part of your everyday life.
+            There are 8 little challenges.
 
-                <br><br>
+            <br>
 
-                You're one of those people for me.
+            Each one is worth 10 points.
 
-                <br><br>
+            <br>
 
-                We've laughed at stupid things,
-                had random conversations,
-                annoyed each other,
-                probably made some questionable decisions...
+            And there's another 20 points
+            waiting for your honest review.
 
-                <br><br>
+            <br><br>
 
-                and somehow all those tiny moments became
-                some of my favourite memories.
+            <strong>
+                100 points in total.
+            </strong>
 
-                <br><br>
+            ❤️
 
-                I hope this year is really good to you.
+        </p>
 
-                <br><br>
+        <button class="quest-start-button"
+                onclick="startQuest()">
 
-                I hope you get everything you're working for.
+            Start The Quest 🎮
 
-                <br>
+        </button>
 
-                I hope you meet people who appreciate you.
-
-                <br>
-
-                I hope you have more reasons to smile.
-
-                <br>
-
-                And whenever things aren't going perfectly,
-                I hope you remember that you've got someone
-                who'll always be cheering for you.
-
-                <br><br>
-
-                Anyway...
-
-                <br>
-
-                enough emotional stuff before I embarrass myself. 😭
-
-                <br><br>
-
-                Happy Birthday.
-
-                <br>
-
-                Seriously.
-
-                <br><br>
-
-                I'm really lucky to call you my best friend.
-
-            </p>
+    </div>
 
 
-            <div class="signature">
 
-                — Rocky ❤️
+    <!-- QUEST GAME -->
+
+    <div id="questGame">
+
+
+        <div class="quest-header">
+
+            <h2>
+                🎮 Birthday Quest
+            </h2>
+
+            <div class="score-box">
+
+                ❤️
+
+                <span id="scoreDisplay">
+                    0 / 100
+                </span>
+
+            </div>
+
+            <div class="quest-progress">
+
+                <div class="quest-progress-fill"
+                     id="progressFill">
+                </div>
 
             </div>
 
         </div>
 
-    </section>
 
+        <div class="level-card"
+             id="levelCard">
 
-
-    <!-- =====================================================
-         FINAL
-    ===================================================== -->
-
-    <section class="birthday">
-
-        <div class="cake">
-            🎂
         </div>
 
 
-        <h1>
+    </div>
 
-            Happy Birthday ❤️
 
-        </h1>
 
+    <!-- REVIEW -->
+
+    <div id="reviewSection"
+         style="display:none;">
+
+        <div class="level-card">
+
+            <div class="level-number">
+                FINAL CHALLENGE
+            </div>
+
+            <h3>
+                Your Review 📝
+            </h3>
+
+            <p>
+
+                You survived all 8 games.
+
+                😂
+
+                <br><br>
+
+                Now I want your honest opinion.
+
+                <br>
+
+                This part is worth the final
+                <strong>20 points.</strong>
+
+            </p>
+
+
+            <div class="review-box">
+
+
+                <div class="review-question">
+
+                    <label>
+                        ⭐ How much did you enjoy the games?
+                    </label>
+
+                    <select id="enjoyment">
+
+                        <option value="">
+                            Choose...
+                        </option>
+
+                        <option value="10">
+                            10/10 — I loved them ❤️
+                        </option>
+
+                        <option value="8">
+                            8/10 — Really fun
+                        </option>
+
+                        <option value="6">
+                            6/10 — Pretty good
+                        </option>
+
+                        <option value="4">
+                            4/10 — It was okay 😂
+                        </option>
+
+                        <option value="2">
+                            2/10 — Rocky what was this 😭
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="review-question">
+
+                    <label>
+                        🎮 Which game was your favourite?
+                    </label>
+
+                    <select id="favoriteGame">
+
+                        <option value="">
+                            Choose...
+                        </option>
+
+                        <option>
+                            Catch the Hearts
+                        </option>
+
+                        <option>
+                            Find the Hidden Heart
+                        </option>
+
+                        <option>
+                            Feed the Cat
+                        </option>
+
+                        <option>
+                            Heartbreaker
+                        </option>
+
+                        <option>
+                            Photo Puzzle
+                        </option>
+
+                        <option>
+                            Rhythm Game
+                        </option>
+
+                        <option>
+                            Who Am I?
+                        </option>
+
+                        <option>
+                            Treasure Hunt
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="review-question">
+
+                    <label>
+                        😂 Which game made you laugh the most?
+                    </label>
+
+                    <select id="funniestGame">
+
+                        <option value="">
+                            Choose...
+                        </option>
+
+                        <option>
+                            Catch the Hearts
+                        </option>
+
+                        <option>
+                            Find the Hidden Heart
+                        </option>
+
+                        <option>
+                            Feed the Cat
+                        </option>
+
+                        <option>
+                            Heartbreaker
+                        </option>
+
+                        <option>
+                            Photo Puzzle
+                        </option>
+
+                        <option>
+                            Rhythm Game
+                        </option>
+
+                        <option>
+                            Who Am I?
+                        </option>
+
+                        <option>
+                            Treasure Hunt
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="review-question">
+
+                    <label>
+                        ❤️ Okay, be honest...
+                        Did you actually enjoy this?
+                    </label>
+
+                    <textarea id="reviewText"
+                              placeholder="Write whatever you honestly think... I promise I won't judge 😂❤️"></textarea>
+
+                </div>
+
+
+                <button class="review-submit"
+                        onclick="submitReview()">
+
+                    Submit My Review ❤️
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SCORE SCREEN -->
+
+    <div class="score-screen"
+         id="scoreScreen">
+
+        <div class="trophy">
+            🏆
+        </div>
+
+        <div class="level-number">
+            QUEST COMPLETE
+        </div>
+
+        <div class="final-score"
+             id="finalScore">
+
+            0 / 100
+
+        </div>
+
+        <div class="score-message"
+             id="scoreMessage">
+
+        </div>
 
         <p>
 
-            Here's to another year of being
-            absolutely chaotic together. 😂
+            You actually made it through
+            the entire ridiculous thing I made.
+
+            <br><br>
+
+            I'm impressed. 😂❤️
+
+        </p>
+
+        <button class="quest-start-button"
+                onclick="startReveal()">
+
+            Unlock My Surprise 🎁
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL BIRTHDAY
+===================================================== -->
+
+<section class="birthday">
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <h1>
+        Happy Birthday ❤️
+    </h1>
+
+    <p>
+
+        Here's to another year of being
+        absolutely chaotic together. 😂
+
+    </p>
+
+    <p class="handwritten">
+
+        Love you, idiot. 🫶
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL SURPRISE REVEAL
+===================================================== -->
+
+<div id="revealScreen">
+
+    <div class="reveal-content">
+
+        <div class="reveal-stars">
+            ✨ 💗 ✨
+        </div>
+
+        <h2>
+            You Did It!
+        </h2>
+
+        <p>
+
+            You made it all the way through.
+
+            <br><br>
+
+            You played every stupid little game,
+            answered everything,
+            and even wrote me a review.
+
+            <br><br>
+
+            So...
+
+            <br>
+
+            I guess you earned this. ❤️
 
         </p>
 
 
-        <p class="handwritten">
+        <div class="reveal-card">
 
-            Love you, idiot. 🫶
+            <h3>
+                🎁 Your Final Reward
+            </h3>
 
-        </p>
+            <p>
 
-    </section>
+                Okay, this part was actually
+                made especially for you.
 
+                <br><br>
 
+                Thank you for being one of the
+                most important people in my life.
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
+                <br><br>
 
-    <script>
+                And thank you for all the laughs,
+                conversations, random voice notes,
+                memories, arguments,
+                and everything in between.
 
+                <br><br>
 
-        /* =====================================================
-           START
-        ===================================================== */
+                Happy Birthday, Vishakha.
 
-        function startWebsite() {
+                ❤️
 
-            const intro =
-                document.getElementById("intro");
+                <br><br>
 
-            intro.classList.add("hide");
+                — Rocky
 
-            createHeartBurst();
+            </p>
 
-        }
-
-
-
-        /* =====================================================
-           SECRET
-        ===================================================== */
-
-        function showSecret() {
-
-            const message =
-                document.getElementById(
-                    "secretMessage"
-                );
-
-            message.style.display = "block";
-
-            createHeartBurst();
-
-        }
+        </div>
 
 
+        <!--
+            =================================================
+            FUTURE SECRET REWARD
 
-        /* =====================================================
-           FLOATING HEARTS
-        ===================================================== */
+            You can replace the card above later with:
 
-        function createHeart() {
+            - Your personal video
+            - Her singing audio
+            - A secret photo
+            - A private letter
+            - Anything you want
+
+            Example:
+
+            <audio controls>
+                <source src="audio/message.mp3"
+                        type="audio/mpeg">
+            </audio>
+
+            =================================================
+        -->
+
+
+        <button class="close-reveal"
+                onclick="closeReveal()">
+
+            Go Back ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   GLOBAL GAME VARIABLES
+===================================================== */
+
+let totalScore = 0;
+
+let currentLevel = 0;
+
+let levelCompleted = false;
+
+let reviewCompleted = false;
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+function startWebsite() {
+
+    const intro =
+        document.getElementById("intro");
+
+    intro.classList.add("hide");
+
+    createHeartBurst();
+
+}
+
+
+/* =====================================================
+   SECRET
+===================================================== */
+
+function showSecret() {
+
+    const message =
+        document.getElementById(
+            "secretMessage"
+        );
+
+    message.style.display = "block";
+
+    createHeartBurst();
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+
+    const hearts = [
+        "♡",
+        "♥",
+        "💗",
+        "💕",
+        "💖"
+    ];
+
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20)
+        + "px";
+
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4)
+        + "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 8000);
+
+}
+
+
+setInterval(
+    createHeart,
+    900
+);
+
+
+/* =====================================================
+   HEART BURST
+===================================================== */
+
+function createHeartBurst() {
+
+    for (
+        let i = 0;
+        i < 18;
+        i++
+    ) {
+
+        setTimeout(() => {
+
+            createHeart();
+
+        }, i * 70);
+
+    }
+
+}
+
+
+/* =====================================================
+   TAP HEART EFFECT
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(e) {
+
+        for (
+            let i = 0;
+            i < 2;
+            i++
+        ) {
 
             const heart =
                 document.createElement("div");
 
-            heart.className = "heart";
+            heart.innerHTML = "💗";
 
-
-            const hearts = [
-                "♡",
-                "♥",
-                "💗",
-                "💕",
-                "💖"
-            ];
-
-
-            heart.innerHTML =
-                hearts[
-                    Math.floor(
-                        Math.random() *
-                        hearts.length
-                    )
-                ];
-
+            heart.style.position =
+                "fixed";
 
             heart.style.left =
-                Math.random() * 100 + "vw";
+                e.clientX + "px";
 
+            heart.style.top =
+                e.clientY + "px";
+
+            heart.style.pointerEvents =
+                "none";
+
+            heart.style.zIndex =
+                "9999";
 
             heart.style.fontSize =
-                (15 + Math.random() * 20)
-                + "px";
+                "18px";
 
-
-            heart.style.animationDuration =
-                (4 + Math.random() * 4)
-                + "s";
-
+            heart.style.transition =
+                "all 0.9s ease";
 
             document.body.appendChild(
                 heart
@@ -2254,138 +3706,2300 @@
 
             setTimeout(() => {
 
+                heart.style.transform =
+                    `
+                    translate(
+                        ${(Math.random() - 0.5) * 90}px,
+                        -${50 + Math.random() * 80}px
+                    )
+                    `;
+
+                heart.style.opacity =
+                    "0";
+
+            }, 50);
+
+
+            setTimeout(() => {
+
                 heart.remove();
 
-            }, 8000);
+            }, 1000);
 
         }
 
+    }
+);
 
-        /*
-            Don't create too many hearts.
-            This keeps the page smooth
-            on phones.
-        */
 
-        setInterval(
-            createHeart,
-            900
+/* =====================================================
+   START QUEST
+===================================================== */
+
+function startQuest() {
+
+    document.getElementById(
+        "questIntro"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "questGame"
+    ).style.display = "block";
+
+
+    currentLevel = 1;
+
+    loadLevel();
+
+}
+
+
+/* =====================================================
+   UPDATE SCORE
+===================================================== */
+
+function updateScore(points) {
+
+    totalScore += points;
+
+    if (totalScore > 100) {
+        totalScore = 100;
+    }
+
+
+    document.getElementById(
+        "scoreDisplay"
+    ).innerText =
+        totalScore + " / 100";
+
+
+    const progress =
+        document.getElementById(
+            "progressFill"
         );
 
 
+    progress.style.width =
+        totalScore + "%";
 
-        /* =====================================================
-           HEART BURST
-        ===================================================== */
+}
 
-        function createHeartBurst() {
 
-            for (
-                let i = 0;
-                i < 18;
-                i++
-            ) {
+/* =====================================================
+   COMPLETE LEVEL
+===================================================== */
 
-                setTimeout(() => {
+function completeLevel() {
 
-                    createHeart();
+    if (levelCompleted) {
+        return;
+    }
 
-                }, i * 70);
+    levelCompleted = true;
 
-            }
+
+    updateScore(10);
+
+
+    const card =
+        document.getElementById(
+            "levelCard"
+        );
+
+
+    card.innerHTML = `
+
+        <div style="font-size:60px;">
+            🎉
+        </div>
+
+        <h3>
+            Stage Cleared!
+        </h3>
+
+        <p>
+
+            +10 points ❤️
+
+            <br><br>
+
+            You're doing suspiciously well. 😂
+
+        </p>
+
+        <button
+            class="game-button"
+            onclick="nextLevel()">
+
+            Next Stage →
+
+        </button>
+
+    `;
+
+}
+
+
+/* =====================================================
+   NEXT LEVEL
+===================================================== */
+
+function nextLevel() {
+
+    currentLevel++;
+
+    levelCompleted = false;
+
+    loadLevel();
+
+}
+
+
+/* =====================================================
+   LOAD LEVEL
+===================================================== */
+
+function loadLevel() {
+
+    const card =
+        document.getElementById(
+            "levelCard"
+        );
+
+
+    if (currentLevel === 1) {
+
+        loadCatchHearts(card);
+
+    }
+
+    else if (currentLevel === 2) {
+
+        loadHiddenHeart(card);
+
+    }
+
+    else if (currentLevel === 3) {
+
+        loadCatGame(card);
+
+    }
+
+    else if (currentLevel === 4) {
+
+        loadHeartbreaker(card);
+
+    }
+
+    else if (currentLevel === 5) {
+
+        loadPuzzle(card);
+
+    }
+
+    else if (currentLevel === 6) {
+
+        loadRhythm(card);
+
+    }
+
+    else if (currentLevel === 7) {
+
+        loadWhoAmI(card);
+
+    }
+
+    else if (currentLevel === 8) {
+
+        loadTreasure(card);
+
+    }
+
+    else {
+
+        finishGames();
+
+    }
+
+}
+
+
+/* =====================================================
+   GAME 1
+   CATCH THE HEARTS
+===================================================== */
+
+function loadCatchHearts(card) {
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 1 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Catch The Hearts ❤️
+        </h3>
+
+        <p>
+
+            Move the little basket and catch
+            <strong>10 hearts</strong>.
+
+            <br>
+
+            You have 30 seconds.
+
+        </p>
+
+        <div class="catch-instruction">
+            Drag the basket left and right 👇
+        </div>
+
+        <div class="catch-game"
+             id="catchGame">
+
+            <div class="catch-player"
+                 id="catchPlayer">
+
+                🧺
+
+            </div>
+
+        </div>
+
+        <p id="catchScore">
+            Hearts: 0 / 10
+        </p>
+
+        <button
+            class="game-button"
+            id="startCatchButton"
+            onclick="startCatchGame()">
+
+            Start Game ❤️
+
+        </button>
+
+    `;
+
+}
+
+
+/* CATCH GAME */
+
+let catchCount = 0;
+let catchRunning = false;
+let catchInterval;
+let catchTimer;
+
+
+function startCatchGame() {
+
+    catchCount = 0;
+
+    catchRunning = true;
+
+
+    document.getElementById(
+        "startCatchButton"
+    ).style.display = "none";
+
+
+    const area =
+        document.getElementById(
+            "catchGame"
+        );
+
+
+    const player =
+        document.getElementById(
+            "catchPlayer"
+        );
+
+
+    let playerX = 50;
+
+
+    function movePlayer(e) {
+
+        if (!catchRunning) return;
+
+
+        const rect =
+            area.getBoundingClientRect();
+
+
+        let clientX;
+
+
+        if (
+            e.touches &&
+            e.touches.length
+        ) {
+
+            clientX =
+                e.touches[0].clientX;
+
+        } else {
+
+            clientX =
+                e.clientX;
 
         }
 
 
-
-        /* =====================================================
-           TAP HEART EFFECT
-        ===================================================== */
-
-        document.addEventListener(
-            "click",
-            function (e) {
-
-                /*
-                    Small effect so it doesn't
-                    destroy phone performance.
-                */
-
-                for (
-                    let i = 0;
-                    i < 2;
-                    i++
-                ) {
-
-                    const heart =
-                        document.createElement("div");
+        playerX =
+            ((clientX - rect.left)
+            / rect.width) * 100;
 
 
-                    heart.innerHTML = "💗";
+        playerX =
+            Math.max(
+                8,
+                Math.min(
+                    92,
+                    playerX
+                )
+            );
 
 
-                    heart.style.position =
-                        "fixed";
+        player.style.left =
+            playerX + "%";
+
+    }
 
 
-                    heart.style.left =
-                        e.clientX + "px";
+    area.addEventListener(
+        "mousemove",
+        movePlayer
+    );
 
 
-                    heart.style.top =
-                        e.clientY + "px";
+    area.addEventListener(
+        "touchmove",
+        movePlayer,
+        { passive: true }
+    );
 
 
-                    heart.style.pointerEvents =
-                        "none";
+    catchInterval =
+        setInterval(() => {
+
+            if (!catchRunning) return;
 
 
-                    heart.style.zIndex =
-                        "9999";
+            const heart =
+                document.createElement(
+                    "div"
+                );
 
 
-                    heart.style.fontSize =
-                        "18px";
+            heart.className =
+                "falling-heart";
 
 
-                    heart.style.transition =
-                        "all 0.9s ease";
+            heart.innerHTML =
+                "❤️";
 
 
-                    document.body.appendChild(
-                        heart
-                    );
+            heart.style.left =
+                Math.random() * 90 + "%";
 
 
-                    setTimeout(() => {
-
-                        heart.style.transform =
-                            `
-                            translate(
-                                ${(Math.random() - 0.5) * 90}px,
-                                -${50 + Math.random() * 80}px
-                            )
-                            `;
-
-                        heart.style.opacity =
-                            "0";
-
-                    }, 50);
+            area.appendChild(
+                heart
+            );
 
 
-                    setTimeout(() => {
+            let top = -40;
+
+
+            const fall =
+                setInterval(() => {
+
+                    if (!catchRunning) {
+
+                        clearInterval(
+                            fall
+                        );
 
                         heart.remove();
 
-                    }, 1000);
+                        return;
+                    }
+
+
+                    top += 4;
+
+                    heart.style.top =
+                        top + "px";
+
+
+                    const heartRect =
+                        heart.getBoundingClientRect();
+
+
+                    const playerRect =
+                        player.getBoundingClientRect();
+
+
+                    if (
+                        heartRect.bottom >=
+                        playerRect.top
+                        &&
+                        heartRect.left <
+                        playerRect.right
+                        &&
+                        heartRect.right >
+                        playerRect.left
+                    ) {
+
+                        catchCount++;
+
+
+                        document.getElementById(
+                            "catchScore"
+                        ).innerText =
+                            "Hearts: "
+                            + catchCount
+                            + " / 10";
+
+
+                        heart.remove();
+
+                        clearInterval(
+                            fall
+                        );
+
+
+                        if (
+                            catchCount >= 10
+                        ) {
+
+                            finishCatchGame();
+
+                        }
+
+                    }
+
+
+                    if (
+                        top > area.clientHeight
+                    ) {
+
+                        heart.remove();
+
+                        clearInterval(
+                            fall
+                        );
+
+                    }
+
+                }, 25);
+
+        }, 600);
+
+
+    catchTimer =
+        setTimeout(
+            () => {
+
+                if (
+                    catchRunning
+                ) {
+
+                    finishCatchGame();
 
                 }
 
-            }
+            },
+            30000
+        );
+
+}
+
+
+function finishCatchGame() {
+
+    if (!catchRunning) return;
+
+
+    catchRunning = false;
+
+
+    clearInterval(
+        catchInterval
+    );
+
+
+    clearTimeout(
+        catchTimer
+    );
+
+
+    if (catchCount >= 10) {
+
+        completeLevel();
+
+    } else {
+
+        const card =
+            document.getElementById(
+                "levelCard"
+            );
+
+
+        card.innerHTML = `
+
+            <div style="font-size:55px;">
+                😭
+            </div>
+
+            <h3>
+                Almost!
+            </h3>
+
+            <p>
+
+                You caught
+                ${catchCount}/10 hearts.
+
+                <br><br>
+
+                Try again. I believe in you. ❤️
+
+            </p>
+
+            <button
+                class="game-button"
+                onclick="loadCatchHearts(document.getElementById('levelCard'))">
+
+                Try Again
+
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   GAME 2
+   FIND HIDDEN HEART
+===================================================== */
+
+function loadHiddenHeart(card) {
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 2 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Find The Hidden Heart 🔎
+        </h3>
+
+        <p>
+
+            There's one special heart hiding somewhere.
+
+            <br>
+
+            Find it before the timer reaches zero.
+
+        </p>
+
+        <div class="hidden-heart-area"
+             id="hiddenHeartArea">
+
+            <div class="hidden-heart"
+                 id="hiddenHeart">
+
+                💗
+
+            </div>
+
+        </div>
+
+        <p id="hiddenTimer">
+            Time: 15 seconds
+        </p>
+
+        <button
+            class="game-button"
+            id="hiddenStart"
+            onclick="startHiddenHeart()">
+
+            Find It 👀
+
+        </button>
+
+    `;
+
+}
+
+
+function startHiddenHeart() {
+
+    const button =
+        document.getElementById(
+            "hiddenStart"
+        );
+
+    button.style.display = "none";
+
+
+    const heart =
+        document.getElementById(
+            "hiddenHeart"
         );
 
 
-    </script>
+    const area =
+        document.getElementById(
+            "hiddenHeartArea"
+        );
+
+
+    heart.style.left =
+        (10 + Math.random() * 80)
+        + "%";
+
+
+    heart.style.top =
+        (10 + Math.random() * 75)
+        + "%";
+
+
+    let time = 15;
+
+
+    const timer =
+        setInterval(() => {
+
+            time--;
+
+            document.getElementById(
+                "hiddenTimer"
+            ).innerText =
+                "Time: "
+                + time
+                + " seconds";
+
+
+            if (time <= 0) {
+
+                clearInterval(timer);
+
+
+                document.getElementById(
+                    "levelCard"
+                ).innerHTML = `
+
+                    <div style="font-size:55px;">
+                        😭
+                    </div>
+
+                    <h3>
+                        Too Slow!
+                    </h3>
+
+                    <p>
+                        The heart escaped. 😂
+                    </p>
+
+                    <button
+                        class="game-button"
+                        onclick="loadHiddenHeart(document.getElementById('levelCard'))">
+
+                        Try Again
+
+                    </button>
+
+                `;
+
+            }
+
+        }, 1000);
+
+
+    heart.onclick = () => {
+
+        clearInterval(timer);
+
+        completeLevel();
+
+    };
+
+}
+
+
+/* =====================================================
+   GAME 3
+   FEED THE CAT
+===================================================== */
+
+function loadCatGame(card) {
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 3 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Feed The Cat 🐱
+        </h3>
+
+        <p>
+
+            This cat is hungry.
+
+            <br>
+
+            Feed it until it becomes happy.
+
+        </p>
+
+        <div class="cat-game">
+
+            <div class="cat-character"
+                 id="catCharacter">
+
+                🐱
+
+            </div>
+
+            <div class="cat-message"
+                 id="catMessage">
+
+                I'm hungry...
+
+            </div>
+
+            <div class="cat-foods">
+
+                <button
+                    class="food-button"
+                    onclick="feedCat('🍕')">
+                    🍕
+                </button>
+
+                <button
+                    class="food-button"
+                    onclick="feedCat('🍓')">
+                    🍓
+                </button>
+
+                <button
+                    class="food-button"
+                    onclick="feedCat('🍰')">
+                    🍰
+                </button>
+
+                <button
+                    class="food-button"
+                    onclick="feedCat('🧁')">
+                    🧁
+                </button>
+
+                <button
+                    class="food-button"
+                    onclick="feedCat('🥛')">
+                    🥛
+                </button>
+
+            </div>
+
+        </div>
+
+        <p id="catScore">
+            Food: 0 / 5
+        </p>
+
+    `;
+
+}
+
+
+let catFoodCount = 0;
+
+
+function feedCat(food) {
+
+    catFoodCount++;
+
+
+    const messages = [
+        "Yummm 😋",
+        "Again!",
+        "Okay this is good...",
+        "I like you now. 😂",
+        "BEST. BIRTHDAY. EVER. ❤️"
+    ];
+
+
+    document.getElementById(
+        "catMessage"
+    ).innerText =
+        messages[
+            Math.min(
+                catFoodCount - 1,
+                messages.length - 1
+            )
+        ];
+
+
+    document.getElementById(
+        "catScore"
+    ).innerText =
+        "Food: "
+        + catFoodCount
+        + " / 5";
+
+
+    if (catFoodCount >= 5) {
+
+        catFoodCount = 0;
+
+        setTimeout(
+            completeLevel,
+            500
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   GAME 4
+   HEARTBREAKER
+===================================================== */
+
+function loadHeartbreaker(card) {
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 4 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Heartbreaker 💗
+        </h3>
+
+        <p>
+
+            Tap as many hearts as you can
+            before the timer ends.
+
+            <br>
+
+            You need <strong>15</strong>.
+
+        </p>
+
+        <div class="timer"
+             id="heartTimer">
+
+            20 seconds
+
+        </div>
+
+        <div class="heartbreaker-game"
+             id="heartbreakerGame">
+
+        </div>
+
+        <p id="heartbreakerScore">
+            Score: 0 / 15
+        </p>
+
+        <button
+            class="game-button"
+            id="heartbreakerStart"
+            onclick="startHeartbreaker()">
+
+            Start ❤️
+
+        </button>
+
+    `;
+
+}
+
+
+let heartbreakerCount = 0;
+let heartbreakerRunning = false;
+let heartbreakerTimer;
+
+
+function startHeartbreaker() {
+
+    heartbreakerCount = 0;
+
+    heartbreakerRunning = true;
+
+
+    document.getElementById(
+        "heartbreakerStart"
+    ).style.display = "none";
+
+
+    const area =
+        document.getElementById(
+            "heartbreakerGame"
+        );
+
+
+    let seconds = 20;
+
+
+    heartbreakerTimer =
+        setInterval(() => {
+
+            seconds--;
+
+            document.getElementById(
+                "heartTimer"
+            ).innerText =
+                seconds + " seconds";
+
+
+            if (seconds <= 0) {
+
+                endHeartbreaker();
+
+            }
+
+        }, 1000);
+
+
+    const spawn =
+        setInterval(() => {
+
+            if (!heartbreakerRunning) {
+
+                clearInterval(spawn);
+
+                return;
+
+            }
+
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "tappable-heart";
+
+
+            heart.innerHTML =
+                Math.random() > 0.2
+                    ? "💗"
+                    : "💔";
+
+
+            heart.style.left =
+                Math.random() * 88 + "%";
+
+
+            heart.style.top =
+                Math.random() * 85 + "%";
+
+
+            heart.onclick = () => {
+
+                if (!heartbreakerRunning)
+                    return;
+
+
+                if (
+                    heart.innerHTML ===
+                    "💔"
+                ) {
+
+                    heartbreakerCount =
+                        Math.max(
+                            0,
+                            heartbreakerCount - 2
+                        );
+
+                } else {
+
+                    heartbreakerCount++;
+
+                }
+
+
+                document.getElementById(
+                    "heartbreakerScore"
+                ).innerText =
+                    "Score: "
+                    + heartbreakerCount
+                    + " / 15";
+
+
+                heart.remove();
+
+
+                if (
+                    heartbreakerCount >= 15
+                ) {
+
+                    endHeartbreaker();
+
+                }
+
+            };
+
+
+            area.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                () => heart.remove(),
+                1800
+            );
+
+        }, 500);
+
+}
+
+
+function endHeartbreaker() {
+
+    if (!heartbreakerRunning)
+        return;
+
+
+    heartbreakerRunning = false;
+
+    clearInterval(
+        heartbreakerTimer
+    );
+
+
+    if (heartbreakerCount >= 15) {
+
+        completeLevel();
+
+    } else {
+
+        const card =
+            document.getElementById(
+                "levelCard"
+            );
+
+
+        card.innerHTML = `
+
+            <div style="font-size:55px;">
+                💔
+            </div>
+
+            <h3>
+                So close!
+            </h3>
+
+            <p>
+                You got
+                ${heartbreakerCount}/15.
+
+                <br><br>
+
+                Don't let those hearts
+                break your heart. 😂
+
+            </p>
+
+            <button
+                class="game-button"
+                onclick="loadHeartbreaker(document.getElementById('levelCard'))">
+
+                Try Again
+
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   GAME 5
+   PHOTO PUZZLE
+===================================================== */
+
+function loadPuzzle(card) {
+
+    const pieces = [];
+
+    for (
+        let i = 0;
+        i < 9;
+        i++
+    ) {
+        pieces.push(i);
+    }
+
+
+    shuffleArray(pieces);
+
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 5 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Memory Puzzle 📸
+        </h3>
+
+        <p>
+
+            Rebuild the photo.
+
+            <br>
+
+            Tap two pieces to swap them.
+
+        </p>
+
+        <div class="puzzle-wrapper">
+
+            <div class="puzzle-board"
+                 id="puzzleBoard">
+
+            </div>
+
+        </div>
+
+        <p class="puzzle-help">
+            Hint: it's one of your photos. ❤️
+        </p>
+
+    `;
+
+
+    const board =
+        document.getElementById(
+            "puzzleBoard"
+        );
+
+
+    let selected = null;
+
+
+    pieces.forEach(
+        (piece, index) => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "puzzle-piece";
+
+
+            div.dataset.position =
+                piece;
+
+
+            const row =
+                Math.floor(piece / 3);
+
+            const col =
+                piece % 3;
+
+
+            div.style.backgroundImage =
+                "url('img/1.jpeg')";
+
+
+            div.style.backgroundPosition =
+                `${col * 50}% ${row * 50}%`;
+
+
+            div.onclick = () => {
+
+                if (selected === null) {
+
+                    selected = div;
+
+                    div.classList.add(
+                        "selected"
+                    );
+
+                } else {
+
+                    const temp =
+                        selected.dataset.position;
+
+                    selected.dataset.position =
+                        div.dataset.position;
+
+                    div.dataset.position =
+                        temp;
+
+
+                    updatePuzzlePieces(board);
+
+
+                    selected.classList.remove(
+                        "selected"
+                    );
+
+
+                    selected = null;
+
+
+                    checkPuzzle(board);
+
+                }
+
+            };
+
+
+            board.appendChild(div);
+
+        }
+    );
+
+}
+
+
+function updatePuzzlePieces(board) {
+
+    const pieces =
+        board.querySelectorAll(
+            ".puzzle-piece"
+        );
+
+
+    pieces.forEach(
+        piece => {
+
+            const position =
+                parseInt(
+                    piece.dataset.position
+                );
+
+
+            const row =
+                Math.floor(position / 3);
+
+
+            const col =
+                position % 3;
+
+
+            piece.style.backgroundPosition =
+                `${col * 50}% ${row * 50}%`;
+
+        }
+    );
+
+}
+
+
+function checkPuzzle(board) {
+
+    const pieces =
+        board.querySelectorAll(
+            ".puzzle-piece"
+        );
+
+
+    let correct = true;
+
+
+    pieces.forEach(
+        (piece, index) => {
+
+            if (
+                parseInt(
+                    piece.dataset.position
+                ) !== index
+            ) {
+
+                correct = false;
+
+            }
+
+        }
+    );
+
+
+    if (correct) {
+
+        setTimeout(
+            completeLevel,
+            500
+        );
+
+    }
+
+}
+
+
+function shuffleArray(array) {
+
+    for (
+        let i = array.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+
+        [
+            array[i],
+            array[j]
+        ] =
+        [
+            array[j],
+            array[i]
+        ];
+
+    }
+
+}
+
+
+/* =====================================================
+   GAME 6
+   RHYTHM GAME
+===================================================== */
+
+function loadRhythm(card) {
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 6 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Rhythm Game 🎵
+        </h3>
+
+        <p>
+
+            Tap the hearts when they reach
+            the circle.
+
+            <br>
+
+            Get 10 correct hits.
+
+        </p>
+
+        <div class="rhythm-game"
+             id="rhythmGame">
+
+            <div class="rhythm-target">
+                ❤️
+            </div>
+
+        </div>
+
+        <p id="rhythmScore">
+            Hits: 0 / 10
+        </p>
+
+        <button
+            class="game-button"
+            id="rhythmStart"
+            onclick="startRhythm()">
+
+            Start Music 🎶
+
+        </button>
+
+    `;
+
+}
+
+
+let rhythmHits = 0;
+let rhythmRunning = false;
+let rhythmInterval;
+
+
+function startRhythm() {
+
+    rhythmHits = 0;
+
+    rhythmRunning = true;
+
+
+    document.getElementById(
+        "rhythmStart"
+    ).style.display = "none";
+
+
+    const area =
+        document.getElementById(
+            "rhythmGame"
+        );
+
+
+    rhythmInterval =
+        setInterval(() => {
+
+            if (!rhythmRunning)
+                return;
+
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "rhythm-heart";
+
+
+            heart.innerHTML =
+                "💗";
+
+
+            heart.style.left =
+                (20 + Math.random() * 60)
+                + "%";
+
+
+            area.appendChild(
+                heart
+            );
+
+
+            let top = -40;
+
+
+            const fall =
+                setInterval(() => {
+
+                    if (!rhythmRunning) {
+
+                        clearInterval(
+                            fall
+                        );
+
+                        heart.remove();
+
+                        return;
+
+                    }
+
+
+                    top += 5;
+
+                    heart.style.top =
+                        top + "px";
+
+
+                    const heartRect =
+                        heart.getBoundingClientRect();
+
+
+                    const target =
+                        area
+                            .querySelector(
+                                ".rhythm-target"
+                            )
+                            .getBoundingClientRect();
+
+
+                    if (
+                        heartRect.bottom >=
+                        target.top
+                        &&
+                        heartRect.top <=
+                        target.bottom
+                    ) {
+
+                        heart.onclick =
+                            () => {
+
+                                rhythmHits++;
+
+
+                                document.getElementById(
+                                    "rhythmScore"
+                                ).innerText =
+                                    "Hits: "
+                                    + rhythmHits
+                                    + " / 10";
+
+
+                                heart.remove();
+
+
+                                clearInterval(
+                                    fall
+                                );
+
+
+                                if (
+                                    rhythmHits >=
+                                    10
+                                ) {
+
+                                    rhythmRunning =
+                                        false;
+
+
+                                    clearInterval(
+                                        rhythmInterval
+                                    );
+
+
+                                    completeLevel();
+
+                                }
+
+                            };
+
+                    }
+
+
+                    if (
+                        top >
+                        area.clientHeight
+                    ) {
+
+                        heart.remove();
+
+                        clearInterval(
+                            fall
+                        );
+
+                    }
+
+                }, 25);
+
+        }, 700);
+
+}
+
+
+/* =====================================================
+   GAME 7
+   WHO AM I
+===================================================== */
+
+const whoQuestions = [
+
+    {
+        question:
+            "Where did we first meet?",
+
+        answers: [
+            "At a café",
+            "In a GC ❤️",
+            "At college",
+            "On a random game"
+        ],
+
+        correct: 1
+    },
+
+    {
+        question:
+            "Who sends random singing voice notes?",
+
+        answers: [
+            "Rocky 😂",
+            "Your neighbour",
+            "Vishakha 🎶",
+            "Nobody"
+        ],
+
+        correct: 2
+    },
+
+    {
+        question:
+            "Who is more likely to annoy the other?",
+
+        answers: [
+            "Rocky 😌",
+            "Vishakha 😭",
+            "Both",
+            "Neither"
+        ],
+
+        correct: 0
+    },
+
+    {
+        question:
+            "What does Rocky call you?",
+
+        answers: [
+            "Sunshine",
+            "Vishu ❤️",
+            "Boss",
+            "Madam"
+        ],
+
+        correct: 1
+    },
+
+    {
+        question:
+            "Who is one of Rocky's favourite singers?",
+
+        answers: [
+            "A random celebrity",
+            "Vishakha 🎤",
+            "Nobody",
+            "His cat"
+        ],
+
+        correct: 1
+    }
+
+];
+
+
+let whoIndex = 0;
+let whoCorrect = 0;
+
+
+function loadWhoAmI(card) {
+
+    whoIndex = 0;
+
+    whoCorrect = 0;
+
+    showWhoQuestion(card);
+
+}
+
+
+function showWhoQuestion(card) {
+
+    if (
+        whoIndex >=
+        whoQuestions.length
+    ) {
+
+        if (whoCorrect >= 3) {
+
+            completeLevel();
+
+        } else {
+
+            card.innerHTML = `
+
+                <div style="font-size:55px;">
+                    😭
+                </div>
+
+                <h3>
+                    We need to talk...
+                </h3>
+
+                <p>
+
+                    You only got
+                    ${whoCorrect}/5 correct.
+
+                    <br><br>
+
+                    How do you not know us? 😂
+
+                </p>
+
+                <button
+                    class="game-button"
+                    onclick="loadWhoAmI(document.getElementById('levelCard'))">
+
+                    Try Again
+
+                </button>
+
+            `;
+
+        }
+
+        return;
+
+    }
+
+
+    const q =
+        whoQuestions[
+            whoIndex
+        ];
+
+
+    let options = "";
+
+
+    q.answers.forEach(
+        (answer, index) => {
+
+            options += `
+
+                <button
+                    class="answer-button"
+                    onclick="answerWho(${index})">
+
+                    ${answer}
+
+                </button>
+
+            `;
+
+        }
+    );
+
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 7 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Who Am I? 🕵️
+        </h3>
+
+        <div class="question-box">
+
+            <div class="question-count">
+
+                Question
+                ${whoIndex + 1}
+                /
+                ${whoQuestions.length}
+
+            </div>
+
+            <div class="question-text">
+
+                ${q.question}
+
+            </div>
+
+            <div class="answer-options">
+
+                ${options}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+function answerWho(index) {
+
+    if (
+        index ===
+        whoQuestions[
+            whoIndex
+        ].correct
+    ) {
+
+        whoCorrect++;
+
+    }
+
+
+    whoIndex++;
+
+
+    showWhoQuestion(
+        document.getElementById(
+            "levelCard"
+        )
+    );
+
+}
+
+
+/* =====================================================
+   GAME 8
+   TREASURE HUNT
+===================================================== */
+
+let treasureStep = 0;
+
+
+function loadTreasure(card) {
+
+    treasureStep = 0;
+
+
+    card.innerHTML = `
+
+        <div class="level-number">
+            STAGE 8 / 8 · 10 POINTS
+        </div>
+
+        <h3>
+            Treasure Hunt 🗺️
+        </h3>
+
+        <p>
+
+            Follow the clues.
+
+            <br>
+
+            Find the final treasure.
+
+        </p>
+
+        <div class="treasure-map">
+
+            <div class="treasure-clue"
+                 id="treasureClue">
+
+                Your first clue is waiting...
+
+            </div>
+
+            <button
+                class="map-place"
+                onclick="treasureChoice('photos')">
+
+                📸 Memories
+
+            </button>
+
+            <button
+                class="map-place"
+                onclick="treasureChoice('music')">
+
+                🎵 Songs
+
+            </button>
+
+            <button
+                class="map-place"
+                onclick="treasureChoice('letter')">
+
+                💌 Letter
+
+            </button>
+
+            <button
+                class="map-place"
+                onclick="treasureChoice('heart')">
+
+                ❤️ Heart
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    setTreasureClue();
+
+}
+
+
+function setTreasureClue() {
+
+    const clues = [
+
+        "Find the place where our memories live. 📸",
+
+        "Now find the place where your voice lives. 🎶",
+
+        "Next, find the place where I wrote what I really think. 💌",
+
+        "One last thing... find the heart. ❤️"
+
+    ];
+
+
+    document.getElementById(
+        "treasureClue"
+    ).innerText =
+        clues[
+            treasureStep
+        ];
+
+}
+
+
+function treasureChoice(choice) {
+
+    const correctChoices = [
+
+        "photos",
+        "music",
+        "letter",
+        "heart"
+
+    ];
+
+
+    if (
+        choice ===
+        correctChoices[
+            treasureStep
+        ]
+    ) {
+
+        treasureStep++;
+
+
+        if (
+            treasureStep >=
+            correctChoices.length
+        ) {
+
+            document.getElementById(
+                "treasureClue"
+            ).innerText =
+                "You found the treasure! 🎁";
+
+
+            setTimeout(
+                completeLevel,
+                700
+            );
+
+        } else {
+
+            setTreasureClue();
+
+        }
+
+    } else {
+
+        document.getElementById(
+            "treasureClue"
+        ).innerText =
+            "Nope 😂 Try another one.";
+
+    }
+
+}
+
+
+/* =====================================================
+   FINISH 8 GAMES
+===================================================== */
+
+function finishGames() {
+
+    document.getElementById(
+        "questGame"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "reviewSection"
+    ).style.display =
+        "block";
+
+
+    window.scrollTo({
+        top:
+            document.getElementById(
+                "reviewSection"
+            ).offsetTop,
+
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   REVIEW
+===================================================== */
+
+function submitReview() {
+
+    const enjoyment =
+        document.getElementById(
+            "enjoyment"
+        ).value;
+
+
+    const favorite =
+        document.getElementById(
+            "favoriteGame"
+        ).value;
+
+
+    const funniest =
+        document.getElementById(
+            "funniestGame"
+        ).value;
+
+
+    const review =
+        document.getElementById(
+            "reviewText"
+        ).value.trim();
+
+
+    if (
+        !enjoyment ||
+        !favorite ||
+        !funniest ||
+        !review
+    ) {
+
+        alert(
+            "You have to answer everything. 👀❤️"
+        );
+
+        return;
+
+    }
+
+
+    /*
+        Completing the review gives
+        the final 20 points.
+    */
+
+    updateScore(20);
+
+    reviewCompleted = true;
+
+
+    document.getElementById(
+        "reviewSection"
+    ).style.display =
+        "none";
+
+
+    showFinalScore();
+
+}
+
+
+/* =====================================================
+   FINAL SCORE
+===================================================== */
+
+function showFinalScore() {
+
+    const screen =
+        document.getElementById(
+            "scoreScreen"
+        );
+
+
+    screen.style.display =
+        "block";
+
+
+    document.getElementById(
+        "finalScore"
+    ).innerText =
+        totalScore + " / 100";
+
+
+    let message = "";
+
+
+    if (totalScore >= 90) {
+
+        message =
+            "100% PURE CHAOS ❤️";
+
+    }
+
+    else if (totalScore >= 75) {
+
+        message =
+            "Okay... pretty impressive. 👀";
+
+    }
+
+    else if (totalScore >= 50) {
+
+        message =
+            "You survived. That's something. 😂";
+
+    }
+
+    else {
+
+        message =
+            "We need to talk about this score. 😭";
+
+    }
+
+
+    document.getElementById(
+        "scoreMessage"
+    ).innerText =
+        message;
+
+
+    window.scrollTo({
+        top:
+            screen.offsetTop,
+
+        behavior: "smooth"
+    });
+
+
+    createHeartBurst();
+
+}
+
+
+/* =====================================================
+   FINAL REVEAL
+===================================================== */
+
+function startReveal() {
+
+    const reveal =
+        document.getElementById(
+            "revealScreen"
+        );
+
+
+    reveal.style.display =
+        "flex";
+
+
+    createConfetti();
+
+    createHeartBurst();
+
+}
+
+
+function closeReveal() {
+
+    document.getElementById(
+        "revealScreen"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti() {
+
+    const symbols = [
+        "💗",
+        "✨",
+        "💕",
+        "🎉",
+        "❤️",
+        "🌸"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 80;
+        i++
+    ) {
+
+        setTimeout(
+            () => {
+
+                const piece =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                piece.className =
+                    "confetti";
+
+
+                piece.innerText =
+                    symbols[
+                        Math.floor(
+                            Math.random()
+                            *
+                            symbols.length
+                        )
+                    ];
+
+
+                piece.style.left =
+                    Math.random() * 100
+                    + "vw";
+
+
+                piece.style.fontSize =
+                    (10 +
+                    Math.random() * 18)
+                    + "px";
+
+
+                piece.style.animationDuration =
+                    (3 +
+                    Math.random() * 3)
+                    + "s";
+
+
+                document.body.appendChild(
+                    piece
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        piece.remove();
+
+                    },
+                    7000
+                );
+
+            },
+            i * 35
+        );
+
+    }
+
+}
+
+
+</script>
 
 </body>
 
