@@ -8,14 +8,13 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>For You ❤️</title>
+    <title>For Chanchal ❤️</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
           rel="stylesheet">
-
 
 <style>
 
@@ -36,8 +35,6 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
     width: 100%;
     min-height: 100vh;
 
@@ -58,7 +55,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-
 :root {
     --pink: #dc4c80;
     --dark-pink: #bd416b;
@@ -69,7 +65,7 @@ body {
 
 
 /* =====================================================
-   INTRO
+   INTRO SCREEN
 ===================================================== */
 
 #intro {
@@ -112,6 +108,7 @@ body {
 
 .intro-heart {
     font-size: 55px;
+
     margin-bottom: 20px;
 
     animation:
@@ -127,7 +124,6 @@ body {
     50% {
         transform: scale(1.15);
     }
-
 }
 
 #intro p {
@@ -144,7 +140,7 @@ body {
 
     color: #b92f62;
 
-    max-width: 320px;
+    max-width: 340px;
 
     margin-bottom: 25px;
 }
@@ -179,8 +175,7 @@ body {
         0 10px 25px
         rgba(220, 76, 128, 0.25);
 
-    transition:
-        transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 #intro button:active {
@@ -227,8 +222,6 @@ section {
             7vw,
             45px
         );
-
-    overflow-wrap: break-word;
 }
 
 
@@ -242,8 +235,7 @@ section {
     min-height: 100dvh;
 
     padding:
-        30px 20px
-        80px;
+        30px 20px 80px;
 
     display: flex;
 
@@ -326,7 +318,7 @@ section {
 
     margin-top: 20px;
 
-    max-width: 330px;
+    max-width: 350px;
 }
 
 .scroll {
@@ -338,8 +330,7 @@ section {
 
     color: #aa7181;
 
-    animation:
-        bounce 2s infinite;
+    animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
@@ -351,7 +342,6 @@ section {
     50% {
         transform: translateY(8px);
     }
-
 }
 
 
@@ -495,7 +485,129 @@ section {
 
 
 /* =====================================================
-   MUSIC
+   CHANCHALSHIP
+===================================================== */
+
+.chanchalship-card {
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff0f6
+        );
+
+    padding:
+        clamp(
+            28px,
+            7vw,
+            48px
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 40px
+        rgba(150, 75, 100, 0.08);
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.chanchalship-card::before {
+    content: "♡";
+
+    position: absolute;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 150px;
+
+    color: #ffe1eb;
+
+    top: -70px;
+    left: -30px;
+
+    transform: rotate(-15deg);
+}
+
+.chanchalship-card::after {
+    content: "♡";
+
+    position: absolute;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 150px;
+
+    color: #ffe5ee;
+
+    bottom: -80px;
+    right: -20px;
+
+    transform: rotate(15deg);
+}
+
+.chanchalship-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.chanchalship-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.chanchalship-card h3 {
+    font-family: "Caveat", cursive;
+
+    color: #c84270;
+
+    font-size:
+        clamp(
+            38px,
+            9vw,
+            52px
+        );
+
+    margin-bottom: 18px;
+}
+
+.chanchalship-card p {
+    color: #60414c;
+
+    line-height: 1.9;
+
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            17px
+        );
+}
+
+.chanchalship-definition {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(
+            26px,
+            7vw,
+            34px
+        );
+
+    color: #d84f7d;
+
+    margin-top: 25px;
+
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   VOICE SECTION
 ===================================================== */
 
 .music-section {
@@ -575,7 +687,6 @@ section {
     50% {
         transform: translateY(-7px);
     }
-
 }
 
 .music-card h3 {
@@ -593,7 +704,6 @@ section {
     margin-bottom: 20px;
 
     position: relative;
-
     z-index: 2;
 }
 
@@ -610,7 +720,6 @@ section {
     color: #60414c;
 
     position: relative;
-
     z-index: 2;
 }
 
@@ -639,6 +748,76 @@ section {
     color: #a86b7e !important;
 
     font-style: italic;
+}
+
+
+/* =====================================================
+   FUTURE MEETING
+===================================================== */
+
+.future-card {
+    text-align: center;
+
+    background: white;
+
+    padding:
+        clamp(
+            30px,
+            7vw,
+            45px
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(150, 75, 100, 0.08);
+}
+
+.future-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.future-card h3 {
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(
+            35px,
+            9vw,
+            48px
+        );
+
+    color: #c84270;
+
+    margin-bottom: 18px;
+}
+
+.future-card p {
+    color: #60414c;
+
+    line-height: 1.9;
+
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            17px
+        );
+}
+
+.future-card .handwritten {
+    font-size:
+        clamp(
+            26px,
+            7vw,
+            34px
+        );
+
+    color: #d84f7d;
+
+    margin-top: 25px;
 }
 
 
@@ -752,8 +931,7 @@ section {
 }
 
 .thing:active {
-    transform:
-        scale(0.97);
+    transform: scale(0.97);
 }
 
 .thing span {
@@ -868,7 +1046,6 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 
@@ -938,100 +1115,6 @@ section {
 
 
 /* =====================================================
-   FINAL BIRTHDAY
-===================================================== */
-
-.birthday {
-    width: 100%;
-
-    min-height: 85dvh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    flex-direction: column;
-
-    padding:
-        60px 20px;
-}
-
-.cake {
-    font-size:
-        clamp(
-            55px,
-            17vw,
-            75px
-        );
-
-    margin: 25px;
-
-    animation:
-        cake 2s infinite;
-}
-
-@keyframes cake {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-}
-
-.birthday h1 {
-    font-family: "Caveat", cursive;
-
-    font-size:
-        clamp(
-            60px,
-            17vw,
-            110px
-        );
-
-    color: #db4e80;
-
-    line-height: 0.9;
-}
-
-.birthday p {
-    margin-top: 20px;
-
-    font-size:
-        clamp(
-            14px,
-            4vw,
-            18px
-        );
-
-    line-height: 1.6;
-
-    color: #76505d;
-
-    max-width: 350px;
-}
-
-.birthday .handwritten {
-    font-size:
-        clamp(
-            28px,
-            8vw,
-            38px
-        );
-
-    color: #d84f7d;
-
-    line-height: 1.1;
-}
-
-
-/* =====================================================
    BIRTHDAY QUEST
 ===================================================== */
 
@@ -1063,12 +1146,7 @@ section {
 
     box-shadow:
         0 15px 50px
-        rgba(
-            150,
-            75,
-            100,
-            0.10
-        );
+        rgba(150, 75, 100, 0.10);
 
     border:
         1px solid #ffe0e9;
@@ -1090,7 +1168,6 @@ section {
     50% {
         transform: translateY(-8px);
     }
-
 }
 
 .quest-intro h2 {
@@ -1144,12 +1221,7 @@ section {
 
     box-shadow:
         0 10px 25px
-        rgba(
-            220,
-            76,
-            128,
-            0.25
-        );
+        rgba(220, 76, 128, 0.25);
 
     transition:
         transform 0.2s ease;
@@ -1205,12 +1277,7 @@ section {
 
     box-shadow:
         0 5px 20px
-        rgba(
-            150,
-            75,
-            100,
-            0.08
-        );
+        rgba(150, 75, 100, 0.08);
 
     color: #c84270;
 
@@ -1268,12 +1335,7 @@ section {
 
     box-shadow:
         0 12px 40px
-        rgba(
-            120,
-            50,
-            75,
-            0.08
-        );
+        rgba(120, 50, 75, 0.08);
 
     text-align: center;
 
@@ -1354,7 +1416,7 @@ section {
 
 
 /* =====================================================
-   GAME 1 - CATCH HEARTS
+   GAME 1
 ===================================================== */
 
 .catch-game {
@@ -1412,21 +1474,11 @@ section {
     font-size: 30px;
 
     user-select: none;
-
-    cursor: pointer;
-}
-
-.catch-instruction {
-    font-size: 13px;
-
-    color: #a86b7e;
-
-    margin-bottom: 15px;
 }
 
 
 /* =====================================================
-   GAME 2 - FIND HIDDEN HEART
+   GAME 2
 ===================================================== */
 
 .hidden-heart-area {
@@ -1472,7 +1524,7 @@ section {
 
 
 /* =====================================================
-   GAME 3 - FEED CAT
+   GAME 3
 ===================================================== */
 
 .cat-game {
@@ -1501,7 +1553,6 @@ section {
     50% {
         transform: translateY(-6px);
     }
-
 }
 
 .cat-foods {
@@ -1528,7 +1579,8 @@ section {
 
     font-size: 30px;
 
-    padding: 10px 14px;
+    padding:
+        10px 14px;
 
     cursor: pointer;
 
@@ -1554,7 +1606,7 @@ section {
 
 
 /* =====================================================
-   GAME 4 - HEARTBREAKER
+   GAME 4
 ===================================================== */
 
 .heartbreaker-game {
@@ -1603,7 +1655,6 @@ section {
     50% {
         transform: scale(1.15);
     }
-
 }
 
 .timer {
@@ -1616,7 +1667,7 @@ section {
 
 
 /* =====================================================
-   GAME 5 - PHOTO PUZZLE
+   GAME 5
 ===================================================== */
 
 .puzzle-wrapper {
@@ -1649,7 +1700,8 @@ section {
 }
 
 .puzzle-piece {
-    background-size: 300% 300%;
+    background-size:
+        300% 300%;
 
     cursor: pointer;
 
@@ -1680,7 +1732,7 @@ section {
 
 
 /* =====================================================
-   GAME 6 - RHYTHM
+   GAME 6
 ===================================================== */
 
 .rhythm-game {
@@ -1749,7 +1801,7 @@ section {
 
 
 /* =====================================================
-   GAME 7 - WHO AM I
+   GAME 7
 ===================================================== */
 
 .question-box {
@@ -1820,7 +1872,7 @@ section {
 
 
 /* =====================================================
-   GAME 8 - TREASURE HUNT
+   GAME 8
 ===================================================== */
 
 .treasure-map {
@@ -1869,12 +1921,7 @@ section {
 
     box-shadow:
         0 6px 20px
-        rgba(
-            120,
-            50,
-            75,
-            0.08
-        );
+        rgba(120, 50, 75, 0.08);
 
     color: #bd416b;
 
@@ -1992,17 +2039,12 @@ section {
 
     box-shadow:
         0 10px 25px
-        rgba(
-            220,
-            76,
-            128,
-            0.22
-        );
+        rgba(220, 76, 128, 0.22);
 }
 
 
 /* =====================================================
-   SCORE SCREEN
+   SCORE
 ===================================================== */
 
 .score-screen {
@@ -2028,12 +2070,7 @@ section {
 
     box-shadow:
         0 15px 50px
-        rgba(
-            120,
-            50,
-            75,
-            0.10
-        );
+        rgba(120, 50, 75, 0.10);
 }
 
 .score-screen .trophy {
@@ -2052,7 +2089,6 @@ section {
     50% {
         transform: translateY(-10px);
     }
-
 }
 
 .final-score {
@@ -2089,7 +2125,7 @@ section {
 
 
 /* =====================================================
-   REVEAL
+   FINAL REVEAL
 ===================================================== */
 
 #revealScreen {
@@ -2148,7 +2184,6 @@ section {
         transform: scale(1.15);
         opacity: 1;
     }
-
 }
 
 .reveal-content h2 {
@@ -2168,7 +2203,7 @@ section {
     margin-bottom: 20px;
 }
 
-.reveal-content p {
+.reveal-content > p {
     color: #60414c;
 
     font-size:
@@ -2200,12 +2235,7 @@ section {
 
     box-shadow:
         0 20px 60px
-        rgba(
-            150,
-            60,
-            90,
-            0.15
-        );
+        rgba(150, 60, 90, 0.15);
 
     margin-top: 20px;
 }
@@ -2226,7 +2256,9 @@ section {
 }
 
 .reveal-card p {
-    margin-bottom: 0;
+    color: #60414c;
+
+    line-height: 1.9;
 }
 
 .close-reveal {
@@ -2257,10 +2289,6 @@ section {
 
     top: -20px;
 
-    width: 9px;
-
-    height: 14px;
-
     z-index: 60000;
 
     pointer-events: none;
@@ -2286,7 +2314,6 @@ section {
 
         opacity: 0;
     }
-
 }
 
 
@@ -2332,7 +2359,6 @@ section {
             translateY(-110vh)
             rotate(360deg);
     }
-
 }
 
 
@@ -2346,14 +2372,8 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .catch-game {
-        height: 330px;
-    }
-
-    .heartbreaker-game {
-        height: 330px;
-    }
-
+    .catch-game,
+    .heartbreaker-game,
     .rhythm-game {
         height: 330px;
     }
@@ -2365,12 +2385,11 @@ section {
     .level-card {
         min-height: 440px;
     }
-
 }
 
 
 /* =====================================================
-   VERY SMALL PHONES
+   SMALL PHONES
 ===================================================== */
 
 @media (max-width: 380px) {
@@ -2398,7 +2417,6 @@ section {
     .memory::before {
         left: -35px;
     }
-
 }
 
 
@@ -2421,6 +2439,7 @@ section {
 
     .secret button:hover {
         background: #e96891;
+
         color: white;
     }
 
@@ -2429,7 +2448,6 @@ section {
             translateY(-3px)
             scale(1.03);
     }
-
 }
 
 
@@ -2455,7 +2473,6 @@ section {
         transition-duration:
             0.01ms !important;
     }
-
 }
 
 </style>
@@ -2477,11 +2494,20 @@ section {
     </div>
 
     <p>
-        Okay... Mene Tumhare liye Kuch Banaya hai. 👀
+
+        Okay Chanchal...
+
+        <br>
+
+        Before your birthday ends,
+        I have one last gift for you. 🎁❤️
+
     </p>
 
     <button onclick="startWebsite()">
-        Click Me ❤️
+
+        Open My Gift ❤️
+
     </button>
 
 </div>
@@ -2495,7 +2521,7 @@ section {
 <section class="hero">
 
     <small>
-        25.08.2026
+        28 • 08 • 2026
     </small>
 
     <h1>
@@ -2505,18 +2531,23 @@ section {
     <br>
 
     <h2>
-        Vishakha Chopra ❤️
+        Chanchal ❤️
     </h2>
 
     <p class="handwritten">
 
-        yes... I actually coded this myself
-        thats why it took so long :)
+        This isn't just a website...
+
+        <br>
+
+        it's my birthday gift for you. 🎁
 
     </p>
 
     <div class="scroll">
+
         ↓ keep scrolling ↓
+
     </div>
 
 </section>
@@ -2533,27 +2564,33 @@ section {
 
         <p>
 
-            I honestly had no idea what to give you
-            for your birthday.
+            Happy Birthday, Chanchal. ❤️
 
             <br><br>
 
-            So I thought...
-
-            <br>
-
-            "Why not make something completely unnecessary
-            that takes way too much time?" 😂
+            I kept thinking about what I could
+            possibly gift someone who lives miles away.
 
             <br><br>
 
-            And somehow...
+            Flowers would fade.
 
             <br>
 
-            here we are.
+            Chocolates would disappear.
 
-            ❤️
+            <br><br>
+
+            But memories don't.
+
+            <br><br>
+
+            So I made you something you can open
+            whenever you miss me...
+
+            <br>
+
+            or whenever you just want to smile. 🌸
 
         </p>
 
@@ -2570,8 +2607,11 @@ section {
 <section>
 
     <h2 class="section-title">
+
         A little bit of us...
+
     </h2>
+
 
     <div class="timeline">
 
@@ -2584,13 +2624,17 @@ section {
 
             <p>
 
-                Muje abhi bhi yaad hai hum log ek GC me
-                mile the sabse pehle.
+                Muje abhi bhi yaad hai hum log
+                ek GC me mile the.
 
-                Honestly, Muje nahi pata tha ki humari
-                dosti itni strong ho jaayegi.
+                <br><br>
 
-                Aur hum log itne ache dost ban jaayenge. ❤️
+                At that time I obviously didn't know
+                that one random person from a GC
+                would eventually become such an
+                important part of my life.
+
+                ❤️
 
             </p>
 
@@ -2600,49 +2644,131 @@ section {
         <div class="memory">
 
             <h3>
-                Kuch Baate
+                Then we started talking...
             </h3>
 
             <p>
 
-                Yaad hai vo din jab mai tumhe bohot
-                pareshan kar raha tha aur tumne mujhe
-                bol diya ki humare bich me kuch nahi
-                hai or jyada baat nahi karenge hum log...
-
-                Uss din thoda bura laga tha lekin koi nai,
-                at the end humari dosti aur strong ho gayi. ❤️
-
-            </p>
-
-        </div>
-
-
-        <div class="memory">
-
-            <h3>
-                Somehow... we're still friends.
-            </h3>
-
-            <p>
-
-                After all the arguments,
-                random nonsense,
-                late-night conversations,
-                annoying each other,
-                and questionable decisions...
+                One conversation became another.
 
                 <br><br>
 
-                you're still here.
+                Then somehow those conversations
+                became regular.
 
                 <br><br>
 
-                So I guess you're stuck with me.
+                And regular became late nights.
+
+                <br><br>
+
+                The kind of late nights where
+                we say "okay, we should sleep now"
+
+                <br>
+
+                and then continue talking
+                for another two hours.
 
                 😂❤️
 
             </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <h3>
+                And then came Chanchalship.
+            </h3>
+
+            <p>
+
+                Somehow we became more than
+                ordinary friends.
+
+                <br><br>
+
+                But neither of us really knew
+                what to call it.
+
+                <br><br>
+
+                So obviously...
+
+                <br>
+
+                we made our own word.
+
+                😂❤️
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CHANCHALSHIP
+===================================================== -->
+
+<section>
+
+    <h2 class="section-title">
+
+        So... what exactly is Chanchalship? 👀
+
+    </h2>
+
+
+    <div class="chanchalship-card">
+
+        <div class="chanchalship-icon">
+            🫶
+        </div>
+
+        <h3>
+            Chanchalship
+        </h3>
+
+        <p>
+
+            A completely unofficial relationship
+            status invented by two people who
+            apparently couldn't decide what to
+            call whatever this is.
+
+            😂
+
+            <br><br>
+
+            Greater than bestfriendship.
+
+            <br>
+
+            Lesser than relationship.
+
+            <br><br>
+
+            Somewhere in that beautiful,
+            confusing little space between the two.
+
+            ❤️
+
+        </p>
+
+        <div class="chanchalship-definition">
+
+            "Too close to call it friendship...
+            too complicated to call it a relationship."
+
+            😂❤️
 
         </div>
 
@@ -2653,79 +2779,240 @@ section {
 
 
 <!-- =====================================================
-     HER VOICE
+     VOICE
 ===================================================== -->
 
 <section class="music-section">
 
     <h2 class="section-title">
-        One more thing... 🎶
+
+        Your voice... 🎧
+
     </h2>
+
 
     <div class="music-card">
 
         <div class="music-icon">
-            🎧🎶
+            🎙️🎶
         </div>
 
         <h3>
-            About your voice...
+            I love hearing you.
         </h3>
 
         <p>
 
-            I don't think I've ever properly told you this...
+            I don't think I say this enough...
 
             <br><br>
 
-            You're genuinely one of the best singers
-            I've ever met in my life.
+            I genuinely love your voice.
 
             <br><br>
 
-            I absolutely love your voice.
-
-            <br><br>
-
-            Especially when you randomly send me
-            your voice notes of you singing.
-
-            I don't know how you do it,
-            but those voice notes somehow
-            make everything else disappear for a while.
-
-            <br><br>
-
-            It's like...
+            Not just when you're singing.
 
             <br>
 
-            I press play and suddenly
-            I'm somewhere else.
+            Even when you're just talking.
 
             <br>
 
-            Somewhere peaceful.
+            Even when you're telling me
+            something completely random.
 
             <br>
 
-            Somewhere that honestly feels like heaven.
+            Even when you're half sleepy.
+
+            😂
+
+            <br><br>
+
+            There's just something about hearing
+            you through those voice notes that
+            feels different.
+
+            <br><br>
+
+            Maybe it's because we've never actually
+            met in person yet...
+
+            <br>
+
+            so those little pieces of your voice
+            somehow make the distance feel
+            a little smaller.
 
             ❤️
 
         </p>
 
+
         <p class="voice-line">
 
-            And yes... I still listen to those
-            singing voice notes almost every day. 🥹🎧
+            And yes...
+
+            <br>
+
+            I love when you sing for me. 🥹🎶
 
         </p>
 
+
+        <p>
+
+            I hope you know that I don't just
+            listen to your voice notes and forget them.
+
+            <br><br>
+
+            Some of them stay with me.
+
+            ❤️
+
+        </p>
+
+
         <p class="music-note">
 
-            You probably don't even realise
-            how special your voice is to me.
+            Also... your random voice notes
+            can make my day better without
+            you even realising it.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FUTURE MEETING
+===================================================== -->
+
+<section>
+
+    <div class="future-card">
+
+        <div class="future-icon">
+            🌍❤️
+        </div>
+
+        <h3>
+            One day...
+        </h3>
+
+        <p>
+
+            There's still one thing
+            we haven't done yet.
+
+            <br><br>
+
+            We've talked for countless hours.
+
+            <br>
+
+            We've sent each other countless
+            voice notes.
+
+            <br>
+
+            We've stayed up way too late.
+
+            <br>
+
+            We've shared random things
+            that probably nobody else knows.
+
+            <br><br>
+
+            But we've never actually
+            met each other.
+
+            <br><br>
+
+            And honestly...
+
+            <br>
+
+            I really hope we do someday.
+
+            <br><br>
+
+            I wonder what that first meeting
+            is going to be like.
+
+            😂
+
+        </p>
+
+
+        <p class="handwritten">
+
+            From online Chanchalship
+            to one day actually sitting together. ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BIRTHDAY GIFT
+===================================================== -->
+
+<section>
+
+    <div class="future-card">
+
+        <div class="future-icon">
+            🎁
+        </div>
+
+        <h3>
+            This is your gift.
+        </h3>
+
+        <p>
+
+            People usually wrap gifts in paper.
+
+            <br><br>
+
+            I wrapped mine in HTML, CSS,
+            JavaScript, way too many hearts,
+            and an unhealthy amount of late-night coding.
+
+            😂❤️
+
+            <br><br>
+
+            Every section of this page was made
+            while thinking about our conversations,
+            your voice, our random jokes,
+            and this weird little thing we call
+            Chanchalship.
+
+            <br><br>
+
+            So whenever you feel like it...
+
+            <br><br>
+
+            Come back here.
+
+            <br>
+
+            It'll always be waiting for you.
+
+            ❤️
 
         </p>
 
@@ -2743,43 +3030,49 @@ section {
 
     <h2 class="section-title">
 
-        One of the Best girl I Have met in my Life 📸
+        Bestest Girl I have ever met in my life... 📸
 
     </h2>
 
+
     <div class="photos">
+
 
         <div class="photo"
              style="--rotation:-2deg;">
 
             <img src="img/1.jpeg"
-                 alt="Vishakha">
+                 alt="Chanchal">
 
         </div>
+
 
         <div class="photo"
              style="--rotation:2deg;">
 
             <img src="img/2.jpeg"
-                 alt="Vishakha">
+                 alt="Chanchal">
 
         </div>
+
 
         <div class="photo"
              style="--rotation:1deg;">
 
             <img src="img/3.jpeg"
-                 alt="Vishakha">
+                 alt="Chanchal">
 
         </div>
+
 
         <div class="photo"
              style="--rotation:-3deg;">
 
             <img src="img/4.jpeg"
-                 alt="Vishakha">
+                 alt="Chanchal">
 
         </div>
+
 
     </div>
 
@@ -2795,20 +3088,58 @@ section {
 
     <h2 class="section-title">
 
-        Things I appreciate about you
+        Things I like about you
 
     </h2>
+
 
     <div class="things">
 
 
         <div class="thing">
 
-            <span>🫶</span>
+            <span>🌸</span>
 
             <p>
-                The way you somehow manage to make
-                even boring moments fun.
+
+                You're shy in that cute way
+                where you sometimes don't know
+                what to say.
+
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>🎙️</span>
+
+            <p>
+
+                Your voice.
+
+                Seriously.
+
+                I could listen to you talk
+                for way longer than I should.
+
+            </p>
+
+        </div>
+
+
+        <div class="thing">
+
+            <span>🌙</span>
+
+            <p>
+
+                Our completely unreasonable
+                late-night conversations.
+
+                Somehow the clock just stops existing.
+
             </p>
 
         </div>
@@ -2819,8 +3150,11 @@ section {
             <span>😂</span>
 
             <p>
-                Your absolutely ridiculous sense of humour.
-                Seriously. Sometimes I question you.
+
+                The random things we talk about
+                that make absolutely no sense
+                to anyone else.
+
             </p>
 
         </div>
@@ -2828,35 +3162,14 @@ section {
 
         <div class="thing">
 
-            <span>💗</span>
+            <span>🫶</span>
 
             <p>
-                The fact that you actually care about
-                the people around you.
-            </p>
 
-        </div>
+                The way we can be comfortable
+                with each other even through
+                a screen.
 
-
-        <div class="thing">
-
-            <span>✨</span>
-
-            <p>
-                You being yourself instead of trying
-                to be someone you're not.
-            </p>
-
-        </div>
-
-
-        <div class="thing">
-
-            <span>🥹</span>
-
-            <p>
-                The little things you probably don't
-                even realise people notice.
             </p>
 
         </div>
@@ -2867,8 +3180,14 @@ section {
             <span>❤️</span>
 
             <p>
-                And honestly... just you.
-                That's probably enough.
+
+                And honestly...
+
+                just whatever this
+                Chanchalship thing is.
+
+                I wouldn't replace it.
+
             </p>
 
         </div>
@@ -2887,16 +3206,25 @@ section {
 <section class="secret">
 
     <h2 class="section-title">
+
         Wait...
+
     </h2>
 
+
     <p>
+
         There's something hidden here.
+
     </p>
 
+
     <button onclick="showSecret()">
+
         Don't click this 👀
+
     </button>
+
 
     <div id="secretMessage">
 
@@ -2904,7 +3232,13 @@ section {
 
         <br><br>
 
-        I knew you would. 😂
+        Of course you did. 😂
+
+        <br><br>
+
+        Shy outside...
+
+        curious inside. 👀
 
         <br><br>
 
@@ -2912,7 +3246,9 @@ section {
 
         <br>
 
-        I love having you in my life. ❤️
+        I'm really glad I have you in my life.
+
+        ❤️
 
     </div>
 
@@ -2930,86 +3266,168 @@ section {
 
         <p>
 
-            Hey.
+            Hey Chanchal.
 
             <br><br>
 
-            I don't really know how to write emotional
-            things without making them sound cheesy,
-            so I'm just going to say it normally.
+            I don't really know how to write this
+            without making it sound unnecessarily
+            dramatic, so I'll just say it normally.
 
             <br><br>
 
-            I'm really glad I met you.
+            I'm really glad that random GC
+            brought us into each other's lives.
 
             <br><br>
 
-            There are so many people we meet in life,
-            and most of them eventually become just
-            another memory.
+            Because if someone had told me back then
+            that I'd eventually spend so many nights
+            talking to you, sending voice notes,
+            listening to you sing, laughing about
+            random things and having conversations
+            that somehow turn romantic at 2 AM...
 
             <br><br>
 
-            But then there are a few people who somehow
-            become part of your everyday life.
+            I probably would've laughed.
+
+            😂
 
             <br><br>
 
-            You're one of those people for me.
+            But here we are.
 
             <br><br>
 
-            We've laughed at stupid things,
-            had random conversations,
-            annoyed each other,
-            probably made some questionable decisions...
+            And somehow...
+
+            I really like what we have.
 
             <br><br>
 
-            and somehow all those tiny moments became
-            some of my favourite memories.
-
-            <br><br>
-
-            I hope this year is really good to you.
-
-            <br><br>
-
-            I hope you get everything you're working for.
+            I like that we don't have to force a label.
 
             <br>
 
-            I hope you meet people who appreciate you.
+            We have our own stupid little word for it.
 
             <br>
 
-            I hope you have more reasons to smile.
+            Chanchalship.
 
-            <br>
-
-            And whenever things aren't going perfectly,
-            I hope you remember that you've got someone
-            who'll always be cheering for you.
+            😂❤️
 
             <br><br>
 
-            Anyway...
+            I like our late-night conversations.
 
             <br>
 
-            enough emotional stuff before I embarrass myself. 😭
-
-            <br><br>
-
-            Happy Birthday.
+            I like your voice notes.
 
             <br>
 
-            Seriously.
+            I like hearing you sing.
+
+            <br>
+
+            I like when you randomly send your voice
+            even when there's absolutely nothing
+            important to say.
 
             <br><br>
 
-            I'm really lucky to call you my best friend.
+            And I especially like those moments
+            when it's late at night and we're both
+            probably supposed to be sleeping...
+
+            but we're still there.
+
+            <br><br>
+
+            Talking.
+
+            <br>
+
+            Laughing.
+
+            <br>
+
+            Flirting.
+
+            <br>
+
+            Saying things we probably wouldn't
+            say during the day.
+
+            😂❤️
+
+            <br><br>
+
+            I know we've never met in person yet.
+
+            <br><br>
+
+            But somehow you've still become
+            someone I genuinely care about.
+
+            <br><br>
+
+            And I really hope that one day
+            we actually get to meet.
+
+            <br><br>
+
+            I don't know what that day will look like.
+
+            <br>
+
+            Maybe we'll both be awkward.
+
+            <br>
+
+            Maybe we'll laugh about how weird
+            it is finally hearing each other
+            without a phone between us.
+
+            <br>
+
+            Maybe you'll be too shy to say anything.
+
+            😂
+
+            <br><br>
+
+            But I think it'll be worth waiting for.
+
+            <br><br>
+
+            Until then...
+
+            <br>
+
+            I'll happily keep collecting
+            late-night conversations,
+            random voice notes,
+            songs,
+            laughs,
+            and all the little moments
+            that make this Chanchalship ours.
+
+            <br><br>
+
+            Take care of yourself, okay?
+
+            <br><br>
+
+            And don't ever forget...
+
+            <br>
+
+            you're pretty special to me.
+
+            ❤️
 
         </p>
 
@@ -3040,12 +3458,16 @@ section {
         </div>
 
         <h2>
-            Vishu's Birthday Quest
+            Chanchal's Birthday Quest
         </h2>
 
         <p>
 
-            Okay... you thought that was the end?
+            Okay...
+
+            <br>
+
+            You thought the emotional stuff was over?
 
             <br><br>
 
@@ -3053,12 +3475,11 @@ section {
 
             <br><br>
 
-            Apparently you have to
-            <strong>earn your birthday surprise.</strong>
+            You have to earn your surprise.
 
             <br><br>
 
-            There are 8 little challenges.
+            There are 8 challenges.
 
             <br>
 
@@ -3066,8 +3487,7 @@ section {
 
             <br>
 
-            And there's another 20 points
-            waiting for your honest review.
+            Then there's a final 20-point review.
 
             <br><br>
 
@@ -3077,7 +3497,19 @@ section {
 
             ❤️
 
+            <br><br>
+
+            And yes...
+
+            <br>
+
+            I fully expect you to complain
+            about at least one of these games.
+
+            😂
+
         </p>
+
 
         <button class="quest-start-button"
                 onclick="startQuest()">
@@ -3090,15 +3522,12 @@ section {
 
 
 
-    <!-- QUEST GAME -->
-
     <div id="questGame">
-
 
         <div class="quest-header">
 
             <h2>
-                🎮 Birthday Quest
+                🎮 Chanchal's Quest
             </h2>
 
             <div class="score-box">
@@ -3111,10 +3540,12 @@ section {
 
             </div>
 
+
             <div class="quest-progress">
 
                 <div class="quest-progress-fill"
                      id="progressFill">
+
                 </div>
 
             </div>
@@ -3127,12 +3558,13 @@ section {
 
         </div>
 
-
     </div>
 
 
 
-    <!-- REVIEW -->
+    <!-- =================================================
+         REVIEW
+    ================================================= -->
 
     <div id="reviewSection"
          style="display:none;">
@@ -3149,7 +3581,7 @@ section {
 
             <p>
 
-                You survived all 8 games.
+                You actually survived all eight games.
 
                 😂
 
@@ -3162,6 +3594,8 @@ section {
                 This part is worth the final
                 <strong>20 points.</strong>
 
+                ❤️
+
             </p>
 
 
@@ -3171,8 +3605,12 @@ section {
                 <div class="review-question">
 
                     <label>
-                        ⭐ How much did you enjoy the games?
+
+                        ⭐ How much did you enjoy
+                        the whole thing?
+
                     </label>
+
 
                     <select id="enjoyment">
 
@@ -3181,11 +3619,11 @@ section {
                         </option>
 
                         <option value="10">
-                            10/10 — I loved them ❤️
+                            10/10 — I loved it ❤️
                         </option>
 
                         <option value="8">
-                            8/10 — Really fun
+                            8/10 — Really cute
                         </option>
 
                         <option value="6">
@@ -3197,7 +3635,7 @@ section {
                         </option>
 
                         <option value="2">
-                            2/10 — Rocky what was this 😭
+                            2/10 — Rocky... seriously? 😭
                         </option>
 
                     </select>
@@ -3210,6 +3648,7 @@ section {
                     <label>
                         🎮 Which game was your favourite?
                     </label>
+
 
                     <select id="favoriteGame">
 
@@ -3257,8 +3696,12 @@ section {
                 <div class="review-question">
 
                     <label>
-                        😂 Which game made you laugh the most?
+
+                        🌙 Which part felt most like
+                        our Chanchalship?
+
                     </label>
+
 
                     <select id="funniestGame">
 
@@ -3267,35 +3710,23 @@ section {
                         </option>
 
                         <option>
-                            Catch the Hearts
+                            The late-night vibes
                         </option>
 
                         <option>
-                            Find the Hidden Heart
+                            The voice/voice-note part
                         </option>
 
                         <option>
-                            Feed the Cat
+                            The romantic parts 👀
                         </option>
 
                         <option>
-                            Heartbreaker
+                            The games
                         </option>
 
                         <option>
-                            Photo Puzzle
-                        </option>
-
-                        <option>
-                            Rhythm Game
-                        </option>
-
-                        <option>
-                            Who Am I?
-                        </option>
-
-                        <option>
-                            Treasure Hunt
+                            The whole thing ❤️
                         </option>
 
                     </select>
@@ -3306,9 +3737,16 @@ section {
                 <div class="review-question">
 
                     <label>
-                        ❤️ Okay, be honest...
-                        Did you actually enjoy this?
+
+                        ❤️ Now actually tell me...
+
+                        <br>
+
+                        What did you think about
+                        this whole birthday gift?
+
                     </label>
+
 
                     <textarea id="reviewText"
                               placeholder="Write whatever you honestly think... I promise I won't judge 😂❤️"></textarea>
@@ -3331,7 +3769,9 @@ section {
 
 
 
-    <!-- SCORE SCREEN -->
+    <!-- =================================================
+         SCORE
+    ================================================= -->
 
     <div class="score-screen"
          id="scoreScreen">
@@ -3340,9 +3780,11 @@ section {
             🏆
         </div>
 
+
         <div class="level-number">
-            QUEST COMPLETE
+            CHANCHALSHIP QUEST COMPLETE
         </div>
+
 
         <div class="final-score"
              id="finalScore">
@@ -3351,21 +3793,32 @@ section {
 
         </div>
 
+
         <div class="score-message"
              id="scoreMessage">
 
         </div>
 
+
         <p>
 
             You actually made it through
-            the entire ridiculous thing I made.
+            the entire thing.
 
             <br><br>
 
-            I'm impressed. 😂❤️
+            I'm impressed.
+
+            😂❤️
+
+            <br><br>
+
+            Now...
+
+            there's only one thing left.
 
         </p>
+
 
         <button class="quest-start-button"
                 onclick="startReveal()">
@@ -3390,20 +3843,38 @@ section {
         🎂
     </div>
 
+
     <h1>
         Happy Birthday ❤️
     </h1>
 
+
     <p>
 
-        Here's to another year of being
-        absolutely chaotic together. 😂
+        28 August 2026.
+
+        <br><br>
+
+        Thank you for existing.
+
+        <br><br>
+
+        Thank you for every late-night conversation,
+        every random voice note,
+        every laugh,
+        and every little moment that slowly became
+        my favourite part of the day.
 
     </p>
 
+
     <p class="handwritten">
 
-        Love you, idiot. 🫶
+        This webpage will always be yours.
+
+        <br>
+
+        Happy Birthday, Chanchal. 🌸
 
     </p>
 
@@ -3412,7 +3883,7 @@ section {
 
 
 <!-- =====================================================
-     FINAL SURPRISE REVEAL
+     FINAL REVEAL
 ===================================================== -->
 
 <div id="revealScreen">
@@ -3423,19 +3894,28 @@ section {
             ✨ 💗 ✨
         </div>
 
+
         <h2>
             You Did It!
         </h2>
 
+
         <p>
 
-            You made it all the way through.
+            You actually went through
+            everything I made for you.
 
             <br><br>
 
-            You played every stupid little game,
-            answered everything,
-            and even wrote me a review.
+            You played all the games.
+
+            <br>
+
+            You answered everything.
+
+            <br>
+
+            You even wrote me a review.
 
             <br><br>
 
@@ -3443,7 +3923,9 @@ section {
 
             <br>
 
-            I guess you earned this. ❤️
+            I guess you earned this.
+
+            ❤️
 
         </p>
 
@@ -3451,35 +3933,114 @@ section {
         <div class="reveal-card">
 
             <h3>
-                🎁 Your Final Reward
+                🎁 Your Birthday Gift
             </h3>
+
 
             <p>
 
-                Okay, this part was actually
-                made especially for you.
+                Chanchal...
 
                 <br><br>
 
-                Thank you for being one of the
-                most important people in my life.
+                This wasn't made by a company.
+
+                <br>
+
+                It wasn't bought from a store.
 
                 <br><br>
 
-                And thank you for all the laughs,
-                conversations, random voice notes,
-                memories, arguments,
-                and everything in between.
+                It was built line by line by me...
 
-                <br><br>
+                <br>
 
-                Happy Birthday, Vishakha.
+                specifically for you.
 
                 ❤️
 
                 <br><br>
 
-                — Rocky
+                I don't know where this
+                Chanchalship thing is going to go.
+
+                <br><br>
+
+                Maybe it'll stay exactly
+                the way it is.
+
+                <br>
+
+                Maybe it'll become something
+                completely different someday.
+
+                <br><br>
+
+                But whatever happens...
+
+                <br>
+
+                I'm genuinely grateful
+                that I met you.
+
+                <br><br>
+
+                Until the day we finally
+                meet in real life...
+
+                <br>
+
+                I'll keep enjoying the
+                late nights.
+
+                <br>
+
+                The random conversations.
+
+                <br>
+
+                Your voice notes.
+
+                <br>
+
+                Your singing.
+
+                <br>
+
+                And all the little moments
+                that somehow became ours.
+
+                <br><br>
+
+                I hope that years from now,
+                you'll still have this page
+                saved somewhere...
+
+                <br>
+
+                and you'll smile when you
+                open it again.
+
+                <br><br>
+
+                Happy Birthday, Chanchal.
+
+                <br><br>
+
+                Keep being you.
+
+                ❤️
+
+                <br><br>
+
+                Welcome to another year
+                of Chanchalship.
+
+                🫶
+
+                <br><br>
+
+                — Rocky ❤️
 
             </p>
 
@@ -3487,25 +4048,23 @@ section {
 
 
         <!--
-            =================================================
-            FUTURE SECRET REWARD
+        =================================================
+        OPTIONAL EXTRA SURPRISE
 
-            You can replace the card above later with:
+        You can later put a personal voice recording
+        here if you want.
 
-            - Your personal video
-            - Her singing audio
-            - A secret photo
-            - A private letter
-            - Anything you want
+        Example:
 
-            Example:
+        <audio controls>
 
-            <audio controls>
-                <source src="audio/message.mp3"
-                        type="audio/mpeg">
-            </audio>
+            <source
+                src="audio/for-chanchal.mp3"
+                type="audio/mpeg">
 
-            =================================================
+        </audio>
+
+        =================================================
         -->
 
 
@@ -3524,9 +4083,8 @@ section {
 
 <script>
 
-
 /* =====================================================
-   GLOBAL GAME VARIABLES
+   VARIABLES
 ===================================================== */
 
 let totalScore = 0;
@@ -3534,8 +4092,6 @@ let totalScore = 0;
 let currentLevel = 0;
 
 let levelCompleted = false;
-
-let reviewCompleted = false;
 
 
 /* =====================================================
@@ -3565,7 +4121,8 @@ function showSecret() {
             "secretMessage"
         );
 
-    message.style.display = "block";
+    message.style.display =
+        "block";
 
     createHeartBurst();
 
@@ -3581,7 +4138,8 @@ function createHeart() {
     const heart =
         document.createElement("div");
 
-    heart.className = "heart";
+    heart.className =
+        "heart";
 
 
     const hearts = [
@@ -3603,17 +4161,25 @@ function createHeart() {
 
 
     heart.style.left =
-        Math.random() * 100 + "vw";
+        Math.random() *
+        100 +
+        "vw";
 
 
     heart.style.fontSize =
-        (15 + Math.random() * 20)
-        + "px";
+        (
+            15 +
+            Math.random() * 20
+        ) +
+        "px";
 
 
     heart.style.animationDuration =
-        (4 + Math.random() * 4)
-        + "s";
+        (
+            4 +
+            Math.random() * 4
+        ) +
+        "s";
 
 
     document.body.appendChild(
@@ -3621,11 +4187,10 @@ function createHeart() {
     );
 
 
-    setTimeout(() => {
-
-        heart.remove();
-
-    }, 8000);
+    setTimeout(
+        () => heart.remove(),
+        8000
+    );
 
 }
 
@@ -3648,11 +4213,10 @@ function createHeartBurst() {
         i++
     ) {
 
-        setTimeout(() => {
-
-            createHeart();
-
-        }, i * 70);
+        setTimeout(
+            () => createHeart(),
+            i * 70
+        );
 
     }
 
@@ -3676,55 +4240,67 @@ document.addEventListener(
             const heart =
                 document.createElement("div");
 
-            heart.innerHTML = "💗";
+
+            heart.innerHTML =
+                "💗";
+
 
             heart.style.position =
                 "fixed";
 
+
             heart.style.left =
                 e.clientX + "px";
+
 
             heart.style.top =
                 e.clientY + "px";
 
+
             heart.style.pointerEvents =
                 "none";
+
 
             heart.style.zIndex =
                 "9999";
 
+
             heart.style.fontSize =
                 "18px";
 
+
             heart.style.transition =
                 "all 0.9s ease";
+
 
             document.body.appendChild(
                 heart
             );
 
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                heart.style.transform =
-                    `
-                    translate(
-                        ${(Math.random() - 0.5) * 90}px,
-                        -${50 + Math.random() * 80}px
-                    )
-                    `;
+                    heart.style.transform =
+                        `
+                        translate(
+                            ${(Math.random() - 0.5) * 90}px,
+                            -${50 + Math.random() * 80}px
+                        )
+                        `;
 
-                heart.style.opacity =
-                    "0";
+                    heart.style.opacity =
+                        "0";
 
-            }, 50);
+                },
+                50
+            );
 
 
-            setTimeout(() => {
-
-                heart.remove();
-
-            }, 1000);
+            setTimeout(
+                () => heart.remove(),
+                1000
+            );
 
         }
 
@@ -3740,12 +4316,14 @@ function startQuest() {
 
     document.getElementById(
         "questIntro"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "questGame"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     currentLevel = 1;
@@ -3756,32 +4334,35 @@ function startQuest() {
 
 
 /* =====================================================
-   UPDATE SCORE
+   SCORE
 ===================================================== */
 
 function updateScore(points) {
 
     totalScore += points;
 
-    if (totalScore > 100) {
+
+    if (
+        totalScore > 100
+    ) {
+
         totalScore = 100;
+
     }
 
 
     document.getElementById(
         "scoreDisplay"
     ).innerText =
-        totalScore + " / 100";
+        totalScore +
+        " / 100";
 
 
-    const progress =
-        document.getElementById(
-            "progressFill"
-        );
-
-
-    progress.style.width =
-        totalScore + "%";
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        totalScore +
+        "%";
 
 }
 
@@ -3792,11 +4373,17 @@ function updateScore(points) {
 
 function completeLevel() {
 
-    if (levelCompleted) {
+    if (
+        levelCompleted
+    ) {
+
         return;
+
     }
 
-    levelCompleted = true;
+
+    levelCompleted =
+        true;
 
 
     updateScore(10);
@@ -3824,7 +4411,10 @@ function completeLevel() {
 
             <br><br>
 
-            You're doing suspiciously well. 😂
+            Okay...
+
+            maybe you're better
+            at this than I expected. 😂
 
         </p>
 
@@ -3849,7 +4439,8 @@ function nextLevel() {
 
     currentLevel++;
 
-    levelCompleted = false;
+    levelCompleted =
+        false;
 
     loadLevel();
 
@@ -3868,49 +4459,65 @@ function loadLevel() {
         );
 
 
-    if (currentLevel === 1) {
+    if (
+        currentLevel === 1
+    ) {
 
         loadCatchHearts(card);
 
     }
 
-    else if (currentLevel === 2) {
+    else if (
+        currentLevel === 2
+    ) {
 
         loadHiddenHeart(card);
 
     }
 
-    else if (currentLevel === 3) {
+    else if (
+        currentLevel === 3
+    ) {
 
         loadCatGame(card);
 
     }
 
-    else if (currentLevel === 4) {
+    else if (
+        currentLevel === 4
+    ) {
 
         loadHeartbreaker(card);
 
     }
 
-    else if (currentLevel === 5) {
+    else if (
+        currentLevel === 5
+    ) {
 
         loadPuzzle(card);
 
     }
 
-    else if (currentLevel === 6) {
+    else if (
+        currentLevel === 6
+    ) {
 
         loadRhythm(card);
 
     }
 
-    else if (currentLevel === 7) {
+    else if (
+        currentLevel === 7
+    ) {
 
         loadWhoAmI(card);
 
     }
 
-    else if (currentLevel === 8) {
+    else if (
+        currentLevel === 8
+    ) {
 
         loadTreasure(card);
 
@@ -3926,8 +4533,7 @@ function loadLevel() {
 
 
 /* =====================================================
-   GAME 1
-   CATCH THE HEARTS
+   GAME 1 — CATCH HEARTS
 ===================================================== */
 
 function loadCatchHearts(card) {
@@ -3944,18 +4550,13 @@ function loadCatchHearts(card) {
 
         <p>
 
-            Move the little basket and catch
-            <strong>10 hearts</strong>.
+            Catch 10 hearts.
 
             <br>
 
             You have 30 seconds.
 
         </p>
-
-        <div class="catch-instruction">
-            Drag the basket left and right 👇
-        </div>
 
         <div class="catch-game"
              id="catchGame">
@@ -3970,7 +4571,9 @@ function loadCatchHearts(card) {
         </div>
 
         <p id="catchScore">
+
             Hearts: 0 / 10
+
         </p>
 
         <button
@@ -3987,11 +4590,12 @@ function loadCatchHearts(card) {
 }
 
 
-/* CATCH GAME */
-
 let catchCount = 0;
+
 let catchRunning = false;
+
 let catchInterval;
+
 let catchTimer;
 
 
@@ -4004,7 +4608,8 @@ function startCatchGame() {
 
     document.getElementById(
         "startCatchButton"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     const area =
@@ -4019,12 +4624,10 @@ function startCatchGame() {
         );
 
 
-    let playerX = 50;
-
-
     function movePlayer(e) {
 
-        if (!catchRunning) return;
+        if (!catchRunning)
+            return;
 
 
         const rect =
@@ -4050,9 +4653,14 @@ function startCatchGame() {
         }
 
 
-        playerX =
-            ((clientX - rect.left)
-            / rect.width) * 100;
+        let playerX =
+            (
+                (
+                    clientX -
+                    rect.left
+                ) /
+                rect.width
+            ) * 100;
 
 
         playerX =
@@ -4080,126 +4688,145 @@ function startCatchGame() {
     area.addEventListener(
         "touchmove",
         movePlayer,
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
     catchInterval =
-        setInterval(() => {
+        setInterval(
+            () => {
 
-            if (!catchRunning) return;
+                if (!catchRunning)
+                    return;
 
 
-            const heart =
-                document.createElement(
-                    "div"
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                heart.className =
+                    "falling-heart";
+
+
+                heart.innerHTML =
+                    "❤️";
+
+
+                heart.style.left =
+                    Math.random() *
+                    90 +
+                    "%";
+
+
+                area.appendChild(
+                    heart
                 );
 
 
-            heart.className =
-                "falling-heart";
+                let top = -40;
 
 
-            heart.innerHTML =
-                "❤️";
+                const fall =
+                    setInterval(
+                        () => {
+
+                            if (
+                                !catchRunning
+                            ) {
+
+                                clearInterval(
+                                    fall
+                                );
+
+                                heart.remove();
+
+                                return;
+
+                            }
 
 
-            heart.style.left =
-                Math.random() * 90 + "%";
+                            top += 4;
+
+                            heart.style.top =
+                                top + "px";
 
 
-            area.appendChild(
-                heart
-            );
+                            const heartRect =
+                                heart.getBoundingClientRect();
 
 
-            let top = -40;
+                            const playerRect =
+                                player.getBoundingClientRect();
 
 
-            const fall =
-                setInterval(() => {
+                            if (
+                                heartRect.bottom >=
+                                playerRect.top
+                                &&
+                                heartRect.left <
+                                playerRect.right
+                                &&
+                                heartRect.right >
+                                playerRect.left
+                            ) {
 
-                    if (!catchRunning) {
-
-                        clearInterval(
-                            fall
-                        );
-
-                        heart.remove();
-
-                        return;
-                    }
-
-
-                    top += 4;
-
-                    heart.style.top =
-                        top + "px";
+                                catchCount++;
 
 
-                    const heartRect =
-                        heart.getBoundingClientRect();
+                                document.getElementById(
+                                    "catchScore"
+                                ).innerText =
+                                    "Hearts: "
+                                    +
+                                    catchCount
+                                    +
+                                    " / 10";
 
 
-                    const playerRect =
-                        player.getBoundingClientRect();
+                                heart.remove();
 
 
-                    if (
-                        heartRect.bottom >=
-                        playerRect.top
-                        &&
-                        heartRect.left <
-                        playerRect.right
-                        &&
-                        heartRect.right >
-                        playerRect.left
-                    ) {
-
-                        catchCount++;
+                                clearInterval(
+                                    fall
+                                );
 
 
-                        document.getElementById(
-                            "catchScore"
-                        ).innerText =
-                            "Hearts: "
-                            + catchCount
-                            + " / 10";
+                                if (
+                                    catchCount >=
+                                    10
+                                ) {
+
+                                    finishCatchGame();
+
+                                }
+
+                            }
 
 
-                        heart.remove();
+                            if (
+                                top >
+                                area.clientHeight
+                            ) {
 
-                        clearInterval(
-                            fall
-                        );
+                                heart.remove();
 
+                                clearInterval(
+                                    fall
+                                );
 
-                        if (
-                            catchCount >= 10
-                        ) {
+                            }
 
-                            finishCatchGame();
+                        },
+                        25
+                    );
 
-                        }
-
-                    }
-
-
-                    if (
-                        top > area.clientHeight
-                    ) {
-
-                        heart.remove();
-
-                        clearInterval(
-                            fall
-                        );
-
-                    }
-
-                }, 25);
-
-        }, 600);
+            },
+            600
+        );
 
 
     catchTimer =
@@ -4223,10 +4850,12 @@ function startCatchGame() {
 
 function finishCatchGame() {
 
-    if (!catchRunning) return;
+    if (!catchRunning)
+        return;
 
 
-    catchRunning = false;
+    catchRunning =
+        false;
 
 
     clearInterval(
@@ -4239,19 +4868,17 @@ function finishCatchGame() {
     );
 
 
-    if (catchCount >= 10) {
+    if (
+        catchCount >= 10
+    ) {
 
         completeLevel();
 
     } else {
 
-        const card =
-            document.getElementById(
-                "levelCard"
-            );
-
-
-        card.innerHTML = `
+        document.getElementById(
+            "levelCard"
+        ).innerHTML = `
 
             <div style="font-size:55px;">
                 😭
@@ -4264,11 +4891,11 @@ function finishCatchGame() {
             <p>
 
                 You caught
-                ${catchCount}/10 hearts.
+                ${catchCount}/10.
 
                 <br><br>
 
-                Try again. I believe in you. ❤️
+                Try again, Chanchal. ❤️
 
             </p>
 
@@ -4288,8 +4915,7 @@ function finishCatchGame() {
 
 
 /* =====================================================
-   GAME 2
-   FIND HIDDEN HEART
+   GAME 2 — HIDDEN HEART
 ===================================================== */
 
 function loadHiddenHeart(card) {
@@ -4346,12 +4972,10 @@ function loadHiddenHeart(card) {
 
 function startHiddenHeart() {
 
-    const button =
-        document.getElementById(
-            "hiddenStart"
-        );
-
-    button.style.display = "none";
+    document.getElementById(
+        "hiddenStart"
+    ).style.display =
+        "none";
 
 
     const heart =
@@ -4360,91 +4984,109 @@ function startHiddenHeart() {
         );
 
 
-    const area =
-        document.getElementById(
-            "hiddenHeartArea"
-        );
-
-
     heart.style.left =
-        (10 + Math.random() * 80)
-        + "%";
+        (
+            10 +
+            Math.random() * 80
+        ) +
+        "%";
 
 
     heart.style.top =
-        (10 + Math.random() * 75)
-        + "%";
+        (
+            10 +
+            Math.random() * 75
+        ) +
+        "%";
 
 
     let time = 15;
 
 
     const timer =
-        setInterval(() => {
+        setInterval(
+            () => {
 
-            time--;
-
-            document.getElementById(
-                "hiddenTimer"
-            ).innerText =
-                "Time: "
-                + time
-                + " seconds";
-
-
-            if (time <= 0) {
-
-                clearInterval(timer);
+                time--;
 
 
                 document.getElementById(
-                    "levelCard"
-                ).innerHTML = `
-
-                    <div style="font-size:55px;">
-                        😭
-                    </div>
-
-                    <h3>
-                        Too Slow!
-                    </h3>
-
-                    <p>
-                        The heart escaped. 😂
-                    </p>
-
-                    <button
-                        class="game-button"
-                        onclick="loadHiddenHeart(document.getElementById('levelCard'))">
-
-                        Try Again
-
-                    </button>
-
-                `;
-
-            }
-
-        }, 1000);
+                    "hiddenTimer"
+                ).innerText =
+                    "Time: "
+                    +
+                    time
+                    +
+                    " seconds";
 
 
-    heart.onclick = () => {
+                if (
+                    time <= 0
+                ) {
 
-        clearInterval(timer);
+                    clearInterval(
+                        timer
+                    );
 
-        completeLevel();
 
-    };
+                    document.getElementById(
+                        "levelCard"
+                    ).innerHTML = `
+
+                        <div style="font-size:55px;">
+                            😭
+                        </div>
+
+                        <h3>
+                            Too Slow!
+                        </h3>
+
+                        <p>
+                            The heart escaped. 😂
+                        </p>
+
+                        <button
+                            class="game-button"
+                            onclick="loadHiddenHeart(document.getElementById('levelCard'))">
+
+                            Try Again
+
+                        </button>
+
+                    `;
+
+                }
+
+            },
+            1000
+        );
+
+
+    heart.onclick =
+        () => {
+
+            clearInterval(
+                timer
+            );
+
+            completeLevel();
+
+        };
 
 }
 
 
 /* =====================================================
-   GAME 3
-   FEED THE CAT
+   GAME 3 — FEED CAT
 ===================================================== */
 
+let catFoodCount = 0;
+
+
 function loadCatGame(card) {
+
+    catFoodCount = 0;
+
 
     card.innerHTML = `
 
@@ -4487,31 +5129,41 @@ function loadCatGame(card) {
                 <button
                     class="food-button"
                     onclick="feedCat('🍕')">
+
                     🍕
+
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🍓')">
+
                     🍓
+
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🍰')">
+
                     🍰
+
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🧁')">
+
                     🧁
+
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🥛')">
+
                     🥛
+
                 </button>
 
             </div>
@@ -4519,15 +5171,14 @@ function loadCatGame(card) {
         </div>
 
         <p id="catScore">
+
             Food: 0 / 5
+
         </p>
 
     `;
 
 }
-
-
-let catFoodCount = 0;
 
 
 function feedCat(food) {
@@ -4536,11 +5187,17 @@ function feedCat(food) {
 
 
     const messages = [
+
         "Yummm 😋",
+
         "Again!",
+
         "Okay this is good...",
+
         "I like you now. 😂",
+
         "BEST. BIRTHDAY. EVER. ❤️"
+
     ];
 
 
@@ -4559,13 +5216,15 @@ function feedCat(food) {
         "catScore"
     ).innerText =
         "Food: "
-        + catFoodCount
-        + " / 5";
+        +
+        catFoodCount
+        +
+        " / 5";
 
 
-    if (catFoodCount >= 5) {
-
-        catFoodCount = 0;
+    if (
+        catFoodCount >= 5
+    ) {
 
         setTimeout(
             completeLevel,
@@ -4578,9 +5237,15 @@ function feedCat(food) {
 
 
 /* =====================================================
-   GAME 4
-   HEARTBREAKER
+   GAME 4 — HEARTBREAKER
 ===================================================== */
+
+let heartbreakerCount = 0;
+
+let heartbreakerRunning = false;
+
+let heartbreakerTimer;
+
 
 function loadHeartbreaker(card) {
 
@@ -4596,12 +5261,12 @@ function loadHeartbreaker(card) {
 
         <p>
 
-            Tap as many hearts as you can
-            before the timer ends.
+            Tap as many hearts as possible
+            before time runs out.
 
             <br>
 
-            You need <strong>15</strong>.
+            You need 15.
 
         </p>
 
@@ -4618,7 +5283,9 @@ function loadHeartbreaker(card) {
         </div>
 
         <p id="heartbreakerScore">
+
             Score: 0 / 15
+
         </p>
 
         <button
@@ -4635,11 +5302,6 @@ function loadHeartbreaker(card) {
 }
 
 
-let heartbreakerCount = 0;
-let heartbreakerRunning = false;
-let heartbreakerTimer;
-
-
 function startHeartbreaker() {
 
     heartbreakerCount = 0;
@@ -4649,7 +5311,8 @@ function startHeartbreaker() {
 
     document.getElementById(
         "heartbreakerStart"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     const area =
@@ -4662,148 +5325,174 @@ function startHeartbreaker() {
 
 
     heartbreakerTimer =
-        setInterval(() => {
+        setInterval(
+            () => {
 
-            seconds--;
-
-            document.getElementById(
-                "heartTimer"
-            ).innerText =
-                seconds + " seconds";
-
-
-            if (seconds <= 0) {
-
-                endHeartbreaker();
-
-            }
-
-        }, 1000);
-
-
-    const spawn =
-        setInterval(() => {
-
-            if (!heartbreakerRunning) {
-
-                clearInterval(spawn);
-
-                return;
-
-            }
-
-
-            const heart =
-                document.createElement(
-                    "div"
-                );
-
-
-            heart.className =
-                "tappable-heart";
-
-
-            heart.innerHTML =
-                Math.random() > 0.2
-                    ? "💗"
-                    : "💔";
-
-
-            heart.style.left =
-                Math.random() * 88 + "%";
-
-
-            heart.style.top =
-                Math.random() * 85 + "%";
-
-
-            heart.onclick = () => {
-
-                if (!heartbreakerRunning)
-                    return;
-
-
-                if (
-                    heart.innerHTML ===
-                    "💔"
-                ) {
-
-                    heartbreakerCount =
-                        Math.max(
-                            0,
-                            heartbreakerCount - 2
-                        );
-
-                } else {
-
-                    heartbreakerCount++;
-
-                }
+                seconds--;
 
 
                 document.getElementById(
-                    "heartbreakerScore"
+                    "heartTimer"
                 ).innerText =
-                    "Score: "
-                    + heartbreakerCount
-                    + " / 15";
-
-
-                heart.remove();
+                    seconds +
+                    " seconds";
 
 
                 if (
-                    heartbreakerCount >= 15
+                    seconds <= 0
                 ) {
 
                     endHeartbreaker();
 
                 }
 
-            };
+            },
+            1000
+        );
 
 
-            area.appendChild(
-                heart
-            );
+    const spawn =
+        setInterval(
+            () => {
+
+                if (
+                    !heartbreakerRunning
+                ) {
+
+                    clearInterval(
+                        spawn
+                    );
+
+                    return;
+
+                }
 
 
-            setTimeout(
-                () => heart.remove(),
-                1800
-            );
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
 
-        }, 500);
+
+                heart.className =
+                    "tappable-heart";
+
+
+                heart.innerHTML =
+                    Math.random() > 0.2
+                        ? "💗"
+                        : "💔";
+
+
+                heart.style.left =
+                    Math.random() *
+                    88 +
+                    "%";
+
+
+                heart.style.top =
+                    Math.random() *
+                    85 +
+                    "%";
+
+
+                heart.onclick =
+                    () => {
+
+                        if (
+                            !heartbreakerRunning
+                        )
+                            return;
+
+
+                        if (
+                            heart.innerHTML ===
+                            "💔"
+                        ) {
+
+                            heartbreakerCount =
+                                Math.max(
+                                    0,
+                                    heartbreakerCount - 2
+                                );
+
+                        } else {
+
+                            heartbreakerCount++;
+
+                        }
+
+
+                        document.getElementById(
+                            "heartbreakerScore"
+                        ).innerText =
+                            "Score: "
+                            +
+                            heartbreakerCount
+                            +
+                            " / 15";
+
+
+                        heart.remove();
+
+
+                        if (
+                            heartbreakerCount >=
+                            15
+                        ) {
+
+                            endHeartbreaker();
+
+                        }
+
+                    };
+
+
+                area.appendChild(
+                    heart
+                );
+
+
+                setTimeout(
+                    () => heart.remove(),
+                    1800
+                );
+
+            },
+            500
+        );
 
 }
 
 
 function endHeartbreaker() {
 
-    if (!heartbreakerRunning)
+    if (
+        !heartbreakerRunning
+    )
         return;
 
 
-    heartbreakerRunning = false;
+    heartbreakerRunning =
+        false;
+
 
     clearInterval(
         heartbreakerTimer
     );
 
 
-    if (heartbreakerCount >= 15) {
+    if (
+        heartbreakerCount >= 15
+    ) {
 
         completeLevel();
 
     } else {
 
-        const card =
-            document.getElementById(
-                "levelCard"
-            );
-
-
-        card.innerHTML = `
+        document.getElementById(
+            "levelCard"
+        ).innerHTML = `
 
             <div style="font-size:55px;">
                 💔
@@ -4814,12 +5503,13 @@ function endHeartbreaker() {
             </h3>
 
             <p>
+
                 You got
                 ${heartbreakerCount}/15.
 
                 <br><br>
 
-                Don't let those hearts
+                Don't let the hearts
                 break your heart. 😂
 
             </p>
@@ -4840,24 +5530,28 @@ function endHeartbreaker() {
 
 
 /* =====================================================
-   GAME 5
-   PHOTO PUZZLE
+   GAME 5 — PUZZLE
 ===================================================== */
 
 function loadPuzzle(card) {
 
     const pieces = [];
 
+
     for (
         let i = 0;
         i < 9;
         i++
     ) {
+
         pieces.push(i);
+
     }
 
 
-    shuffleArray(pieces);
+    shuffleArray(
+        pieces
+    );
 
 
     card.innerHTML = `
@@ -4890,7 +5584,9 @@ function loadPuzzle(card) {
         </div>
 
         <p class="puzzle-help">
+
             Hint: it's one of your photos. ❤️
+
         </p>
 
     `;
@@ -4906,7 +5602,7 @@ function loadPuzzle(card) {
 
 
     pieces.forEach(
-        (piece, index) => {
+        piece => {
 
             const div =
                 document.createElement(
@@ -4923,7 +5619,10 @@ function loadPuzzle(card) {
 
 
             const row =
-                Math.floor(piece / 3);
+                Math.floor(
+                    piece / 3
+                );
+
 
             const col =
                 piece % 3;
@@ -4937,47 +5636,58 @@ function loadPuzzle(card) {
                 `${col * 50}% ${row * 50}%`;
 
 
-            div.onclick = () => {
+            div.onclick =
+                () => {
 
-                if (selected === null) {
+                    if (
+                        selected === null
+                    ) {
 
-                    selected = div;
+                        selected = div;
 
-                    div.classList.add(
-                        "selected"
-                    );
+                        div.classList.add(
+                            "selected"
+                        );
 
-                } else {
+                    } else {
 
-                    const temp =
-                        selected.dataset.position;
-
-                    selected.dataset.position =
-                        div.dataset.position;
-
-                    div.dataset.position =
-                        temp;
+                        const temp =
+                            selected.dataset.position;
 
 
-                    updatePuzzlePieces(board);
+                        selected.dataset.position =
+                            div.dataset.position;
 
 
-                    selected.classList.remove(
-                        "selected"
-                    );
+                        div.dataset.position =
+                            temp;
 
 
-                    selected = null;
+                        updatePuzzlePieces(
+                            board
+                        );
 
 
-                    checkPuzzle(board);
-
-                }
-
-            };
+                        selected.classList.remove(
+                            "selected"
+                        );
 
 
-            board.appendChild(div);
+                        selected = null;
+
+
+                        checkPuzzle(
+                            board
+                        );
+
+                    }
+
+                };
+
+
+            board.appendChild(
+                div
+            );
 
         }
     );
@@ -5003,7 +5713,9 @@ function updatePuzzlePieces(board) {
 
 
             const row =
-                Math.floor(position / 3);
+                Math.floor(
+                    position / 3
+                );
 
 
             const col =
@@ -5031,7 +5743,10 @@ function checkPuzzle(board) {
 
 
     pieces.forEach(
-        (piece, index) => {
+        (
+            piece,
+            index
+        ) => {
 
             if (
                 parseInt(
@@ -5069,7 +5784,8 @@ function shuffleArray(array) {
 
         const j =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
 
 
@@ -5088,9 +5804,15 @@ function shuffleArray(array) {
 
 
 /* =====================================================
-   GAME 6
-   RHYTHM GAME
+   GAME 6 — RHYTHM
 ===================================================== */
+
+let rhythmHits = 0;
+
+let rhythmRunning = false;
+
+let rhythmInterval;
+
 
 function loadRhythm(card) {
 
@@ -5125,7 +5847,9 @@ function loadRhythm(card) {
         </div>
 
         <p id="rhythmScore">
+
             Hits: 0 / 10
+
         </p>
 
         <button
@@ -5133,18 +5857,13 @@ function loadRhythm(card) {
             id="rhythmStart"
             onclick="startRhythm()">
 
-            Start Music 🎶
+            Start 🎶
 
         </button>
 
     `;
 
 }
-
-
-let rhythmHits = 0;
-let rhythmRunning = false;
-let rhythmInterval;
 
 
 function startRhythm() {
@@ -5156,7 +5875,8 @@ function startRhythm() {
 
     document.getElementById(
         "rhythmStart"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     const area =
@@ -5166,149 +5886,157 @@ function startRhythm() {
 
 
     rhythmInterval =
-        setInterval(() => {
+        setInterval(
+            () => {
 
-            if (!rhythmRunning)
-                return;
+                if (!rhythmRunning)
+                    return;
 
 
-            const heart =
-                document.createElement(
-                    "div"
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                heart.className =
+                    "rhythm-heart";
+
+
+                heart.innerHTML =
+                    "💗";
+
+
+                heart.style.left =
+                    (
+                        20 +
+                        Math.random() * 60
+                    ) +
+                    "%";
+
+
+                area.appendChild(
+                    heart
                 );
 
 
-            heart.className =
-                "rhythm-heart";
+                let top = -40;
 
 
-            heart.innerHTML =
-                "💗";
+                const fall =
+                    setInterval(
+                        () => {
 
+                            if (!rhythmRunning) {
 
-            heart.style.left =
-                (20 + Math.random() * 60)
-                + "%";
-
-
-            area.appendChild(
-                heart
-            );
-
-
-            let top = -40;
-
-
-            const fall =
-                setInterval(() => {
-
-                    if (!rhythmRunning) {
-
-                        clearInterval(
-                            fall
-                        );
-
-                        heart.remove();
-
-                        return;
-
-                    }
-
-
-                    top += 5;
-
-                    heart.style.top =
-                        top + "px";
-
-
-                    const heartRect =
-                        heart.getBoundingClientRect();
-
-
-                    const target =
-                        area
-                            .querySelector(
-                                ".rhythm-target"
-                            )
-                            .getBoundingClientRect();
-
-
-                    if (
-                        heartRect.bottom >=
-                        target.top
-                        &&
-                        heartRect.top <=
-                        target.bottom
-                    ) {
-
-                        heart.onclick =
-                            () => {
-
-                                rhythmHits++;
-
-
-                                document.getElementById(
-                                    "rhythmScore"
-                                ).innerText =
-                                    "Hits: "
-                                    + rhythmHits
-                                    + " / 10";
-
+                                clearInterval(fall);
 
                                 heart.remove();
 
+                                return;
+
+                            }
+
+
+                            top += 5;
+
+                            heart.style.top =
+                                top + "px";
+
+
+                            const heartRect =
+                                heart.getBoundingClientRect();
+
+
+                            const target =
+                                area
+                                    .querySelector(
+                                        ".rhythm-target"
+                                    )
+                                    .getBoundingClientRect();
+
+
+                            if (
+                                heartRect.bottom >=
+                                target.top
+                                &&
+                                heartRect.top <=
+                                target.bottom
+                            ) {
+
+                                heart.onclick =
+                                    () => {
+
+                                        rhythmHits++;
+
+
+                                        document.getElementById(
+                                            "rhythmScore"
+                                        ).innerText =
+                                            "Hits: "
+                                            +
+                                            rhythmHits
+                                            +
+                                            " / 10";
+
+
+                                        heart.remove();
+
+
+                                        clearInterval(
+                                            fall
+                                        );
+
+
+                                        if (
+                                            rhythmHits >=
+                                            10
+                                        ) {
+
+                                            rhythmRunning =
+                                                false;
+
+
+                                            clearInterval(
+                                                rhythmInterval
+                                            );
+
+
+                                            completeLevel();
+
+                                        }
+
+                                    };
+
+                            }
+
+
+                            if (
+                                top >
+                                area.clientHeight
+                            ) {
+
+                                heart.remove();
 
                                 clearInterval(
                                     fall
                                 );
 
+                            }
 
-                                if (
-                                    rhythmHits >=
-                                    10
-                                ) {
+                        },
+                        25
+                    );
 
-                                    rhythmRunning =
-                                        false;
-
-
-                                    clearInterval(
-                                        rhythmInterval
-                                    );
-
-
-                                    completeLevel();
-
-                                }
-
-                            };
-
-                    }
-
-
-                    if (
-                        top >
-                        area.clientHeight
-                    ) {
-
-                        heart.remove();
-
-                        clearInterval(
-                            fall
-                        );
-
-                    }
-
-                }, 25);
-
-        }, 700);
+            },
+            700
+        );
 
 }
 
 
 /* =====================================================
-   GAME 7
-   WHO AM I
+   GAME 7 — WHO AM I?
 ===================================================== */
 
 const whoQuestions = [
@@ -5329,13 +6057,27 @@ const whoQuestions = [
 
     {
         question:
-            "Who sends random singing voice notes?",
+            "What do we send each other a lot?",
 
         answers: [
-            "Rocky 😂",
-            "Your neighbour",
-            "Vishakha 🎶",
-            "Nobody"
+            "Letters",
+            "Voice notes ❤️",
+            "Postcards",
+            "Nothing"
+        ],
+
+        correct: 1
+    },
+
+    {
+        question:
+            "What happens way too often at night?",
+
+        answers: [
+            "We sleep early",
+            "We stop talking",
+            "We end up chatting for hours 🌙",
+            "Nothing"
         ],
 
         correct: 2
@@ -5343,50 +6085,37 @@ const whoQuestions = [
 
     {
         question:
-            "Who is more likely to annoy the other?",
+            "What did we call our relationship?",
 
         answers: [
-            "Rocky 😌",
-            "Vishakha 😭",
-            "Both",
-            "Neither"
+            "Bestfriendship",
+            "Relationship",
+            "Chanchalship ❤️",
+            "Friendship 2.0"
+        ],
+
+        correct: 2
+    },
+
+    {
+        question:
+            "What does Rocky love hearing from Chanchal?",
+
+        answers: [
+            "Her voice 🎙️",
+            "Nothing",
+            "Only her singing",
+            "Her alarm"
         ],
 
         correct: 0
-    },
-
-    {
-        question:
-            "What does Rocky call you?",
-
-        answers: [
-            "Sunshine",
-            "Vishu ❤️",
-            "Boss",
-            "Madam"
-        ],
-
-        correct: 1
-    },
-
-    {
-        question:
-            "Who is one of Rocky's favourite singers?",
-
-        answers: [
-            "A random celebrity",
-            "Vishakha 🎤",
-            "Nobody",
-            "His cat"
-        ],
-
-        correct: 1
     }
 
 ];
 
 
 let whoIndex = 0;
+
 let whoCorrect = 0;
 
 
@@ -5408,7 +6137,9 @@ function showWhoQuestion(card) {
         whoQuestions.length
     ) {
 
-        if (whoCorrect >= 3) {
+        if (
+            whoCorrect >= 3
+        ) {
 
             completeLevel();
 
@@ -5426,12 +6157,13 @@ function showWhoQuestion(card) {
 
                 <p>
 
-                    You only got
-                    ${whoCorrect}/5 correct.
+                    You got
+                    ${whoCorrect}/5.
 
                     <br><br>
 
-                    How do you not know us? 😂
+                    How do you not know
+                    your own Chanchalship? 😂
 
                 </p>
 
@@ -5462,7 +6194,10 @@ function showWhoQuestion(card) {
 
 
     q.answers.forEach(
-        (answer, index) => {
+        (
+            answer,
+            index
+        ) => {
 
             options += `
 
@@ -5536,7 +6271,6 @@ function answerWho(index) {
 
     whoIndex++;
 
-
     showWhoQuestion(
         document.getElementById(
             "levelCard"
@@ -5547,8 +6281,7 @@ function answerWho(index) {
 
 
 /* =====================================================
-   GAME 8
-   TREASURE HUNT
+   GAME 8 — TREASURE
 ===================================================== */
 
 let treasureStep = 0;
@@ -5566,7 +6299,7 @@ function loadTreasure(card) {
         </div>
 
         <h3>
-            Treasure Hunt 🗺️
+            Chanchalship Treasure Hunt 🗺️
         </h3>
 
         <p>
@@ -5584,9 +6317,8 @@ function loadTreasure(card) {
             <div class="treasure-clue"
                  id="treasureClue">
 
-                Your first clue is waiting...
-
             </div>
+
 
             <button
                 class="map-place"
@@ -5596,13 +6328,15 @@ function loadTreasure(card) {
 
             </button>
 
+
             <button
                 class="map-place"
                 onclick="treasureChoice('music')">
 
-                🎵 Songs
+                🎵 Voice
 
             </button>
+
 
             <button
                 class="map-place"
@@ -5612,11 +6346,12 @@ function loadTreasure(card) {
 
             </button>
 
+
             <button
                 class="map-place"
                 onclick="treasureChoice('heart')">
 
-                ❤️ Heart
+                ❤️ Chanchalship
 
             </button>
 
@@ -5640,7 +6375,7 @@ function setTreasureClue() {
 
         "Next, find the place where I wrote what I really think. 💌",
 
-        "One last thing... find the heart. ❤️"
+        "One last thing... find the heart of this whole thing. ❤️"
 
     ];
 
@@ -5712,7 +6447,7 @@ function treasureChoice(choice) {
 
 
 /* =====================================================
-   FINISH 8 GAMES
+   FINISH GAMES
 ===================================================== */
 
 function finishGames() {
@@ -5730,12 +6465,15 @@ function finishGames() {
 
 
     window.scrollTo({
+
         top:
             document.getElementById(
                 "reviewSection"
             ).offsetTop,
 
-        behavior: "smooth"
+        behavior:
+            "smooth"
+
     });
 
 }
@@ -5787,14 +6525,7 @@ function submitReview() {
     }
 
 
-    /*
-        Completing the review gives
-        the final 20 points.
-    */
-
     updateScore(20);
-
-    reviewCompleted = true;
 
 
     document.getElementById(
@@ -5827,37 +6558,44 @@ function showFinalScore() {
     document.getElementById(
         "finalScore"
     ).innerText =
-        totalScore + " / 100";
+        totalScore +
+        " / 100";
 
 
-    let message = "";
+    let message;
 
 
-    if (totalScore >= 90) {
+    if (
+        totalScore >= 90
+    ) {
 
         message =
-            "100% PURE CHAOS ❤️";
+            "Okay... Chanchalship champion. ❤️";
 
     }
 
-    else if (totalScore >= 75) {
+    else if (
+        totalScore >= 75
+    ) {
 
         message =
-            "Okay... pretty impressive. 👀";
+            "Pretty impressive, not gonna lie. 👀";
 
     }
 
-    else if (totalScore >= 50) {
+    else if (
+        totalScore >= 50
+    ) {
 
         message =
-            "You survived. That's something. 😂";
+            "You survived. That's enough. 😂";
 
     }
 
     else {
 
         message =
-            "We need to talk about this score. 😭";
+            "We need another late-night training session. 😭";
 
     }
 
@@ -5869,10 +6607,13 @@ function showFinalScore() {
 
 
     window.scrollTo({
+
         top:
             screen.offsetTop,
 
-        behavior: "smooth"
+        behavior:
+            "smooth"
+
     });
 
 
@@ -5921,12 +6662,14 @@ function closeReveal() {
 function createConfetti() {
 
     const symbols = [
+
         "💗",
         "✨",
         "💕",
         "🎉",
         "❤️",
         "🌸"
+
     ];
 
 
@@ -5960,20 +6703,25 @@ function createConfetti() {
 
 
                 piece.style.left =
-                    Math.random() * 100
-                    + "vw";
+                    Math.random() *
+                    100 +
+                    "vw";
 
 
                 piece.style.fontSize =
-                    (10 +
-                    Math.random() * 18)
-                    + "px";
+                    (
+                        10 +
+                        Math.random() * 18
+                    ) +
+                    "px";
 
 
                 piece.style.animationDuration =
-                    (3 +
-                    Math.random() * 3)
-                    + "s";
+                    (
+                        3 +
+                        Math.random() * 3
+                    ) +
+                    "s";
 
 
                 document.body.appendChild(
@@ -5982,11 +6730,7 @@ function createConfetti() {
 
 
                 setTimeout(
-                    () => {
-
-                        piece.remove();
-
-                    },
+                    () => piece.remove(),
                     7000
                 );
 
@@ -5997,7 +6741,6 @@ function createConfetti() {
     }
 
 }
-
 
 </script>
 
