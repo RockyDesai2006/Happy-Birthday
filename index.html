@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
           rel="stylesheet">
 
+
 <style>
 
 /* =====================================================
@@ -65,14 +66,373 @@ body {
 
 
 /* =====================================================
+   BIRTHDAY LOCK SCREEN
+===================================================== */
+
+#birthdayLock {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    overflow-y: auto;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            #fffaff 0%,
+            #ffeaf2 45%,
+            #ffdce8 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+#birthdayLock.unlock {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.lock-content {
+
+    width: 100%;
+
+    max-width: 550px;
+
+    animation:
+        lockAppear 1.2s ease;
+
+}
+
+
+@keyframes lockAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.lock-gift {
+
+    font-size:
+        clamp(
+            65px,
+            18vw,
+            100px
+        );
+
+    margin-bottom: 15px;
+
+    animation:
+        giftFloat 2s ease-in-out infinite;
+
+}
+
+
+@keyframes giftFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+.lock-small {
+
+    color: #a86b7e;
+
+    font-size:
+        clamp(
+            12px,
+            3.5vw,
+            15px
+        );
+
+    letter-spacing: 1px;
+
+}
+
+
+.lock-content h1 {
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(
+            65px,
+            18vw,
+            100px
+        );
+
+    line-height: 0.9;
+
+    color: #d84f7d;
+
+    margin:
+        15px 0 20px;
+
+}
+
+
+.lock-message {
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    color: #68444f;
+
+    font-size:
+        clamp(
+            23px,
+            6vw,
+            30px
+        );
+
+    line-height: 1.3;
+
+    max-width: 420px;
+
+    margin:
+        0 auto 30px;
+
+}
+
+
+.lock-message strong {
+
+    color: #c84270;
+
+}
+
+
+.countdown {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 10px;
+
+    max-width: 500px;
+
+    margin: 0 auto;
+
+}
+
+
+.time-box {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+
+    border:
+        1px solid
+        rgba(
+            232,
+            104,
+            145,
+            0.18
+        );
+
+    border-radius: 15px;
+
+    padding:
+        15px 8px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
+
+    backdrop-filter:
+        blur(5px);
+
+}
+
+
+.time-box span {
+
+    display: block;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(
+            35px,
+            9vw,
+            48px
+        );
+
+    font-weight: 600;
+
+    color: #d84f7d;
+
+    line-height: 1;
+
+}
+
+
+.time-box small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #a86b7e;
+
+    font-size: 11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.8px;
+
+}
+
+
+.lock-bottom {
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    color: #bd416b;
+
+    font-size:
+        clamp(
+            24px,
+            6vw,
+            30px
+        );
+
+    margin-top: 30px;
+
+}
+
+
+@media (max-width: 380px) {
+
+    .countdown {
+
+        gap: 6px;
+
+    }
+
+
+    .time-box {
+
+        padding:
+            13px 5px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .time-box span {
+
+        font-size: 32px;
+
+    }
+
+
+    .time-box small {
+
+        font-size: 9px;
+
+    }
+
+}
+
+
+/* =====================================================
    INTRO SCREEN
 ===================================================== */
 
 #intro {
+
     position: fixed;
+
     inset: 0;
 
     width: 100%;
+
     height: 100dvh;
 
     background:
@@ -85,6 +445,7 @@ body {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     flex-direction: column;
@@ -98,36 +459,52 @@ body {
     transition:
         opacity 0.8s ease,
         visibility 0.8s ease;
+
 }
+
 
 #intro.hide {
+
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
+
 }
 
+
 .intro-heart {
+
     font-size: 55px;
 
     margin-bottom: 20px;
 
     animation:
         introHeart 1.5s ease-in-out infinite;
+
 }
+
 
 @keyframes introHeart {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.15);
     }
+
 }
 
+
 #intro p {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -143,9 +520,12 @@ body {
     max-width: 340px;
 
     margin-bottom: 25px;
+
 }
 
+
 #intro button {
+
     border: none;
 
     background:
@@ -173,13 +553,23 @@ body {
 
     box-shadow:
         0 10px 25px
-        rgba(220, 76, 128, 0.25);
+        rgba(
+            220,
+            76,
+            128,
+            0.25
+        );
 
-    transition: transform 0.2s ease;
+    transition:
+        transform 0.2s ease;
+
 }
 
+
 #intro button:active {
+
     transform: scale(0.95);
+
 }
 
 
@@ -188,22 +578,42 @@ body {
 ===================================================== */
 
 section {
+
     width: 100%;
+
     max-width: 900px;
 
     margin: 0 auto;
 
     padding:
-        clamp(65px, 12vw, 110px)
-        clamp(18px, 5vw, 35px);
+        clamp(
+            65px,
+            12vw,
+            110px
+        )
+        clamp(
+            18px,
+            5vw,
+            35px
+        );
+
 }
+
 
 .handwritten {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
+
 }
 
+
 .section-title {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -222,6 +632,7 @@ section {
             7vw,
             45px
         );
+
 }
 
 
@@ -230,6 +641,7 @@ section {
 ===================================================== */
 
 .hero {
+
     width: 100%;
 
     min-height: 100dvh;
@@ -240,6 +652,7 @@ section {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     flex-direction: column;
@@ -247,9 +660,12 @@ section {
     text-align: center;
 
     position: relative;
+
 }
 
+
 .hero small {
+
     color: #a86b7e;
 
     font-size:
@@ -265,10 +681,15 @@ section {
             0.8vw,
             2px
         );
+
 }
 
+
 .hero h1 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -287,9 +708,12 @@ section {
         20px 0 12px;
 
     max-width: 100%;
+
 }
 
+
 .hero h2 {
+
     font-weight: 400;
 
     font-size:
@@ -301,10 +725,11 @@ section {
 
     color: #68444f;
 
-    max-width: 100%;
 }
 
+
 .hero .handwritten {
+
     font-size:
         clamp(
             23px,
@@ -319,9 +744,12 @@ section {
     margin-top: 20px;
 
     max-width: 350px;
+
 }
 
+
 .scroll {
+
     position: absolute;
 
     bottom: 25px;
@@ -330,18 +758,23 @@ section {
 
     color: #aa7181;
 
-    animation: bounce 2s infinite;
+    animation:
+        bounce 2s infinite;
+
 }
+
 
 @keyframes bounce {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(8px);
     }
+
 }
 
 
@@ -350,6 +783,7 @@ section {
 ===================================================== */
 
 .note {
+
     background: white;
 
     padding:
@@ -363,28 +797,42 @@ section {
 
     box-shadow:
         0 10px 35px
-        rgba(150, 75, 100, 0.08);
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
 
     transform: rotate(-1deg);
 
     position: relative;
+
 }
 
+
 .note::before {
+
     content: "♡";
 
     position: absolute;
 
     top: -18px;
+
     right: 20px;
 
     font-size: 34px;
 
     color: #ff8caf;
+
 }
 
+
 .note p {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -394,6 +842,7 @@ section {
         );
 
     line-height: 1.4;
+
 }
 
 
@@ -402,6 +851,7 @@ section {
 ===================================================== */
 
 .timeline {
+
     border-left:
         2px dashed #f3a1bb;
 
@@ -413,9 +863,12 @@ section {
         );
 
     margin-left: 5px;
+
 }
 
+
 .memory {
+
     margin-bottom:
         clamp(
             40px,
@@ -424,13 +877,19 @@ section {
         );
 
     position: relative;
+
 }
+
 
 .memory:last-child {
+
     margin-bottom: 0;
+
 }
 
+
 .memory::before {
+
     content: "♥";
 
     position: absolute;
@@ -451,10 +910,15 @@ section {
     padding: 4px;
 
     font-size: 16px;
+
 }
 
+
 .memory h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -465,12 +929,16 @@ section {
 
     line-height: 1.1;
 
-    color: var(--dark-pink);
+    color:
+        var(--dark-pink);
 
     margin-bottom: 10px;
+
 }
 
+
 .memory p {
+
     font-size:
         clamp(
             14px,
@@ -481,6 +949,7 @@ section {
     line-height: 1.8;
 
     color: var(--text);
+
 }
 
 
@@ -489,6 +958,7 @@ section {
 ===================================================== */
 
 .chanchalship-card {
+
     background:
         linear-gradient(
             145deg,
@@ -507,61 +977,93 @@ section {
 
     box-shadow:
         0 12px 40px
-        rgba(150, 75, 100, 0.08);
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
 
     text-align: center;
 
     position: relative;
 
     overflow: hidden;
+
 }
 
+
 .chanchalship-card::before {
+
     content: "♡";
 
     position: absolute;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size: 150px;
 
     color: #ffe1eb;
 
     top: -70px;
+
     left: -30px;
 
-    transform: rotate(-15deg);
+    transform:
+        rotate(-15deg);
+
 }
 
+
 .chanchalship-card::after {
+
     content: "♡";
 
     position: absolute;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size: 150px;
 
     color: #ffe5ee;
 
     bottom: -80px;
+
     right: -20px;
 
-    transform: rotate(15deg);
+    transform:
+        rotate(15deg);
+
 }
+
 
 .chanchalship-card > * {
+
     position: relative;
+
     z-index: 2;
+
 }
+
 
 .chanchalship-icon {
+
     font-size: 55px;
+
     margin-bottom: 10px;
+
 }
 
+
 .chanchalship-card h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #c84270;
 
@@ -573,9 +1075,12 @@ section {
         );
 
     margin-bottom: 18px;
+
 }
 
+
 .chanchalship-card p {
+
     color: #60414c;
 
     line-height: 1.9;
@@ -586,10 +1091,15 @@ section {
             4vw,
             17px
         );
+
 }
 
+
 .chanchalship-definition {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -603,6 +1113,7 @@ section {
     margin-top: 25px;
 
     line-height: 1.3;
+
 }
 
 
@@ -611,10 +1122,14 @@ section {
 ===================================================== */
 
 .music-section {
+
     text-align: center;
+
 }
 
+
 .music-card {
+
     background: #fff;
 
     padding:
@@ -628,69 +1143,99 @@ section {
 
     box-shadow:
         0 12px 40px
-        rgba(150, 75, 100, 0.08);
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
 
     position: relative;
 
     overflow: hidden;
+
 }
 
+
 .music-card::before {
+
     content: "♪";
 
     position: absolute;
 
     top: -20px;
+
     left: 20px;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size: 90px;
 
     color: #ffd5e3;
 
-    transform: rotate(-15deg);
+    transform:
+        rotate(-15deg);
+
 }
 
+
 .music-card::after {
+
     content: "♫";
 
     position: absolute;
 
     bottom: -25px;
+
     right: 20px;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size: 90px;
 
     color: #ffe0e9;
 
-    transform: rotate(12deg);
+    transform:
+        rotate(12deg);
+
 }
 
+
 .music-icon {
+
     font-size: 48px;
 
     margin-bottom: 15px;
 
     animation:
         musicFloat 2s ease-in-out infinite;
+
 }
+
 
 @keyframes musicFloat {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-7px);
     }
+
 }
 
+
 .music-card h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -704,10 +1249,14 @@ section {
     margin-bottom: 20px;
 
     position: relative;
+
     z-index: 2;
+
 }
 
+
 .music-card p {
+
     font-size:
         clamp(
             14px,
@@ -720,11 +1269,17 @@ section {
     color: #60414c;
 
     position: relative;
+
     z-index: 2;
+
 }
 
+
 .music-card .voice-line {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -738,9 +1293,12 @@ section {
     margin-top: 25px;
 
     line-height: 1.3;
+
 }
 
+
 .music-note {
+
     margin-top: 25px;
 
     font-size: 13px !important;
@@ -748,6 +1306,7 @@ section {
     color: #a86b7e !important;
 
     font-style: italic;
+
 }
 
 
@@ -756,6 +1315,7 @@ section {
 ===================================================== */
 
 .future-card {
+
     text-align: center;
 
     background: white;
@@ -771,16 +1331,30 @@ section {
 
     box-shadow:
         0 10px 35px
-        rgba(150, 75, 100, 0.08);
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
+
 }
+
 
 .future-icon {
+
     font-size: 55px;
+
     margin-bottom: 15px;
+
 }
 
+
 .future-card h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -792,9 +1366,12 @@ section {
     color: #c84270;
 
     margin-bottom: 18px;
+
 }
 
+
 .future-card p {
+
     color: #60414c;
 
     line-height: 1.9;
@@ -805,9 +1382,12 @@ section {
             4vw,
             17px
         );
+
 }
 
+
 .future-card .handwritten {
+
     font-size:
         clamp(
             26px,
@@ -818,6 +1398,7 @@ section {
     color: #d84f7d;
 
     margin-top: 25px;
+
 }
 
 
@@ -826,6 +1407,7 @@ section {
 ===================================================== */
 
 .photos {
+
     display: grid;
 
     grid-template-columns:
@@ -842,9 +1424,12 @@ section {
         );
 
     width: 100%;
+
 }
 
+
 .photo {
+
     width: 100%;
 
     aspect-ratio: 1 / 1;
@@ -854,6 +1439,7 @@ section {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     overflow: hidden;
@@ -862,23 +1448,37 @@ section {
 
     box-shadow:
         0 8px 20px
-        rgba(100, 40, 60, 0.12);
+        rgba(
+            100,
+            40,
+            60,
+            0.12
+        );
 
     transform:
-        rotate(var(--rotation));
+        rotate(
+            var(--rotation)
+        );
 
     transition:
         transform 0.3s ease;
+
 }
 
+
 .photo:active {
+
     transform:
         rotate(0deg)
         scale(0.98);
+
 }
 
+
 .photo img {
+
     width: 100%;
+
     height: 100%;
 
     display: block;
@@ -886,6 +1486,7 @@ section {
     object-fit: cover;
 
     object-position: center;
+
 }
 
 
@@ -894,6 +1495,7 @@ section {
 ===================================================== */
 
 .things {
+
     display: grid;
 
     grid-template-columns:
@@ -908,9 +1510,12 @@ section {
             4vw,
             18px
         );
+
 }
 
+
 .thing {
+
     background: white;
 
     padding:
@@ -924,26 +1529,40 @@ section {
 
     box-shadow:
         0 8px 25px
-        rgba(100, 50, 70, 0.06);
+        rgba(
+            100,
+            50,
+            70,
+            0.06
+        );
 
     transition:
         transform 0.3s ease;
+
 }
+
 
 .thing:active {
+
     transform: scale(0.97);
+
 }
 
+
 .thing span {
+
     font-size:
         clamp(
             22px,
             7vw,
             28px
         );
+
 }
 
+
 .thing p {
+
     margin-top: 10px;
 
     font-size:
@@ -956,6 +1575,7 @@ section {
     line-height: 1.6;
 
     color: #674653;
+
 }
 
 
@@ -964,10 +1584,14 @@ section {
 ===================================================== */
 
 .secret {
+
     text-align: center;
+
 }
 
+
 .secret > p {
+
     font-size:
         clamp(
             14px,
@@ -978,9 +1602,12 @@ section {
     margin-bottom: 25px;
 
     color: #76505d;
+
 }
 
+
 .secret button {
+
     border:
         2px solid #e96891;
 
@@ -1003,22 +1630,30 @@ section {
         background 0.25s,
         color 0.25s,
         transform 0.2s;
+
 }
 
+
 .secret button:active {
+
     transform: scale(0.95);
 
     background: #e96891;
 
     color: white;
+
 }
 
+
 #secretMessage {
+
     display: none;
 
     margin-top: 30px;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -1033,19 +1668,30 @@ section {
 
     animation:
         appear 0.8s ease;
+
 }
+
 
 @keyframes appear {
 
     from {
+
         opacity: 0;
-        transform: translateY(15px);
+
+        transform:
+            translateY(15px);
+
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
+
 }
 
 
@@ -1054,6 +1700,7 @@ section {
 ===================================================== */
 
 .letter {
+
     background: white;
 
     padding:
@@ -1065,27 +1712,39 @@ section {
 
     box-shadow:
         0 15px 50px
-        rgba(120, 50, 75, 0.1);
+        rgba(
+            120,
+            50,
+            75,
+            0.1
+        );
 
     position: relative;
 
     border-radius: 3px;
+
 }
 
+
 .letter::after {
+
     content: "♡";
 
     position: absolute;
 
     right: 15px;
+
     bottom: 8px;
 
     font-size: 35px;
 
     color: #ff9fbb;
+
 }
 
+
 .letter p {
+
     line-height: 1.9;
 
     font-size:
@@ -1096,12 +1755,17 @@ section {
         );
 
     color: #60414c;
+
 }
 
+
 .signature {
+
     margin-top: 25px;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -1111,6 +1775,7 @@ section {
         );
 
     color: #d74e7e;
+
 }
 
 
@@ -1119,13 +1784,18 @@ section {
 ===================================================== */
 
 .quest-section {
+
     max-width: 950px;
 
     padding-top: 100px;
+
     padding-bottom: 100px;
+
 }
 
+
 .quest-intro {
+
     text-align: center;
 
     background:
@@ -1146,32 +1816,48 @@ section {
 
     box-shadow:
         0 15px 50px
-        rgba(150, 75, 100, 0.10);
+        rgba(
+            150,
+            75,
+            100,
+            0.10
+        );
 
     border:
         1px solid #ffe0e9;
+
 }
 
+
 .quest-icon {
+
     font-size: 60px;
 
     animation:
         questFloat 2s ease-in-out infinite;
+
 }
+
 
 @keyframes questFloat {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-8px);
     }
+
 }
 
+
 .quest-intro h2 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #d84f7d;
 
@@ -1185,9 +1871,12 @@ section {
     margin-top: 10px;
 
     line-height: 1;
+
 }
 
+
 .quest-intro p {
+
     color: #76505d;
 
     line-height: 1.7;
@@ -1196,9 +1885,12 @@ section {
         15px auto 25px;
 
     max-width: 550px;
+
 }
 
+
 .quest-start-button {
+
     border: none;
 
     background:
@@ -1221,33 +1913,51 @@ section {
 
     box-shadow:
         0 10px 25px
-        rgba(220, 76, 128, 0.25);
+        rgba(
+            220,
+            76,
+            128,
+            0.25
+        );
 
     transition:
         transform 0.2s ease;
+
 }
 
+
 .quest-start-button:active {
+
     transform: scale(0.95);
+
 }
 
 
 /* =====================================================
-   QUEST HEADER
+   QUEST GAME
 ===================================================== */
 
 #questGame {
+
     display: none;
+
 }
 
+
 .quest-header {
+
     text-align: center;
 
     margin-bottom: 30px;
+
 }
 
+
 .quest-header h2 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #d84f7d;
 
@@ -1257,9 +1967,12 @@ section {
             10vw,
             55px
         );
+
 }
 
+
 .score-box {
+
     display: inline-flex;
 
     align-items: center;
@@ -1277,14 +1990,22 @@ section {
 
     box-shadow:
         0 5px 20px
-        rgba(150, 75, 100, 0.08);
+        rgba(
+            150,
+            75,
+            100,
+            0.08
+        );
 
     color: #c84270;
 
     font-weight: 600;
+
 }
 
+
 .quest-progress {
+
     width: 100%;
 
     height: 10px;
@@ -1296,9 +2017,12 @@ section {
     overflow: hidden;
 
     margin-top: 15px;
+
 }
 
+
 .quest-progress-fill {
+
     height: 100%;
 
     width: 0%;
@@ -1314,6 +2038,7 @@ section {
 
     transition:
         width 0.5s ease;
+
 }
 
 
@@ -1322,6 +2047,7 @@ section {
 ===================================================== */
 
 .level-card {
+
     background: white;
 
     border-radius: 20px;
@@ -1335,7 +2061,12 @@ section {
 
     box-shadow:
         0 12px 40px
-        rgba(120, 50, 75, 0.08);
+        rgba(
+            120,
+            50,
+            75,
+            0.08
+        );
 
     text-align: center;
 
@@ -1348,9 +2079,12 @@ section {
     justify-content: center;
 
     align-items: center;
+
 }
 
+
 .level-number {
+
     color: #c84270;
 
     font-size: 13px;
@@ -1360,10 +2094,15 @@ section {
     text-transform: uppercase;
 
     margin-bottom: 8px;
+
 }
 
+
 .level-card h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #d84f7d;
 
@@ -1377,9 +2116,12 @@ section {
     line-height: 1.1;
 
     margin-bottom: 15px;
+
 }
 
+
 .level-card > p {
+
     color: #76505d;
 
     line-height: 1.7;
@@ -1387,9 +2129,12 @@ section {
     max-width: 600px;
 
     margin-bottom: 25px;
+
 }
 
+
 .game-button {
+
     border: none;
 
     background: #e96891;
@@ -1408,10 +2153,14 @@ section {
     transition:
         transform 0.2s ease,
         background 0.2s ease;
+
 }
 
+
 .game-button:active {
+
     transform: scale(0.95);
+
 }
 
 
@@ -1420,6 +2169,7 @@ section {
 ===================================================== */
 
 .catch-game {
+
     position: relative;
 
     width: 100%;
@@ -1445,9 +2195,12 @@ section {
     margin-bottom: 20px;
 
     touch-action: none;
+
 }
 
+
 .catch-player {
+
     position: absolute;
 
     bottom: 15px;
@@ -1464,9 +2217,12 @@ section {
     text-align: center;
 
     user-select: none;
+
 }
 
+
 .falling-heart {
+
     position: absolute;
 
     top: -50px;
@@ -1474,6 +2230,7 @@ section {
     font-size: 30px;
 
     user-select: none;
+
 }
 
 
@@ -1482,6 +2239,7 @@ section {
 ===================================================== */
 
 .hidden-heart-area {
+
     width: 100%;
 
     max-width: 600px;
@@ -1505,9 +2263,12 @@ section {
         2px solid #ffd4e1;
 
     margin-bottom: 20px;
+
 }
 
+
 .hidden-heart {
+
     position: absolute;
 
     font-size: 27px;
@@ -1516,10 +2277,14 @@ section {
 
     transition:
         transform 0.2s ease;
+
 }
 
+
 .hidden-heart:active {
+
     transform: scale(1.5);
+
 }
 
 
@@ -1528,34 +2293,44 @@ section {
 ===================================================== */
 
 .cat-game {
+
     width: 100%;
 
     max-width: 600px;
 
     text-align: center;
+
 }
 
+
 .cat-character {
+
     font-size: 95px;
 
     margin-bottom: 15px;
 
     animation:
         catBounce 1.5s ease-in-out infinite;
+
 }
+
 
 @keyframes catBounce {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-6px);
     }
+
 }
 
+
 .cat-foods {
+
     display: flex;
 
     justify-content: center;
@@ -1565,9 +2340,12 @@ section {
     gap: 10px;
 
     margin-top: 20px;
+
 }
 
+
 .food-button {
+
     border: none;
 
     background: #fff0f5;
@@ -1586,14 +2364,22 @@ section {
 
     transition:
         transform 0.2s ease;
+
 }
+
 
 .food-button:active {
+
     transform: scale(0.9);
+
 }
 
+
 .cat-message {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size: 28px;
 
@@ -1602,6 +2388,7 @@ section {
     min-height: 40px;
 
     margin-top: 15px;
+
 }
 
 
@@ -1610,6 +2397,7 @@ section {
 ===================================================== */
 
 .heartbreaker-game {
+
     width: 100%;
 
     max-width: 600px;
@@ -1633,9 +2421,12 @@ section {
         2px solid #ffd3e1;
 
     touch-action: manipulation;
+
 }
 
+
 .tappable-heart {
+
     position: absolute;
 
     font-size: 35px;
@@ -1644,25 +2435,32 @@ section {
 
     animation:
         heartPulse 0.9s ease-in-out infinite;
+
 }
+
 
 @keyframes heartPulse {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.15);
     }
+
 }
 
+
 .timer {
+
     font-weight: 600;
 
     color: #bd416b;
 
     margin-bottom: 12px;
+
 }
 
 
@@ -1671,14 +2469,18 @@ section {
 ===================================================== */
 
 .puzzle-wrapper {
+
     width: 100%;
 
     max-width: 420px;
 
     margin: 0 auto;
+
 }
 
+
 .puzzle-board {
+
     width: 100%;
 
     aspect-ratio: 1 / 1;
@@ -1686,7 +2488,10 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(
+            3,
+            1fr
+        );
 
     gap: 3px;
 
@@ -1697,9 +2502,12 @@ section {
     border-radius: 10px;
 
     overflow: hidden;
+
 }
 
+
 .puzzle-piece {
+
     background-size:
         300% 300%;
 
@@ -1713,21 +2521,30 @@ section {
 
     transition:
         transform 0.2s ease;
+
 }
 
+
 .puzzle-piece.selected {
+
     transform: scale(0.92);
 
     box-shadow:
-        0 0 0 3px #e96891 inset;
+        0 0 0 3px
+        #e96891
+        inset;
+
 }
 
+
 .puzzle-help {
+
     margin-top: 15px;
 
     color: #a86b7e;
 
     font-size: 13px;
+
 }
 
 
@@ -1736,6 +2553,7 @@ section {
 ===================================================== */
 
 .rhythm-game {
+
     width: 100%;
 
     max-width: 600px;
@@ -1759,9 +2577,12 @@ section {
         2px solid #ffd3e1;
 
     touch-action: none;
+
 }
 
+
 .rhythm-target {
+
     position: absolute;
 
     bottom: 35px;
@@ -1787,9 +2608,12 @@ section {
     justify-content: center;
 
     font-size: 30px;
+
 }
 
+
 .rhythm-heart {
+
     position: absolute;
 
     top: -40px;
@@ -1797,6 +2621,7 @@ section {
     font-size: 30px;
 
     cursor: pointer;
+
 }
 
 
@@ -1805,21 +2630,30 @@ section {
 ===================================================== */
 
 .question-box {
+
     width: 100%;
 
     max-width: 650px;
+
 }
 
+
 .question-count {
+
     color: #a86b7e;
 
     font-size: 13px;
 
     margin-bottom: 10px;
+
 }
 
+
 .question-text {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -1831,9 +2665,12 @@ section {
     color: #c84270;
 
     margin-bottom: 20px;
+
 }
 
+
 .answer-options {
+
     display: grid;
 
     grid-template-columns:
@@ -1843,9 +2680,12 @@ section {
         );
 
     gap: 12px;
+
 }
 
+
 .answer-button {
+
     border:
         2px solid #ffd2e0;
 
@@ -1859,15 +2699,21 @@ section {
 
     cursor: pointer;
 
-    font-family: "Poppins", sans-serif;
+    font-family:
+        "Poppins",
+        sans-serif;
 
     transition:
         transform 0.2s ease,
         background 0.2s ease;
+
 }
 
+
 .answer-button:active {
+
     transform: scale(0.97);
+
 }
 
 
@@ -1876,6 +2722,7 @@ section {
 ===================================================== */
 
 .treasure-map {
+
     width: 100%;
 
     max-width: 650px;
@@ -1907,9 +2754,12 @@ section {
     align-items: center;
 
     gap: 18px;
+
 }
 
+
 .map-place {
+
     border: none;
 
     background: white;
@@ -1921,7 +2771,12 @@ section {
 
     box-shadow:
         0 6px 20px
-        rgba(120, 50, 75, 0.08);
+        rgba(
+            120,
+            50,
+            75,
+            0.08
+        );
 
     color: #bd416b;
 
@@ -1931,22 +2786,31 @@ section {
 
     transition:
         transform 0.2s ease;
+
 }
+
 
 .map-place:active {
+
     transform: scale(0.94);
+
 }
 
+
 .treasure-clue {
+
     min-height: 50px;
 
-    font-family: "Caveat", cursive;
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #c84270;
 
     font-size: 28px;
 
     text-align: center;
+
 }
 
 
@@ -1955,6 +2819,7 @@ section {
 ===================================================== */
 
 .review-box {
+
     width: 100%;
 
     max-width: 700px;
@@ -1962,9 +2827,12 @@ section {
     margin: 0 auto;
 
     text-align: left;
+
 }
 
+
 .review-question {
+
     background: #fff7fa;
 
     border:
@@ -1975,9 +2843,12 @@ section {
     border-radius: 15px;
 
     margin-bottom: 18px;
+
 }
 
+
 .review-question label {
+
     display: block;
 
     font-weight: 500;
@@ -1985,10 +2856,13 @@ section {
     color: #60414c;
 
     margin-bottom: 12px;
+
 }
+
 
 .review-question select,
 .review-question textarea {
+
     width: 100%;
 
     border:
@@ -1998,22 +2872,30 @@ section {
 
     padding: 12px;
 
-    font-family: "Poppins", sans-serif;
+    font-family:
+        "Poppins",
+        sans-serif;
 
     background: white;
 
     color: #60414c;
 
     outline: none;
+
 }
 
+
 .review-question textarea {
+
     resize: vertical;
 
     min-height: 120px;
+
 }
 
+
 .review-submit {
+
     width: 100%;
 
     border: none;
@@ -2039,7 +2921,13 @@ section {
 
     box-shadow:
         0 10px 25px
-        rgba(220, 76, 128, 0.22);
+        rgba(
+            220,
+            76,
+            128,
+            0.22
+        );
+
 }
 
 
@@ -2048,6 +2936,7 @@ section {
 ===================================================== */
 
 .score-screen {
+
     display: none;
 
     text-align: center;
@@ -2070,29 +2959,45 @@ section {
 
     box-shadow:
         0 15px 50px
-        rgba(120, 50, 75, 0.10);
+        rgba(
+            120,
+            50,
+            75,
+            0.10
+        );
+
 }
 
+
 .score-screen .trophy {
+
     font-size: 70px;
 
     animation:
         trophyBounce 1.5s infinite;
+
 }
+
 
 @keyframes trophyBounce {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-10px);
     }
+
 }
 
+
 .final-score {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     font-size:
         clamp(
@@ -2105,11 +3010,17 @@ section {
 
     line-height: 1;
 
-    margin: 15px 0;
+    margin:
+        15px 0;
+
 }
 
+
 .score-message {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #c84270;
 
@@ -2121,6 +3032,7 @@ section {
         );
 
     margin-bottom: 15px;
+
 }
 
 
@@ -2129,6 +3041,7 @@ section {
 ===================================================== */
 
 #revealScreen {
+
     display: none;
 
     position: fixed;
@@ -2136,6 +3049,7 @@ section {
     inset: 0;
 
     width: 100%;
+
     height: 100dvh;
 
     z-index: 50000;
@@ -2156,38 +3070,58 @@ section {
     padding: 25px;
 
     overflow-y: auto;
+
 }
 
+
 .reveal-content {
+
     width: 100%;
 
     max-width: 650px;
+
 }
 
+
 .reveal-stars {
+
     font-size: 30px;
 
     margin-bottom: 15px;
 
     animation:
         revealGlow 1.5s infinite;
+
 }
+
 
 @keyframes revealGlow {
 
-    0%, 100% {
+    0%,
+    100% {
+
         transform: scale(1);
+
         opacity: 0.8;
+
     }
 
     50% {
+
         transform: scale(1.15);
+
         opacity: 1;
+
     }
+
 }
 
+
 .reveal-content h2 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #d84f7d;
 
@@ -2201,9 +3135,12 @@ section {
     line-height: 0.9;
 
     margin-bottom: 20px;
+
 }
 
+
 .reveal-content > p {
+
     color: #60414c;
 
     font-size:
@@ -2219,9 +3156,12 @@ section {
 
     margin:
         0 auto 25px;
+
 }
 
+
 .reveal-card {
+
     background: white;
 
     border-radius: 20px;
@@ -2235,13 +3175,23 @@ section {
 
     box-shadow:
         0 20px 60px
-        rgba(150, 60, 90, 0.15);
+        rgba(
+            150,
+            60,
+            90,
+            0.15
+        );
 
     margin-top: 20px;
+
 }
 
+
 .reveal-card h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat",
+        cursive;
 
     color: #c84270;
 
@@ -2253,15 +3203,21 @@ section {
         );
 
     margin-bottom: 15px;
+
 }
 
+
 .reveal-card p {
+
     color: #60414c;
 
     line-height: 1.9;
+
 }
 
+
 .close-reveal {
+
     margin-top: 25px;
 
     border:
@@ -2277,43 +3233,120 @@ section {
     border-radius: 30px;
 
     cursor: pointer;
+
 }
 
 
 /* =====================================================
-   CONFETTI
+   FINAL BIRTHDAY
 ===================================================== */
 
-.confetti {
-    position: fixed;
+.birthday {
 
-    top: -20px;
+    width: 100%;
 
-    z-index: 60000;
+    min-height: 85dvh;
 
-    pointer-events: none;
+    display: flex;
 
-    animation:
-        confettiFall 4s linear forwards;
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    flex-direction: column;
+
+    padding:
+        60px 20px;
+
 }
 
-@keyframes confettiFall {
 
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
+.cake {
 
-        opacity: 1;
-    }
+    font-size:
+        clamp(
+            55px,
+            17vw,
+            75px
+        );
 
+    margin: 25px;
+
+    animation:
+        cake 2s infinite;
+
+}
+
+
+@keyframes cake {
+
+    0%,
     100% {
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
-        opacity: 0;
+        transform: translateY(0);
     }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+.birthday h1 {
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(
+            60px,
+            17vw,
+            110px
+        );
+
+    color: #db4e80;
+
+    line-height: 0.9;
+
+}
+
+
+.birthday p {
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            18px
+        );
+
+    line-height: 1.6;
+
+    color: #76505d;
+
+    max-width: 350px;
+
+}
+
+
+.birthday .handwritten {
+
+    font-size:
+        clamp(
+            28px,
+            8vw,
+            38px
+        );
+
+    color: #d84f7d;
+
+    line-height: 1.1;
+
 }
 
 
@@ -2322,6 +3355,7 @@ section {
 ===================================================== */
 
 .heart {
+
     position: fixed;
 
     bottom: -30px;
@@ -2336,29 +3370,83 @@ section {
     will-change:
         transform,
         opacity;
+
 }
+
 
 @keyframes floatHeart {
 
     0% {
+
         opacity: 0;
 
         transform:
             translateY(0)
             rotate(0deg);
+
     }
 
     15% {
+
         opacity: 1;
+
     }
 
     100% {
+
         opacity: 0;
 
         transform:
             translateY(-110vh)
             rotate(360deg);
+
     }
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    z-index: 60000;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall 4s linear forwards;
+
+}
+
+
+@keyframes confettiFall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
 }
 
 
@@ -2369,22 +3457,31 @@ section {
 @media (max-width: 600px) {
 
     .answer-options {
+
         grid-template-columns: 1fr;
+
     }
 
     .catch-game,
     .heartbreaker-game,
     .rhythm-game {
+
         height: 330px;
+
     }
 
     .hidden-heart-area {
+
         height: 320px;
+
     }
 
     .level-card {
+
         min-height: 440px;
+
     }
+
 }
 
 
@@ -2395,28 +3492,41 @@ section {
 @media (max-width: 380px) {
 
     .photos {
+
         grid-template-columns: 1fr;
+
     }
 
     .things {
+
         grid-template-columns: 1fr;
+
     }
 
     .hero h1 {
+
         font-size: 58px;
+
     }
 
     .section-title {
+
         font-size: 42px;
+
     }
 
     .timeline {
+
         padding-left: 22px;
+
     }
 
     .memory::before {
+
         left: -35px;
+
     }
+
 }
 
 
@@ -2427,27 +3537,36 @@ section {
 @media (min-width: 1000px) {
 
     .photo:hover {
+
         transform:
             rotate(0deg)
             scale(1.03);
+
     }
 
     .thing:hover {
+
         transform:
             translateY(-6px);
+
     }
 
     .secret button:hover {
+
         background: #e96891;
 
         color: white;
+
     }
 
     #intro button:hover {
+
         transform:
             translateY(-3px)
             scale(1.03);
+
     }
+
 }
 
 
@@ -2472,7 +3591,9 @@ section {
 
         transition-duration:
             0.01ms !important;
+
     }
+
 }
 
 </style>
@@ -2481,6 +3602,102 @@ section {
 
 
 <body>
+
+
+<!-- =====================================================
+     BIRTHDAY LOCK
+===================================================== -->
+
+<div id="birthdayLock">
+
+    <div class="lock-content">
+
+        <div class="lock-gift">
+            🎁
+        </div>
+
+        <p class="lock-small">
+            A little something is waiting for you...
+        </p>
+
+        <p class="lock-message">
+
+            Your birthday gift is locked
+            until your birthday.
+
+        </p>
+
+
+        <div class="countdown">
+
+            <div class="time-box">
+
+                <span id="days">
+                    00
+                </span>
+
+                <small>
+                    Days
+                </small>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span id="hours">
+                    00
+                </span>
+
+                <small>
+                    Hours
+                </small>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span id="minutes">
+                    00
+                </span>
+
+                <small>
+                    Minutes
+                </small>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span id="seconds">
+                    00
+                </span>
+
+                <small>
+                    Seconds
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <p class="lock-bottom">
+
+            Until then...
+
+            <br>
+
+            don't peek. 👀❤️
+
+        </p>
+
+    </div>
+
+</div>
+
 
 
 <!-- =====================================================
@@ -3030,13 +4247,12 @@ section {
 
     <h2 class="section-title">
 
-        Bestest Girl I have ever met in my life... 📸
+        A few little memories... 📸
 
     </h2>
 
 
     <div class="photos">
-
 
         <div class="photo"
              style="--rotation:-2deg;">
@@ -3072,7 +4288,6 @@ section {
                  alt="Chanchal">
 
         </div>
-
 
     </div>
 
@@ -3342,6 +4557,8 @@ section {
             when it's late at night and we're both
             probably supposed to be sleeping...
 
+            <br>
+
             but we're still there.
 
             <br><br>
@@ -3562,9 +4779,7 @@ section {
 
 
 
-    <!-- =================================================
-         REVIEW
-    ================================================= -->
+    <!-- REVIEW -->
 
     <div id="reviewSection"
          style="display:none;">
@@ -3605,12 +4820,8 @@ section {
                 <div class="review-question">
 
                     <label>
-
-                        ⭐ How much did you enjoy
-                        the whole thing?
-
+                        ⭐ How much did you enjoy the whole thing?
                     </label>
-
 
                     <select id="enjoyment">
 
@@ -3648,7 +4859,6 @@ section {
                     <label>
                         🎮 Which game was your favourite?
                     </label>
-
 
                     <select id="favoriteGame">
 
@@ -3696,12 +4906,8 @@ section {
                 <div class="review-question">
 
                     <label>
-
-                        🌙 Which part felt most like
-                        our Chanchalship?
-
+                        🌙 Which part felt most like our Chanchalship?
                     </label>
-
 
                     <select id="funniestGame">
 
@@ -3747,7 +4953,6 @@ section {
 
                     </label>
 
-
                     <textarea id="reviewText"
                               placeholder="Write whatever you honestly think... I promise I won't judge 😂❤️"></textarea>
 
@@ -3769,9 +4974,7 @@ section {
 
 
 
-    <!-- =================================================
-         SCORE
-    ================================================= -->
+    <!-- SCORE -->
 
     <div class="score-screen"
          id="scoreScreen">
@@ -3780,25 +4983,18 @@ section {
             🏆
         </div>
 
-
         <div class="level-number">
             CHANCHALSHIP QUEST COMPLETE
         </div>
 
-
         <div class="final-score"
              id="finalScore">
-
             0 / 100
-
         </div>
-
 
         <div class="score-message"
              id="scoreMessage">
-
         </div>
-
 
         <p>
 
@@ -3843,11 +5039,9 @@ section {
         🎂
     </div>
 
-
     <h1>
         Happy Birthday ❤️
     </h1>
-
 
     <p>
 
@@ -4047,27 +5241,6 @@ section {
         </div>
 
 
-        <!--
-        =================================================
-        OPTIONAL EXTRA SURPRISE
-
-        You can later put a personal voice recording
-        here if you want.
-
-        Example:
-
-        <audio controls>
-
-            <source
-                src="audio/for-chanchal.mp3"
-                type="audio/mpeg">
-
-        </audio>
-
-        =================================================
-        -->
-
-
         <button class="close-reveal"
                 onclick="closeReveal()">
 
@@ -4084,7 +5257,214 @@ section {
 <script>
 
 /* =====================================================
-   VARIABLES
+   BIRTHDAY COUNTDOWN LOCK
+===================================================== */
+
+/*
+    TARGET:
+    28 August 2026
+    12:00 AM
+    India / IST
+
+    +05:30 makes the target specifically IST.
+*/
+
+const birthdayDate =
+    new Date(
+        "2026-08-28T00:00:00+05:30"
+    ).getTime();
+
+
+function updateBirthdayCountdown() {
+
+    const now =
+        Date.now();
+
+
+    const difference =
+        birthdayDate - now;
+
+
+    /*
+        Birthday has arrived.
+    */
+
+    if (
+        difference <= 0
+    ) {
+
+        unlockBirthdayWebsite();
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                difference %
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            ) /
+            (
+                1000 *
+                60 *
+                60
+            )
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                difference %
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            ) /
+            (
+                1000 *
+                60
+            )
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                difference %
+                (
+                    1000 *
+                    60
+                )
+            ) /
+            1000
+        );
+
+
+    document.getElementById(
+        "days"
+    ).innerText =
+        String(days)
+            .padStart(
+                2,
+                "0"
+            );
+
+
+    document.getElementById(
+        "hours"
+    ).innerText =
+        String(hours)
+            .padStart(
+                2,
+                "0"
+            );
+
+
+    document.getElementById(
+        "minutes"
+    ).innerText =
+        String(minutes)
+            .padStart(
+                2,
+                "0"
+            );
+
+
+    document.getElementById(
+        "seconds"
+    ).innerText =
+        String(seconds)
+            .padStart(
+                2,
+                "0"
+            );
+
+}
+
+
+function unlockBirthdayWebsite() {
+
+    const lock =
+        document.getElementById(
+            "birthdayLock"
+        );
+
+
+    if (
+        !lock ||
+        lock.classList.contains(
+            "unlock"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    lock.classList.add(
+        "unlock"
+    );
+
+
+    createHeartBurst();
+
+    createConfetti();
+
+
+    setTimeout(
+        () => {
+
+            lock.style.display =
+                "none";
+
+        },
+        1200
+    );
+
+}
+
+
+/*
+    Run immediately.
+*/
+
+updateBirthdayCountdown();
+
+
+/*
+    Update every second.
+*/
+
+setInterval(
+    updateBirthdayCountdown,
+    1000
+);
+
+
+/* =====================================================
+   MAIN WEBSITE
 ===================================================== */
 
 let totalScore = 0;
@@ -4101,9 +5481,13 @@ let levelCompleted = false;
 function startWebsite() {
 
     const intro =
-        document.getElementById("intro");
+        document.getElementById(
+            "intro"
+        );
 
-    intro.classList.add("hide");
+    intro.classList.add(
+        "hide"
+    );
 
     createHeartBurst();
 
@@ -4136,18 +5520,22 @@ function showSecret() {
 function createHeart() {
 
     const heart =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     heart.className =
         "heart";
 
 
     const hearts = [
+
         "♡",
         "♥",
         "💗",
         "💕",
         "💖"
+
     ];
 
 
@@ -4169,7 +5557,8 @@ function createHeart() {
     heart.style.fontSize =
         (
             15 +
-            Math.random() * 20
+            Math.random() *
+            20
         ) +
         "px";
 
@@ -4177,7 +5566,8 @@ function createHeart() {
     heart.style.animationDuration =
         (
             4 +
-            Math.random() * 4
+            Math.random() *
+            4
         ) +
         "s";
 
@@ -4238,7 +5628,9 @@ document.addEventListener(
         ) {
 
             const heart =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             heart.innerHTML =
@@ -4250,11 +5642,13 @@ document.addEventListener(
 
 
             heart.style.left =
-                e.clientX + "px";
+                e.clientX +
+                "px";
 
 
             heart.style.top =
-                e.clientY + "px";
+                e.clientY +
+                "px";
 
 
             heart.style.pointerEvents =
@@ -4386,7 +5780,9 @@ function completeLevel() {
         true;
 
 
-    updateScore(10);
+    updateScore(
+        10
+    );
 
 
     const card =
@@ -4463,7 +5859,9 @@ function loadLevel() {
         currentLevel === 1
     ) {
 
-        loadCatchHearts(card);
+        loadCatchHearts(
+            card
+        );
 
     }
 
@@ -4471,7 +5869,9 @@ function loadLevel() {
         currentLevel === 2
     ) {
 
-        loadHiddenHeart(card);
+        loadHiddenHeart(
+            card
+        );
 
     }
 
@@ -4479,7 +5879,9 @@ function loadLevel() {
         currentLevel === 3
     ) {
 
-        loadCatGame(card);
+        loadCatGame(
+            card
+        );
 
     }
 
@@ -4487,7 +5889,9 @@ function loadLevel() {
         currentLevel === 4
     ) {
 
-        loadHeartbreaker(card);
+        loadHeartbreaker(
+            card
+        );
 
     }
 
@@ -4495,7 +5899,9 @@ function loadLevel() {
         currentLevel === 5
     ) {
 
-        loadPuzzle(card);
+        loadPuzzle(
+            card
+        );
 
     }
 
@@ -4503,7 +5909,9 @@ function loadLevel() {
         currentLevel === 6
     ) {
 
-        loadRhythm(card);
+        loadRhythm(
+            card
+        );
 
     }
 
@@ -4511,7 +5919,9 @@ function loadLevel() {
         currentLevel === 7
     ) {
 
-        loadWhoAmI(card);
+        loadWhoAmI(
+            card
+        );
 
     }
 
@@ -4519,7 +5929,9 @@ function loadLevel() {
         currentLevel === 8
     ) {
 
-        loadTreasure(card);
+        loadTreasure(
+            card
+        );
 
     }
 
@@ -4535,6 +5947,15 @@ function loadLevel() {
 /* =====================================================
    GAME 1 — CATCH HEARTS
 ===================================================== */
+
+let catchCount = 0;
+
+let catchRunning = false;
+
+let catchInterval;
+
+let catchTimer;
+
 
 function loadCatchHearts(card) {
 
@@ -4588,15 +6009,6 @@ function loadCatchHearts(card) {
     `;
 
 }
-
-
-let catchCount = 0;
-
-let catchRunning = false;
-
-let catchInterval;
-
-let catchTimer;
 
 
 function startCatchGame() {
@@ -4987,7 +6399,8 @@ function startHiddenHeart() {
     heart.style.left =
         (
             10 +
-            Math.random() * 80
+            Math.random() *
+            80
         ) +
         "%";
 
@@ -4995,7 +6408,8 @@ function startHiddenHeart() {
     heart.style.top =
         (
             10 +
-            Math.random() * 75
+            Math.random() *
+            75
         ) +
         "%";
 
@@ -5129,41 +6543,31 @@ function loadCatGame(card) {
                 <button
                     class="food-button"
                     onclick="feedCat('🍕')">
-
                     🍕
-
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🍓')">
-
                     🍓
-
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🍰')">
-
                     🍰
-
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🧁')">
-
                     🧁
-
                 </button>
 
                 <button
                     class="food-button"
                     onclick="feedCat('🥛')">
-
                     🥛
-
                 </button>
 
             </div>
@@ -5171,9 +6575,7 @@ function loadCatGame(card) {
         </div>
 
         <p id="catScore">
-
             Food: 0 / 5
-
         </p>
 
     `;
@@ -5413,7 +6815,8 @@ function startHeartbreaker() {
                             heartbreakerCount =
                                 Math.max(
                                     0,
-                                    heartbreakerCount - 2
+                                    heartbreakerCount -
+                                    2
                                 );
 
                         } else {
@@ -5483,7 +6886,8 @@ function endHeartbreaker() {
 
 
     if (
-        heartbreakerCount >= 15
+        heartbreakerCount >=
+        15
     ) {
 
         completeLevel();
@@ -5910,7 +7314,8 @@ function startRhythm() {
                 heart.style.left =
                     (
                         20 +
-                        Math.random() * 60
+                        Math.random() *
+                        60
                     ) +
                     "%";
 
@@ -5927,9 +7332,13 @@ function startRhythm() {
                     setInterval(
                         () => {
 
-                            if (!rhythmRunning) {
+                            if (
+                                !rhythmRunning
+                            ) {
 
-                                clearInterval(fall);
+                                clearInterval(
+                                    fall
+                                );
 
                                 heart.remove();
 
@@ -6053,7 +7462,9 @@ const whoQuestions = [
         ],
 
         correct: 1
+
     },
+
 
     {
         question:
@@ -6067,7 +7478,9 @@ const whoQuestions = [
         ],
 
         correct: 1
+
     },
+
 
     {
         question:
@@ -6081,7 +7494,9 @@ const whoQuestions = [
         ],
 
         correct: 2
+
     },
+
 
     {
         question:
@@ -6095,7 +7510,9 @@ const whoQuestions = [
         ],
 
         correct: 2
+
     },
+
 
     {
         question:
@@ -6109,6 +7526,7 @@ const whoQuestions = [
         ],
 
         correct: 0
+
     }
 
 ];
@@ -6125,7 +7543,9 @@ function loadWhoAmI(card) {
 
     whoCorrect = 0;
 
-    showWhoQuestion(card);
+    showWhoQuestion(
+        card
+    );
 
 }
 
@@ -6695,8 +8115,7 @@ function createConfetti() {
                 piece.innerText =
                     symbols[
                         Math.floor(
-                            Math.random()
-                            *
+                            Math.random() *
                             symbols.length
                         )
                     ];
@@ -6711,7 +8130,8 @@ function createConfetti() {
                 piece.style.fontSize =
                     (
                         10 +
-                        Math.random() * 18
+                        Math.random() *
+                        18
                     ) +
                     "px";
 
@@ -6719,7 +8139,8 @@ function createConfetti() {
                 piece.style.animationDuration =
                     (
                         3 +
-                        Math.random() * 3
+                        Math.random() *
+                        3
                     ) +
                     "s";
 
